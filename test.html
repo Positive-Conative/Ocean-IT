@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><script language="Javascript">
+    function select_onchange(obj) {
+        switch (obj.value) {
+            case "0" :
+                a.style.visibility = "visible";
+                b.style.visibility = "hidden";
+                break;
+            case "1" :
+                a.style.visibility = "hidden";
+                b.style.visibility = "visible";
+                break;
+        }
+    }
+</script>
+<select onchange=select_onchange(this)>
+    <option value=0>a</option>
+    <option value=1>b</option>
+
+    <input type=text id=a >
+    <input type=text id=b style="visibility:hidden">
+</select>
+</body>
+</html>
