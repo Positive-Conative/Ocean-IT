@@ -1,0 +1,106 @@
+<%include includes/header.ejs%>
+<script>
+    <%if(!cpt){%>
+    alert("잘못된 접근입니다!");
+    location.href="/";
+    <%}%>
+</script>
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h2><%=__('research_results_write_page_title')%></h2>
+            <p> <%=__('research_results_write_page_subtitle')%></p>
+        </header>
+        <div class="table-wrapper" style="overflow-y: hidden; overflow-x: hidden;">
+            <form id="form_submit" method="post">
+                <div class="row uniform">
+                    <div class="4u 12u$(medium)">
+                        <h4><%=__('research_results_write_page_menu1')%></h4>
+                        <select name="r_classification_ko" id="r_classification_ko" >
+                            <option value=""><%=__('research_results_write_page_menu1_1')%></option>
+                            <option value="논문"><%=__('research_results_write_page_menu1_2')%></option>
+                            <option value="특허"><%=__('research_results_write_page_menu1_3')%></option>
+                            <option value="발표"><%=__('research_results_write_page_menu1_4')%></option>
+                        </select>
+                    </div>
+                    <div class="4u$ 12u$(medium)">
+                        <h4><%=__('research_results_write_page_menu2')%></h4><input name="r_p_date" id="r_p_date" type="date" value=""/>
+                    </div>
+                    <div class="6u 12u$(xsmall)">
+                        <h4><%=__('research_results_write_page_menu3')%></h4><input type="text" name="r_result_name_ko" id="r_result_name_ko" value="" placeholder="예시" />
+                    </div>
+                    <div class="6u$ 12u$(xsmall)">
+                        <h4><%=__('research_results_write_page_menu4')%></h4><input type="text" name="r_result_name_en" id="r_result_name_en" value="" placeholder="예시" />
+                    </div>
+                    <div class="4u 12u$(xsmall)">
+                        <h4><%=__('research_results_write_page_menu5')%></h4><input type="text" name="r_academic_journal_ko" id="r_academic_journal_ko" value="" placeholder="예시" />
+                    </div>
+                    <div class="4u 12u$(xsmall)">
+                        <h4><%=__('research_results_write_page_menu6')%></h4><input type="text" name="r_writers_ko" id="r_writers_ko" value="" placeholder="예시" />
+                    </div>
+                    <div class="4u$ 12u$(xsmall)">
+                        <h4><%=__('research_results_write_page_menu7')%></h4><input type="text" name="r_writers_en" id="r_writers_en" value="" placeholder="예시" />
+                    </div>
+                    <div class="4u 12u$(medium)">
+                        <h4><%=__('research_results_write_page_menu8')%></h4><input type="text" name="r_announce_media_ko" id="r_announce_media_ko" value="" placeholder="예시" />
+                    </div>
+                    <div class="4u 12u$(medium)">
+                        <h4><%=__('research_results_write_page_menu9')%></h4>
+                        <select name="r_country_ko" id="r_country_ko" >
+                            <option value=""><%=__('research_results_write_page_menu9_1')%></option>
+                            <option value="대한민국"><%=__('research_results_write_page_menu9_2')%></option>
+                            <option value="미국"><%=__('research_results_write_page_menu9_3')%></option>
+                        </select>
+                    </div>
+                    <div class="4u 12u$(medium)">
+                        <h4><%=__('research_results_write_page_menu10')%></h4><input type="text" name="r_relation_task_ko" id="r_relation_task_ko" value="" placeholder="<%=__('research_results_write_page_example')%>" />
+                    </div>
+                    <div class="12u$">
+                        <div class="4u 12u$(medium)" style="width:300px">
+                            <h4>초록</h4>
+                        </div>
+                        <h5 style="margin-bottom: 0px; margin-top: 10px;"><%=__('research_results_write_page_menu11')%></h5>
+                        <textarea name="r_abstract_ko" id="r_abstract_ko" placeholder="예시(국문)" rows="8" style="resize: none;" ></textarea>
+                        <h5 style="margin-bottom: 0px; margin-top: 10px;"><%=__('research_results_write_page_menu12')%></h5>
+                        <textarea name="r_abstract_en" id="r_abstract_en" placeholder="예시(영문)" rows="8" style="resize: none;"></textarea><br>
+                    </div>
+                </div>
+                <br>
+                <div style="float:right">
+                    <input type="button" class="button special" value="<%=__('research_results_write_page_complete_btn')%>" onclick="submit_popup()"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<%include includes/footer.ejs%>
+<script type="text/javascript">
+    function submit_popup() {
+        if(
+            __checkNull(document.getElementById('r_classification_ko').value)&&
+            __checkNull(document.getElementById('r_p_date').value)&&
+            __checkNull(document.getElementById('r_result_name_ko').value)&&
+            __checkNull(document.getElementById('r_academic_journal_ko').value)&&
+            __checkNull(document.getElementById('r_announce_media_ko').value)&&
+            __checkNull(document.getElementById('r_country_ko').value)
+        ){
+            if(confirm("작성하시겠습니까?") === true){
+
+                document.getElementById('form_submit').submit();
+                alert("등록되었습니다");
+            }else{
+                return false;
+            }
+        }else{
+            alert("작성 사항을 모두 기입해주세요.");
+        }
+
+    }
+    function __checkNull(value) {
+        if(value.replace(/^\s*/,'') === ''){
+            return false;
+        }else{
+            return true;
+        }
+    }
+</script>

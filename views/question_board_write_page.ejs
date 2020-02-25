@@ -1,0 +1,70 @@
+<%include includes/header.ejs%>
+<script>
+    <%if(field[0].writer!=undefined && uid!=field[0].writer){%>
+        alert("잘못된 접근입니다!");
+        location.href="/question_board";
+    <%}%>
+</script>
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h2><%= __('question_board_write_page_title') %></h2>
+            <p> <%= __('question_board_write_page_subtitle') %> </p>
+        </header>
+        <div class="table-wrapper" style="overflow-y: hidden; overflow-x: hidden;">
+            <form id="form_submit" method="post">
+                <table class="alt">
+                    <tbody class="align-center">
+                    <tr>
+                        <td><%= __('question_board_write_page_name') %></td>
+                        <td><input type="text" name="q_title" id="q_title" placeholder="<%= __('question_board_write_page_example')%>"value="<%=field[0].title%>" /></td>
+                        <td><%= __('question_board_write_page_writer') %></td>
+                        <td>
+                            <%if(name){%>
+                                <%=name%>
+                                (<%=uid%>)
+                            <%}else{%>
+                                손님(Guest)
+                            <%}%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><%= __('question_board_write_page_content') %></td>
+                        <td colspan="4" class="align-left"><textarea name="q_contents" id="q_contents" style="resize: none;" placeholder="<%= __('question_board_write_page_example')%>" rows="6" ><%=field[0].contents%></textarea></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div style="float:right">
+                    <input class="button special fit" style="text-align: center" type="button" value=<%= __('question_board_write_page_submit') %> onclick="submit_popup()"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<%include includes/footer.ejs%>
+<script type="text/javascript">
+    function submit_popup() {
+        if(
+            __checkNull(document.getElementById('q_title').value)&&
+            __checkNull(document.getElementById('q_contents').value)
+        ){
+            if(confirm("작성하시겠습니까?") === true){
+
+                document.getElementById('form_submit').submit();
+                alert("등록되었습니다");
+            }else{
+                return false;
+            }
+        }else{
+            alert("작성 사항을 모두 기입해주세요.");
+        }
+
+    }
+    function __checkNull(value) {
+        if(value.replace(/^\s*/,'') === ''){
+            return false;
+        }else{
+            return true;
+        }
+    }
+</script>

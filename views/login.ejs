@@ -1,0 +1,47 @@
+<%include includes/header.ejs%>
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h2><%=__('login_title')%></h2>
+        </header>
+        <div class="table-wrapper" style="overflow-y: hidden; overflow-x: hidden;">
+            <form id="form_submit" method="post">
+                <center>
+                    <h4 style="margin:0"><%=__('login_ID')%></h4>
+                    <input type="text" name="input_id" id="input_id" placeholder="<%=__('login_ID_ex')%>" style="width:450px"><br><br><br>
+                    <h4 style="margin:0"><%=__('login_PW')%></h4>
+                    <input type="password" name="input_pw" id="input_pw" placeholder="<%=__('login_PW_ex')%>" style="width:450px"><br><br><br>
+                    <input type="button" value=<%=__('login_login_btn')%> onclick="submit_popup()">
+                    <a href="/login/login_join/" class="button special"><%=__('login_join_btn')%></a>
+                </center>
+            </form>
+        </div>
+    </div>
+</section>
+<%include includes/footer.ejs%>
+
+<script type="text/javascript">
+    if(<%=one_more_try%>){
+        alert("ID또는 PW를 확인하여 주십시오.\nCheck your ID/PW.");
+    }
+    function submit_popup() {
+        if(__checkNull(document.getElementById('input_id').value)){
+            if(__checkNull(document.getElementById('input_pw').value)){
+                document.getElementById('form_submit').submit();
+            }
+            else{
+                alert("PW를 입력해 주세요.\nWrite your PW.");
+            }
+        }else{
+            alert("ID를 입력해 주세요.\nWrite your ID.");
+        }
+
+    }
+    function __checkNull(value) {
+        if(value.replace(/^\s*/,'') === ''){
+            return false;
+        }else{
+            return true;
+        }
+    }
+</script>

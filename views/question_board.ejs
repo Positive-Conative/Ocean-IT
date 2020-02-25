@@ -1,0 +1,84 @@
+<%include includes/header.ejs%>
+<script>
+    <%if(!question_board_table[0]){%>
+        alert("검색된 내용이 없습니다.");
+        location.href="/question_board";
+    <%}%>
+</script>
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h2><%= __('question_board_title')%></h2>
+            <p><%= __('question_board_subtitle')%></p>
+        </header>
+        <div class="12u$">
+        </div>
+        <div class="table-wrapper" >
+            <table class="align-center">
+                <thead>
+                <tr>
+                    <!-- 가운데 정렬 -->
+                    <style>
+                        .align-center th{
+                            text-align: center;
+                        }
+                    </style>
+                    <th><%= __('question_board_name')%></th>
+                    <th><%= __('question_board_writer')%></th>
+                    <th><%= __('question_board_date')%></th>
+                    <th><%= __('question_board_views')%></th>
+                    <th><%= __('question_board_state')%></th>
+                </tr>
+                </thead>
+                <tbody>
+                <%for(var i = (page_num - 1) * 7; i < page_num * 7; i++){%>
+                    <%var row = question_board_table[i]
+                        if(row === undefined) continue;
+                    %>
+                    <tr style="cursor: pointer" onclick="location.href='/question_board/detail/<%= row.qid%>'" >
+                        <td><%= row.title%></td>
+                        <td><%= row.writer%></td>
+                        <td><%= row.date%></td>
+                        <td><%= row.hits%></td>
+                            <%if(row.coments==undefined){%>
+                                <td style="color: red;"><%= __('question_board_state_doing')%></td>
+                            <%}else{%>
+                                <td style="color: blue;"><%= __('question_board_state_complete')%></td>
+                            <%}%>
+                    </tr>
+                <%}%>
+                </tbody>
+            </table>
+        </div>
+        <!-- 쪽수 (1,2,3) -->
+        <h4 style="text-align: center">
+            <%for(var i = 1; i <= Math.ceil(question_board_table.length / 7); i++){%>
+                <a href="/question_board/page/<%= i%>"><%= i%> </a>
+            <%}%>
+        </h4>
+
+        <div style="float:right">
+            <a href="/question_board/write" class="button special"><%= __('question_board_write_btn')%></a>
+            <!--<a href="#" class="button">삭제하기</a>-->
+        </div>
+        <form id="form_submit" method="post">
+            <div class="row uniform">
+                <div class="2u 12u(medium)" style="float:left">
+                    <select name="search_select" id="search_select" >
+                        <option value="title"><%=__('question_board_search1')%></option>
+                        <option value="writer"><%=__('question_board_search2')%></option>
+                        <option value="contents"><%=__('question_board_search3')%></option>
+                    </select>
+                </div>
+                <div class="3u 12u(medium)" style="float:left; padding-left:5px">
+                    <input id="search_data" name="search_data" type="text" placeholder="<%=__('research_fields_search_data')%>" />
+                </div>
+                <div class="1u 12u(medium)" style="float:left;padding-left:5px">
+                  <input class="button special fit" style="text-align: center" type="button" value="<%=__('search_data')%>" onclick="document.getElementById('form_submit').submit();"/>
+                </div>
+            </div>
+        </form>
+        <br>
+    </div>
+</section>
+<%include includes/footer.ejs%>

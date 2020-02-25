@@ -1,0 +1,48 @@
+<%include includes/header.ejs%>
+<section id="two" class="wrapper style1 special">
+    <div class="inner">
+        <header>
+            <h2><%= __('index_h2_members')%></h2>
+            <p><%= __('index_p_members_summary')%></p>
+        </header>
+        <div class="flex flex-4">
+            <%members_table.forEach(function (members) {%>
+            <div class="box person" onblur="true">
+                <div class="image round">
+                    <img width="100%" src="images/members/<%=members.profile_img%>" alt="Member <%=members.mid+1%>" />
+                </div>
+                <%if(tran_value=='ko'){%>
+                    <td><%=members.name_ko%></td>
+                <%}else{%>
+                    <td><%=members.name_en%></td>
+                <%}%>
+                <p><%=members.affiliation%></p>
+                <div>
+                    <a class="button special fit icon fa-info-circle" style="text-align: center" onclick="window.open('/members/member_detail/<%=members.mid%>', '상세 정보', 'width = 600, height = 800 resizable=no scrollbars=yes')">More</a>
+                </div>
+                <div id="del_member">
+                  <%if(cpt){%>
+                    <a href="javascript:" class="button special fit icon fa-eye-slash" style="text-align: center" onclick="if(confirm('멤버를 삭제하시겠습니까?'))location.href='members/delete_member/<%=members.mid%>/<%=members.profile_img%>'">멤버 삭제</a>
+                    <!-- 후에 관리자 계정인지 확인 후 쿠키 값 전송하도록 수정해야함 -->
+                    <%}%>
+                </div>
+            </div>
+            <%})%>
+        </div>
+    </div>
+
+    <ul class="actions fit" id="goto_write_page">
+        <li style="display: inline-block">
+            <a href="" class="button fit icon fa-user-plus" onclick="window.open('/members/registration_member', '멤버 등록', 'width = 600, height = 800 resizable=no scrollbars=yes')"><%= __('members_register')%></a>
+        </li>
+    </ul>
+</section>
+<%include includes/footer.ejs%>
+<script>
+    <%if(cpt){%>
+      goto_write_page.style.visibility = "visible";
+    <%}else{%>
+      goto_write_page.style.visibility = "hidden";
+    <%}%>
+
+</script>

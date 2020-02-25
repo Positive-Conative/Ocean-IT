@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<!--
+	Theory by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<head>
+    <title><%= __('member_detail_title') %></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body class="subpage">
+
+<!-- Header -->
+<header id="header">
+    <div class="inner" style="margin: auto">
+        <h2 style="text-align: center; color:#FFFFFF;"><%= __('member_detail_headername') %></h2>
+    </div>
+</header>
+    <div class="row">
+        <div class="-6u 12u$(small)">
+            <div class="box person"  style="text-align: center">
+                <div class="image round">
+                    <p>
+                        <img src="/images/members/<%=member_info[0].profile_img%>" id= "profile_image" alt="Member_Info" width="300"/>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="-6u 12u$(small)">
+            <h2 style="text-align: center; margin-top: 10px"><%= __('member_detail_basicinfo') %></h2>
+            <div style="margin:20px">
+                <h4><%= __('member_detail_basicinfo_name') %></h4>
+                <input type="text" name="name_ko" id="name_ko" value="<%=member_info[0].name_ko%>" placeholder="이름(한글)" disabled/>
+                <input type="text" name="name_en" id="name_en" value="<%=member_info[0].name_en%>" placeholder="이름(영문)" disabled/>
+            </div>
+            <div style="margin:20px">
+                <h4><%= __('member_detail_basicinfo_group') %></h4>
+                <input type="text" name="c_affiliation" id="affiliation" value="<%=member_info[0].affiliation%>" placeholder="호서대학교, etc" disabled/>
+            </div>
+            <div style="margin:20px">
+                <h4><%= __('member_detail_basicinfo_position') %></h4>
+                <input type="text" name="c_position" id="position" value="<%=member_info[0].position%>" placeholder="교수, 연구원, etc" disabled/>
+            </div>
+            <div style="margin:20px">
+                <h4><%= __('member_detail_basicinfo_interphone') %></h4>
+                <input type="text" name="c_interphone" id="interphone" value="<%=member_info[0].interphone%>" placeholder="041-000-0000" disabled/>
+            </div>
+            <div style="margin:20px">
+                <h4><%= __('member_detail_basicinfo_email') %></h4>
+                <input type="text" name="email" id="email" value="<%=member_info[0].email%>" placeholder="example@hoseo.ac.kr" disabled/>
+            </div>
+        </div>
+
+        <div class="-6u 12u$(small)">
+            <h2 style="text-align: center; margin-top: 10px"><%= __('member_detail_basicinfo_schoolregister') %></h2>
+            <div class="table-wrapper" style="margin: 20px">
+                <table>
+                    <thead>
+                    <tr>
+                        <th><%= __('member_detail_basicinfo_school') %></th>
+                        <th><%= __('member_detail_basicinfo_major') %></th>
+                        <th><%= __('member_detail_basicinfo_degree') %></th>
+                    </tr>
+                    </thead>
+                    <tbody id="member_degree_table">
+                      <%if(member_degree !== undefined){%>
+                             <%for(var i = 0; i<member_degree.length; i++){%>
+                         <tr>
+                             <td>
+                                 <%=member_degree[i].affiliation%>
+                             </td>
+                             <td>
+                                 <%=member_degree[i].major%>
+                             </td>
+                             <td>
+                                 <%=member_degree[i].degree%>
+                             </td>
+                         </tr>
+                             <%}%>
+                         <%}%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<%include includes/footer.ejs%>

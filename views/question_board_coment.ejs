@@ -1,0 +1,99 @@
+<%include includes/header.ejs%>
+<%var row = field[0];%>
+<script>
+    <%if(!cpt){%>
+    alert("잘못된 접근입니다!");
+    location.href="/";
+    <%}%>
+</script>
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+          <h2><%= __('question_board_title')%></h2>
+          <p><%= __('question_board_subtitle')%></p>
+        </header>
+        <hr class="major"/>
+        <h3 class="align-center"></h3>
+        <div class="table-wrapper">
+            <table class="align-center">
+                <thead>
+                <div class="table-wrapper">
+                    <table class="alt">
+                        <tbody class="align-center">
+                        <tr>
+                            <td>작성자</td>
+                            <td class="align-left"><%= row.writer%></td>
+                            <td>제목</td>
+                            <td class="align-left"><%= row.title%></td>
+                        </tr>
+                        <tr>
+                            <td>작성 일자</td>
+                            <td class="align-left"><%= row.date%></td>
+                            <td>조회수</td>
+                            <td class="align-left"><%=row.hits%></td>
+                        </tr>
+                        <tr>
+                            <td >내용</td>
+                            <td colspan="4" class="align-left"><%= row.contents%></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-wrapper">
+                    <table class="alt">
+                        <tbody class="align-center">
+                        <tr>
+                            <td>관리자 코멘트</td>
+                            <td class="align-left">
+                                <form id="form_submit" method="post">
+                                    <div class="12u$">
+                                        <textarea name="q_coment" id="q_coment" style="resize: none;" placeholder="내용 입력" rows="6"></textarea><br>
+                                    </div>
+                                </form>
+                            </td>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="float:right">
+                    <a href="/question_board/page/1" class="button">목록</a>
+                </div>
+                </thead>
+            </table>
+            <div style="float:right; margin-right:15px" id="commentz">
+                <input class="button special fit" style="text-align: center" type="button" value=<%=__('research_fields_create')%> onclick="submit_popup()"/>
+                <!--<a href="#" class="button">삭제하기</a>-->
+            </div>
+            <script>
+                <%if(cpt){%>
+                commentz.style.visibility = "visible";
+                <%}else{%>
+                commentz.style.visibility = "hidden";
+                <%}%>
+            </script>
+        </div>
+    </div>
+</section>
+<%include includes/footer.ejs%>
+<script type="text/javascript">
+    function submit_popup() {
+        if(__checkNull(document.getElementById('q_coment').value)){
+            if(confirm("작성하시겠습니까?") === true){
+                document.getElementById('form_submit').submit();
+                alert("등록되었습니다");
+            }else{
+                return false;
+            }
+        }else{
+            alert("내용을 입력하세요.");
+        }
+
+    }
+    function __checkNull(value) {
+        if(value.replace(/^\s*/,'') === ''){
+            return false;
+        }else{
+            return true;
+        }
+    }
+</script>

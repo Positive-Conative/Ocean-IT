@@ -1,0 +1,182 @@
+<%include includes/header.ejs%>
+<script>
+    <%if(!cpt){%>
+    alert("잘못된 접근입니다!");
+    location.href="/";
+    <%}%>
+</script>
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h2><%=__('research_fields_write_page_title')%></h2>
+            <p> <%=__('research_fields_write_page_subtitle')%> </p>
+        </header>
+        <div class="table-wrapper" style="overflow-y: hidden; overflow-x: hidden;">
+            <form id="form_submit" method="post">
+                <div class="row uniform">
+                    <div class="4u 12u$(medium)">
+                        <h4><%=__('research_fields_write_page_category1')%></h4><input type="date" name="r_date_start" id="r_date_start" value=""/> ~ <input type="date" name="r_date_end" id="r_date_end" value=""/>
+                    </div>
+                    <div class="4u 12u$(medium)" style="width:300px">
+                        <h4><%=__('research_fields_write_page_category2')%></h4>
+                        <select name="r_classification_ko" id="r_classification_ko" >
+                            <option value=""><%=__('research_fields_write_page_category2_1')%></option>
+                            <option value="위탁"><%=__('research_fields_write_page_category2_2')%></option>
+                            <option value="협동"><%=__('research_fields_write_page_category2_3')%></option>
+                            <option value="용역"><%=__('research_fields_write_page_category2_4')%></option>
+                            <option value="공동"><%=__('research_fields_write_page_category2_5')%></option>
+                            <option value="주관"><%=__('research_fields_write_page_category2_6')%></option>
+                        </select>
+                    </div>
+                    <div class="4u 12u$(medium)">
+                        <h4><%=__('research_fields_write_page_category5')%></h4><input type="text" name="r_support_organization_ko" id="r_support_organization_ko" value="" placeholder="<%=__('research_fields_write_page_example')%>" />
+                    </div>
+                    <div class="6u 12u$(xsmall)">
+                        <h4><%=__('research_fields_write_page_category3')%></h4><input type="text" name="r_research_name_ko" id="r_research_name_ko" value="" placeholder="<%=__('research_fields_write_page_example')%>" />
+                    </div>
+                    <div class="6u$ 12u$(xsmall)">
+                        <h4><%=__('research_fields_write_page_category4')%></h4><input type="text" name="r_research_name_en" id="r_research_name_en" value="" placeholder="<%=__('research_fields_write_page_example')%>" />
+                    </div>
+                    <div class="6u 12u$(xsmall)">
+                        <h4><%=__('research_fields_write_page_category6')%></h4><input type="text" name="r_research_charge_ko" id="r_research_charge_ko" value="" placeholder="<%=__('research_fields_write_page_example')%>" />
+                    </div>
+                    <div class="6u$ 12u$(xsmall)">
+                        <h4><%=__('research_fields_write_page_category6_1')%></h4><input type="text" name="r_research_charge_belong_ko" id="r_research_charge_belong_ko" value="" placeholder="<%=__('research_fields_write_page_example')%>" />
+                    </div>
+
+                    <div class="12u$">
+                        <div class="4u 12u$(medium)" style="width:300px">
+                            <h4><%=__('research_fields_write_page_category7')%></h4>
+                            <script>
+                                //직접 입력 시 작동.
+                                function click1(obj) {
+                                    switch (obj.value) {
+                                        case "0" :
+                                            r_research_purpose_ko.style.display = "";
+                                            r_research_purpose_en.style.display = "none";
+                                            break;
+                                        case "1" :
+                                            r_research_purpose_en.style.display = "";
+                                            r_research_purpose_ko.style.display = "none";
+                                            break;
+                                        case "2"  :
+                                            r_research_purpose_en.style.display = "";
+                                            r_research_purpose_ko.style.display = "";
+                                            break;
+                                    }
+                                }
+                            </script>
+                            <select name="category" id="category" onchange=click1(this) >
+                                <option value=""><%=__('research_fields_write_page_category7_1')%></option>
+                                <option value="0"><%=__('research_fields_write_page_category7_2')%></option>
+                                <option value="1"><%=__('research_fields_write_page_category7_3')%></option>
+                                <option value="2"><%=__('research_fields_write_page_category7_4')%></option>
+                            </select>
+                        </div>
+                        <br>
+                        <textarea name="r_research_purpose_ko" id="r_research_purpose_ko" placeholder="<%=__('research_fields_write_page_ko')%>" rows="5" style="resize: none;" ></textarea>
+                        <textarea name="r_research_purpose_en" id="r_research_purpose_en" placeholder="<%=__('research_fields_write_page_en')%>" rows="5" style="resize: none; display:none "></textarea><br>
+
+                        <div class="4u 12u$(medium)" style="width:300px">
+                            <h4><%=__('research_fields_write_page_category8')%></h4>
+                            <script>
+                                //직접 입력 시 작동.
+                                function click2(obj) {
+                                    switch (obj.value) {
+                                        case "0" :
+                                            r_research_contents_ko.style.display = "";
+                                            r_research_contents_en.style.display = "none";
+                                            break;
+                                        case "1" :
+                                            r_research_contents_en.style.display = "";
+                                            r_research_contents_ko.style.display = "none";
+                                            break;
+                                        case "2" :
+                                            r_research_contents_en.style.display = "";
+                                            r_research_contents_ko.style.display = "";
+                                            break;
+                                    }
+                                }
+                            </script>
+                            <select name="category" id="category" onchange=click2(this) >
+                                <option value=""><%=__('research_fields_write_page_category8_1')%></option>
+                                <option value="0"><%=__('research_fields_write_page_category8_2')%></option>
+                                <option value="1"><%=__('research_fields_write_page_category8_3')%></option>
+                                <option value="2"><%=__('research_fields_write_page_category8_4')%></option>
+                            </select>
+                        </div>
+                        <br>
+                        <textarea name="r_research_contents_ko" id="r_research_contents_ko" placeholder="<%=__('research_fields_write_page_ko')%>" rows="5" style="resize: none;" ></textarea>
+                        <textarea name="r_research_contents_en" id="r_research_contents_en" placeholder="<%=__('research_fields_write_page_en')%>" rows="5" style="resize: none; display:none "></textarea><br>
+
+                        <div class="4u 12u$(medium)" style="width:300px">
+                            <h4><%=__('research_fields_write_page_category9')%></h4>
+                            <script>
+                                //직접 입력 시 작동.
+                                function click3(obj) {
+                                    switch (obj.value) {
+                                        case "0" :
+                                            r_research_expected_ko.style.display = "";
+                                            r_research_expected_en.style.display = "none";
+                                            break;
+                                        case "1" :
+                                            r_research_expected_en.style.display = "";
+                                            r_research_expected_ko.style.display = "none";
+                                            break;
+                                        case "2" :
+                                            r_research_expected_ko.style.display = "";
+                                            r_research_expected_en.style.display = "";
+                                            break;
+                                    }
+                                }
+                            </script>
+                            <select name="category" id="category" onchange=click3(this) >
+                                <option value=""><%=__('research_fields_write_page_category9_1')%></option>
+                                <option value="0"><%=__('research_fields_write_page_category9_2')%></option>
+                                <option value="1"><%=__('research_fields_write_page_category9_3')%></option>
+                                <option value="2"><%=__('research_fields_write_page_category9_4')%></option>
+                            </select>
+                        </div>
+                        <br>
+                        <textarea name="r_research_expected_ko" id="r_research_expected_ko" placeholder="<%=__('research_fields_write_page_ko')%>" rows="5" style="resize: none;" ></textarea>
+                        <textarea name="r_research_expected_en" id="r_research_expected_en" placeholder="<%=__('research_fields_write_page_en')%>" rows="5" style="resize: none; display:none "></textarea><br>
+                    </div>
+
+                    <div style="float:right">
+                        <input type="button" class="button special" value="<%=__('research_fields_write_page_complete_btn')%>" onclick="submit_popup()"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<%include includes/footer.ejs%>
+<script type="text/javascript">
+    function submit_popup() {
+        if(
+            __checkNull(document.getElementById('r_date_start').value)&&
+            __checkNull(document.getElementById('r_date_end').value)&&
+            __checkNull(document.getElementById('r_classification_ko').value)&&
+            __checkNull(document.getElementById('r_research_name_ko').value)&&
+            __checkNull(document.getElementById('r_support_organization_ko').value)&&
+            __checkNull(document.getElementById('r_research_charge_ko').value)
+        ){
+            if(confirm("작성하시겠습니까?") === true){
+                document.getElementById('form_submit').submit();
+                alert("등록되었습니다");
+            }else{
+                return false;
+            }
+        }else{
+            alert("작성 사항을 모두 기입해주세요.");
+        }
+
+    }
+    function __checkNull(value) {
+        if(value.replace(/^\s*/,'') === ''){
+            return false;
+        }else{
+            return true;
+        }
+    }
+</script>

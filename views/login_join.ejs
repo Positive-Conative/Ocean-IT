@@ -1,0 +1,91 @@
+<%include includes/header.ejs%>
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h2><%=__('login_join_title')%></h2>
+        </header>
+        <div class="table-wrapper" style="overflow-y: hidden; overflow-x: hidden;">
+            <form id="form_submit" method="post">
+                <div class="inner">
+                    <div class="row uniform">
+                        <div class="4u 12u$(xsmall)">
+                            <h4 style="margin:0"><%=__('login_join_useid')%></h4>
+                            <input type="text" name="input_id" id ="input_id" placeholder="<%=__('login_join_useid_ex')%>"><br>
+                        </div>
+                        <div class="4u 12u$(xsmall)">
+                            <h4 style="margin:0"><%=__('login_join_usepw')%></h4>
+                            <input type="password" name="input_pw" id="input_pw" placeholder="<%=__('login_join_usepw_ex')%>"><br>
+                        </div>
+                        <div class="4u$ 12u$(xsmall)">
+                            <h4 style="margin:0"><%=__('login_join_usepw_1')%></h4>
+                            <input type="password" name="re_input_pw" id ="re_input_pw" placeholder="<%=__('login_join_usepw_ex')%>"><br>
+                        </div>
+                        <div class="4u 12u$(xsmall)">
+                            <h4 style="margin:0"><%=__('login_join_name')%></h4>
+                            <input type="text" name="input_name" id ="input_name" placeholder="<%=__('login_join_name_ex')%>"><br>
+                        </div>
+                        <div class="4u 12u$(xsmall)">
+                            <h4 style="margin:0"><%=__('login_join_phone')%></h4>
+                            <input type="text" name="input_num" id ="input_num" placeholder="<%=__('login_join_phone_ex')%>"><br>
+                        </div>
+                        <div class="4u$ 12u$(xsmall)">
+                            <h4 style="margin:0"><%=__('login_join_email')%></h4>
+                            <input type="text" name="input_mail" id ="input_mail" placeholder="<%=__('login_join_email_ex')%>"><br>
+                        </div>
+                        <div class="8u$ 12u$(xsmall)">
+                            <h4 style="margin:0"><%=__('login_join_address')%></h4>
+                            <input type="text" name="input_adr" id ="input_adr" placeholder="<%=__('login_join_address_ex')%>"><br>
+                        </div>
+                    </div>
+                    <input type="button" style="float:right" class="button special" onclick="submit_popup()" value=<%=__('login_join_complete_btn')%>>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<%include includes/footer.ejs%>
+<script type="text/javascript">
+    function submit_popup() {
+        if(
+            __checkNull(document.getElementById('input_id').value)&&
+            __checkNull(document.getElementById('input_pw').value)&&
+            __checkNull(document.getElementById('re_input_pw').value)&&
+            __checkNull(document.getElementById('input_name').value)
+        ){
+            if(__checkID(document.getElementById('input_id').value)){
+                if(document.getElementById('input_pw').value == document.getElementById('re_input_pw').value){
+                    if(confirm("작성하시겠습니까?") === true){
+                        document.getElementById('form_submit').submit();
+                        alert("등록되었습니다");
+                    }else{
+                        return false;
+                    }
+                }
+                else{
+                    alert("작성한 비밀번호가 서로 일치하지 않습니다.");
+                }
+            }
+            else{
+                alert("동일한 id가 있습니다. 다른 id를 사용하여 주십시오.");
+            }
+        }else{
+            alert("필수 사항을 모두 기입해주세요.");
+        }
+    }
+    function __checkNull(value) {
+        if(value.replace(/^\s*/,'') === ''){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    function __checkID(value){
+        <%for(i=0;i<user_num;i++){%>
+        if('<%=login_data[i].uid%>'==value)
+        {
+            return false;
+        }
+        <%}%>
+        return true;
+    }
+</script>

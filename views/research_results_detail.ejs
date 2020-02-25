@@ -1,0 +1,62 @@
+<%include includes/header.ejs%>
+<%var row = field[0];%>
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h2><%=__('research_results_detail_title')%></h2>
+            <p><%=__('research_results_detail_subtitle')%></p>
+        </header>
+        <hr class="major"/>
+        <h3 class="align-center"></h3>
+        <div class="table-wrapper">
+            <table class="align-center">
+                <thead>
+                <div class="table-wrapper">
+                    <table class="alt">
+                        <tbody class="align-center">
+                        <tr>
+                            <td><%=__('research_results_detail_menu1')%></td>
+                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.result_name_ko%><%} else{%><%=row.result_name_en%><%}%></td>
+                            <td><%=__('research_results_detail_menu2')%></td>
+                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.classification_ko%><%} else{%><%=row.classification_en%><%}%></td>
+                        </tr>
+                        <tr>
+                            <td><%=__('research_results_detail_menu3')%></td>
+                            <td class="align-left"><%if(tran_value=='ko'){%>해양IT 연구소<%} else{%>Ocean-it<%}%></td>
+                            <td><%=__('research_results_detail_menu4')%></td>
+                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.writers_ko%><%} else{%><%=row.writers_en%><%}%></td>
+                        </tr>
+                        <tr>
+                            <td><%=__('research_results_detail_menu5')%></td>
+                            <td class="align-left"><%=row.p_date%></td>
+                            <td><%=__('research_results_detail_menu6')%></td>
+                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.academic_journal_ko%><%} else{%><%=row.academic_journal_en%><%}%></td>
+                        </tr>
+                        <tr>
+                            <td><%=__('research_results_detail_menu7')%></td>
+                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.country_ko%><%} else{%><%=row.country_en%><%}%></td>
+                            <td><%=__('research_results_detail_menu8')%></td>
+                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.announce_media_ko%><%} else{%><%=row.announce_media_en%><%}%></td>
+                        </tr>
+                        <tr>
+                            <td><%=__('research_results_detail_menu9')%></td>
+                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.relation_task_ko%><%} else{%><%=row.relation_task_en%><%}%></td>
+                            <td><%=__('research_results_detail_menu10')%></td>
+                            <td class="align-left">-</td>
+                        </tr>
+                        <tr>
+                            <td><%=__('research_results_detail_menu11')%></td>
+                            <td colspan="3" class="align-left"><%if(tran_value=='ko'){%><%=row.abstract_ko%><%} else{%><%=row.abstract_en%><%}%></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </thead>
+            </table>
+            <div style="float:right">
+                <a href="/research_results/page/1" class="button"><%= __('lists')%></a>
+            </div>
+        </div>
+    </div>
+</section>
+<%include includes/footer.ejs%>

@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<!--
+	Theory by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<script>
+    <%if(!cpt){%>
+    alert("잘못된 접근입니다!");
+    location.href="/";
+    <%}%>
+</script>
+<head>
+    <title><%= __('registation_members_title')%></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+</head>
+<body class="subpage">
+
+<!-- Header -->
+<header id="header">
+    <div class="inner" style="margin: auto">
+        <h2 style="text-align: center; color:#FFFFFF;"><%= __('registation_members_title')%></h2>
+    </div>
+</header>
+<form id="form_submit" action="" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="-6u 12u$(small)">
+            <h2 style="text-align: center; margin-top: 10px"><%= __('registation_members_header')%></h2>
+            <div class="box person"  style="text-align: center">
+                <div class="image round">
+                  <img class="card-img-top" src="/images/default-profile-image.png" id="imgshow" src="#" alt="Card image" height="300px" style="padding: 5px">
+                  <div class="row" style="height: 55px; width: 300px; margin-left: 0.5em; text-align: left;">
+                    <input type="file" id="imgfile" style="float: left; margin-top: 1em;" accept=".jpg,.jpeg,.png" onchange="imgfile_show()">
+                  </div>
+                </div>
+                <!-- <div>
+                    <a id ="imgfile" class="button special icon fa-search" style="text-align: center" onclick="upload_profile_image()"><%= __('registation_members_upload_btn')%></a>
+                </div>
+                <input type="file" id="file_upload" name="file_upload" onchange="" accept="image/*" style="display: none"/> -->
+            </div>
+        </div>
+        <div class="-6u 12u$(small)">
+            <h2 style="text-align: center; margin-top: 10px"><%= __('registation_members_header2')%></h2>
+            <h4 style="text-align: center; margin-top: 10px"><%= __('registation_members_header2_explain')%></h4>
+            <div style="margin:20px">
+                <h4><%= __('registation_members_name')%></h4>
+                <input type="text" name="name_ko" id="name_ko" value="" placeholder=<%= __('registation_members_name_hint1')%> />
+                <input type="text" name="name_en" id="name_en" value="" placeholder=<%= __('registation_members_name_hint2')%> />
+            </div>
+            <div style="margin:20px">
+                <h4><%= __('registation_members_group')%></h4>
+                <input type="text" name="c_affiliation" id="affiliation" value="" placeholder=<%= __('registation_members_group_hint')%> />
+            </div>
+            <div style="margin:20px">
+                <h4><%= __('registation_members_position')%></h4>
+                <input type="text" name="c_position" id="position" value="" placeholder=<%= __('registation_members_position_hint')%> />
+            </div>
+            <div style="margin:20px">
+                <h4><%= __('registation_members_interphone')%></h4>
+                <input type="text" name="c_interphone" id="interphone" value="" placeholder="041-000-0000"/>
+            </div>
+            <div style="margin:20px">
+                <h4><%= __('registation_members_email')%></h4>
+                <input type="text" name="email" id="email" value="" placeholder="example@hoseo.ac.kr" />
+            </div>
+        </div>
+
+        <div class="-6u 12u$(small)">
+            <h2 style="text-align: center; margin-top: 10px"><%= __('registation_members_header3')%></h2>
+            <div class="table-wrapper" style="margin: 20px">
+                <table>
+                    <thead>
+                    <tr>
+                        <th><%= __('registation_members_native_school')%></th>
+                        <th><%= __('registation_members_major')%></th>
+                        <th><%= __('registation_members_academic_degree')%></th>
+                    </tr>
+                    </thead>
+                    <tbody id="member_degree_table">
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td>
+                            <input type="text" id="input_affiliation" value="" placeholder=<%= __('registation_members_native_school_hint')%> />
+                        </td>
+                        <td>
+                            <input type="text" id="input_major" value="" placeholder=<%= __('registation_members_major_hint')%> />
+                        </td>
+                        <td>
+                            <input type="text" id="input_degree" value="" placeholder=<%= __('registation_members_academic_degree_hint')%> />
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div style="text-align: center; margin: 10px">
+                <a class="button alt icon fa-check" style="text-align: center" onclick="add_info_to_table()"><%= __('registation_members_add_btn')%></a>
+            </div>
+            <div style="text-align: center; margin: 30px 20px 30px">
+                <input class="button special fit" style="text-align: center" type="button" value=<%= __('registation_members_regist_btn')%> onclick="submit_popup()"/>
+            </div>
+        </div>
+    </div>
+</form>
+<%include includes/footer.ejs%>
+
+<script type="text/javascript">
+    function add_info_to_table() {
+        var member_degree_table = document.getElementById('member_degree_table');
+        //학적 폼에서의 입력값 받아오기
+        var input_affiliation = document.getElementById('input_affiliation').value;
+        var input_major = document.getElementById('input_major').value;
+        var input_degree = document.getElementById('input_degree').value;
+        //폼에 정보가 다 들어가 있는지 확인
+        if(input_affiliation.length * input_major.length * input_degree.length !== 0){
+            var row_num = member_degree_table.rows.length;
+            console.log(row_num);
+            var row = member_degree_table.insertRow(member_degree_table.rows.length);
+
+            var cell_affiliation = row.insertCell(0);
+            var cell_major = row.insertCell(1);
+            var cell_degree = row.insertCell(2);
+
+            cell_affiliation.innerHTML = `
+                    <td><input type="text" name="degree_info[${row_num}][affiliation]" value="${input_affiliation}"/></td>
+                    `;
+            cell_major.innerHTML = `
+                    <td><input type="text" name="degree_info[${row_num}][major]" value="${input_major}"/></td>
+                    `;
+            cell_degree.innerHTML = `
+                    <td><input type="text" name="degree_info[${row_num}][degree]" value="${input_degree}"/></td>
+                    `;
+            document.getElementById('input_affiliation').value = '';
+            document.getElementById('input_major').value = '';
+            document.getElementById('input_degree').value = '';
+        }else{
+            alert('모든 정보를 기입해주세요.');
+        }
+    }
+
+    function imgfile_show(){
+        var imgfile = document.getElementById('imgfile');
+        var reader= new FileReader();
+        var formData = new FormData();
+        formData.append('img', imgfile.files[0]);
+        var result = reader.readAsDataURL(imgfile.files[0]);
+        var xhr = new XMLHttpRequest();
+        alert(imgfile);
+        reader.onload=function(){
+            if (xhr.status < 404){
+                document.getElementById('imgshow').src=reader.result;
+                url = JSON.parse(xhr.responseText).url;
+                alert(url);
+            }
+        }
+        xhr.open('POST', '/members/img');
+        xhr.send(formData);
+
+        alert("파일 업로드 완료");
+    }
+
+    function submit_popup() {
+        if(
+            __checkNull(document.getElementById('name_ko').value)&&
+            __checkNull(document.getElementById('name_en').value)&&
+            __checkNull(document.getElementById('affiliation').value)&&
+            __checkNull(document.getElementById('position').value)&&
+            __checkNull(document.getElementById('interphone').value)&&
+            __checkNull(document.getElementById('email').value)
+        ){
+            if(confirm("멤버를 등록하시겠습니까?") === true){
+                document.getElementById('form_submit').submit();
+                alert("등록되었습니다");
+            }else{
+                return false;
+            }
+        }else{
+            alert("기초정보를 모두 기입해주세요.");
+        }
+
+    }
+    function __checkNull(value) {
+        if(value.replace(/^\s*/,'') === ''){
+            return false;
+        }else{
+            return true;
+        }
+    }
+</script>

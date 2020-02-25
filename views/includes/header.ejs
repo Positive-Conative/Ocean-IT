@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<!--
+	Theory by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+    <head>
+        <title><%= __('index_title') %></title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/assets/css/main.css" />
+    </head>
+<body class="subpage">
+
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="/" class="logo">Ocean-IT</a>
+        <nav id="nav">
+            <%if(name){%><%=name%><%= __('header_nav_username')%>
+            <%}else{%><%= __('header_nav_guest')%><%= __('header_nav_username')%> <%}%><%= __('header_nav_welcome')%>
+
+            <a href="/index"><%= __('header_nav_home')%></a>
+            <a href="/introduction"><%= __('header_nav_introduction')%></a>
+            <a href="/members"><%= __('header_nav_members')%></a>
+            <a href="/research_fields"><%= __('header_nav_research_fields')%></a>
+            <a href="/research_results"><%= __('header_nav_research_results')%></a>
+            <a href="/question_board"><%= __('header_nav_question_board')%></a>
+            <%if(name){%><a href="/login/logout"><%= __('header_nav_log_out')%></a>
+            <%}else{%><a href="/login"><%= __('header_nav_log_in')%></a><%}%>
+            <a href="http://ec2-15-164-231-37.ap-northeast-2.compute.amazonaws.com:8080/deviceLog.do"><%= __('ocean_data')%></a>
+            <a href="/en" class="logo" style="position: unset">EN</a>
+            <a href="/ko" class="logo" style="position: unset">KO</a>
+
+        </nav>
+        <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+    </div>
+
+</header>

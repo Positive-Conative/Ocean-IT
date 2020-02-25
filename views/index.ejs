@@ -1,0 +1,107 @@
+<%include includes/header.ejs%>
+<!-- Banner -->
+	<section id="banner">
+		<h1><%- __('index_welcome_message') %></h1>
+		<p><%- __('index_introduce_summary') %></p>
+	</section>
+
+<!-- One -->
+	<section id="one" class="wrapper">
+		<h2 style="text-align: center; font-weight: bold"><%= __('index_h2_research_fields')%></h2>
+		<div class="inner">
+			<div class="flex flex-3">
+				<article>
+					<header>
+						<h3><%= __('index_first_header') %><br/><%= __('index_first_header2') %></h3>
+					</header>
+					<p><%if(tran_value=='ko'){%><%=research_fields[0].research_name_ko%><%} else{%><%=research_fields[0].research_name_en%><%}%></p>
+					<footer>
+						<a href="/research_fields/detail/<%=research_fields[0].rid%>" class="button special">More</a>
+					</footer>
+				</article>
+				<article>
+					<header>
+						<h3><%= __('index_second_header') %><br /><%= __('index_second_header2') %></h3>
+					</header>
+					<p><%if(tran_value=='ko'){%><%=research_fields[1].research_name_ko%><%} else{%><%=research_fields[1].research_name_en%><%}%></p>
+					<footer>
+						<a href="/research_fields/detail/<%=research_fields[1].rid%>" class="button special">More</a>
+					</footer>
+				</article>
+				<article>
+					<header>
+						<h3><%= __('index_third_header') %><br /><%= __('index_third_header2') %></h3>
+					</header>
+					<p><%if(tran_value=='ko'){%><%=research_fields[2].research_name_ko%><%} else{%><%=research_fields[2].research_name_en%><%}%></p>
+					<footer>
+						<a href="/research_fields/detail/<%=research_fields[2].rid%>" class="button special">More</a>
+					</footer>
+				</article>
+			</div>
+		</div>
+	</section>
+
+<!-- Two -->
+	<section id="two" class="wrapper style1 special">
+		<div class="inner">
+			<header>
+				<h2><%= __('index_h2_members')%></h2>
+				<p><%= __('index_p_members_summary')%></p>
+			</header>
+			<div class="flex flex-4">
+				<%members_table.forEach(function (members) {%>
+				<div class="box person">
+					<div class="image round">
+						<%console.log(members)%>
+						<img width="100%" src="/images/members/<%=members.profile_img%>" alt="Member <%=members.mid+1%>" />
+					</div>
+					<h3><%if(tran_value=='ko'){%><%=members.name_ko%><%} else{%><%=members.name_en%><%}%></h3>
+					<p><%=members.affiliation%></p>
+				</div>
+				<%})%>
+			</div>
+		</div>
+		<ul class="actions fit">
+			<li style="display: inline-block">
+				<a href="/members" class="button fit">More</a>
+			</li>
+		</ul>
+	</section>
+
+<!-- Three -->
+	<section id="three" class="wrapper special">
+		<div class="inner">
+			<header class="align-center">
+				<h2><%= __('index_research_result')%></h2>
+				<p><%= __('index_research_result_explain')%></p>
+			</header>
+			<div class="flex flex-2">
+				<article>
+					<div class="image fit">
+						<img src="/images/2.png" alt="Pic 01" />
+					</div>
+					<header>
+						<h3><%= __('index_first_research_result')%></h3>
+					</header>
+					<p><%if(tran_value=='ko'){%><%=research_results[0].result_name_ko%><%} else{%><%=research_results[0].result_name_en%><%}%></p>
+					<footer>
+						<a href="/research_results/detail/<%=research_results[0].rrid%>" class="button special">More</a>
+					</footer>
+				</article>
+				<article>
+					<div class="image fit">
+						<img src="/images/1.png" alt="Pic 02" />
+					</div>
+					<header>
+						<h3><%= __('index_second_research_result')%></h3>
+					</header>
+					<p><%if(tran_value=='ko'){%><%=research_results[1].result_name_ko%><%} else{%><%=research_results[1].result_name_en%><%}%></p>
+					<footer>
+						<a href="/research_results/detail/<%=research_results[1].rrid%>" class="button special">More</a>
+					</footer>
+				</article>
+			</div>
+		</div>
+	</section>
+
+<%include includes/footer.ejs%>
