@@ -152,11 +152,11 @@ router.get('/member_detail/:mid', function (req, res, next) {
 
 router.get('/delete_member/:mid', function(req, res, next) {
   console.log(req.params.mid);
-  db.query(`delete from members where mid=?`,req.params.mid, function (error, data) {
+  db.query(`delete from career_informations where mid=?`,req.params.mid, function (error, data) {
     if(error){
         throw error;
     }
-    db.query(`delete from career_informations where mid=?`,req.params.mid, function (error, data) {
+    db.query(`delete from members where mid=?`,req.params.mid, function (error, data) {
       if(error){
           throw error;
       }
