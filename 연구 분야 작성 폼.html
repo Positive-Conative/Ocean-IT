@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<!--
+	Theory by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+<head>
+    <title>연구 분야 - 게시글 작성</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="Date.css" /> <!-- Date.css를 새로 만들어서 추가시킴. -->
+</head>
+<body class="subpage">
+
+<!-- Header -->
+<header id="header">
+    <div class="inner">
+        <a href="index.html" class="logo">Ocean-IT</a>
+        <nav id="nav">
+            <a href="#">홈</a>
+            <a href="#">소개</a>
+            <a href="#">멤버</a>
+            <a href="연구 분야.html">연구 분야</a>
+            <a href="연구 성과(논문).html">연구 성과</a>
+            <a href="문의게시판.html">문의게시판</a>
+            <a href="#">형태</a>
+            <a href="#">요소</a>
+            <a href="#">EN</a>
+            <a href="#">KO</a>
+        </nav>
+        <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+    </div>
+</header>
+
+
+<!-- Main -->
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h2>연구 분야</h2>
+            <p> 게시글 작성 </p>
+        </header>
+        <div class="table-wrapper" style="overflow-y: hidden; overflow-x: hidden;">
+            <form method="post" action="#">
+                <div class="row uniform">
+
+                    <div class="4u 12u$(medium)">
+                        <h4>연구 기간</h4><input type="date" value=""/> ~ <input type="date" value=""/>
+                    </div>
+                    <div class="4u 12u$(medium)" style="width:300px">
+                        <h4>과제목적분류</h4>
+                        <script>
+                            //직접 입력 시 작동.
+                            function clicks(obj) {
+                                switch (obj.value) {
+                                    case "0" :
+                                        myself.style.visibility = "visible";
+                                        break;
+                                    default  :
+                                        myself.style.visibility = "hidden";
+                                        break;
+                                }
+                            }
+                        </script>
+                        <select name="category" id="category" onchange=clicks(this) >
+                            <option value="">선택하세요</option>
+                            <option value="1">위탁</option>
+                            <option value="2">협동</option>
+                            <option value="3">용역</option>
+                            <option value="4">공동</option>
+                            <option value="5">주관</option>
+                            <option value="0">직접 입력</option>
+                        </select>
+                    </div>
+                    <div class="4u 12u$(medium)">
+                        <h4>　</h4>
+                        <div id="myself" style="visibility:hidden">
+                            <input type="email" name="a" value="" style="width:200px; display:inline" placeholder="한글" />
+                            <input type="email" name="a" value="" style="width:200px; display:inline" placeholder="영문" />
+                        </div>
+                    </div>
+                    <div class="6u 12u$(xsmall)">
+                        <h4>과제명(한글)</h4><input type="text" name="name" id="name" value="" placeholder="예시" />
+                    </div>
+                    <div class="6u$ 12u$(xsmall)">
+                        <h4>과제명(영문)</h4><input type="email" name="email" id="email" value="" placeholder="예시" />
+                    </div>
+                    <div class="6u 12u$(xsmall)">
+                        <h4>지원기관</h4><input type="email" name="email" id="email" value="" placeholder="예시" />
+                    </div>
+                    <div class="6u$ 12u$(xsmall)">
+                        <h4>연구 책임자</h4><input type="email" name="email" id="email" value="" placeholder="예시" />
+                    </div>
+
+
+                    <div class="12u$">
+                        <h4>연구 목표</h4><textarea name="message" id="message" placeholder="예시" rows="6" style="resize: none;"></textarea><br>
+                        <h4>연구 내용</h4><textarea name="message" id="message" placeholder="예시" rows="6" style="resize: none;"></textarea><br>
+                        <h4>기대 성과</h4><textarea name="message" id="message" placeholder="예시" rows="6" style="resize: none;"></textarea><br>
+
+                    </div>
+
+                    <div style="float:right">
+                        <input type="submit" class="button special" value="작성 완료" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner" style="margin-top: 30px;">
+        <div class="flex">
+            <div class="copyright">
+                &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+            </div>
+            <ul class="icons">
+                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon fa-linkedin"><span class="label">linkedIn</span></a></li>
+                <li><a href="#" class="icon fa-pinterest-p"><span class="label">Pinterest</span></a></li>
+                <li><a href="#" class="icon fa-vimeo"><span class="label">Vimeo</span></a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/skel.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
