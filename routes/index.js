@@ -52,11 +52,11 @@ sess.langcheck = 0;
 });
 
 router.get('/generic', function (req, res, next) {
-  res.render('generic');
+  res.render('generic', {name:1});
 });
 
 router.get('/elements', function (req, res, next) {
-  res.render('elements');
+  res.render('elements', {name:1});
 });
 
 module.exports = router;

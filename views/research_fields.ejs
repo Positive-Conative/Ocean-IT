@@ -6,111 +6,120 @@
     <%}%>
 </script>
 <section id="main" class="wrapper">
-    <div class="inner">
-        <header class="align-center">
-            <h2><%=__('research_fields_title')%></h2>
-            <p><%=__('research_fields_subtitle')%></p>
-        </header>
-        <div class="12u$">
-            <div class="select-wrapper">
-                <div style="float:right">
-                    <select name="category" id="category" style="width : 200px;" onchange="if(this.value) location.href=(this.value);">
-                        <option value=""><%=__('research_fields_category0')%></option>
-                        <option value="/research_fields/page/1"><%=__('research_fields_category1')%></option>
-                        <option value="/research_fields/select/1/1"><%=__('research_fields_category2')%></option>
-                        <option value="/research_fields/select/2/1"><%=__('research_fields_category3')%></option>
-                    </select>
+    <div class="row uniform">
+        <div class="1u 12u$(xsmall)"></div>
+        <%include includes/treebar.ejs%>
+        <div class="8u 12u$(xsmall)">    
+            <div class="inner">
+            <header class="align-center">
+                <h2><%=__('research_fields_title')%></h2>
+                <p><%=__('research_fields_subtitle')%></p>
+            </header>
+            <div class="12u$">
+                <div class="select-wrapper">
+                    <div style="float:right">
+                        <select name="category" id="category" style="width : 200px;" onchange="if(this.value) location.href=(this.value);">
+                            <option value=""><%=__('research_fields_category0')%></option>
+                            <option value="/research_fields/page/1"><%=__('research_fields_category1')%></option>
+                            <option value="/research_fields/select/1/1"><%=__('research_fields_category2')%></option>
+                            <option value="/research_fields/select/2/1"><%=__('research_fields_category3')%></option>
+                        </select>
+                    </div>
+                    <br><br><br>
                 </div>
-                <br><br><br>
             </div>
-        </div>
-        <div class="table-wrapper">
-            <table class="align-center">
-                <thead>
-                <tr>
-                    <!-- 가운데 정렬, 자바 스크립트 - 함수 사용하여 최소화 가능(?) -->
-                    <style>
-                        .align-center th{
-                            text-align: center;
-                        }
-                    </style>
-                    <th style="width:67px"><%=__('research_fields_menu1')%></th>
-                    <th><%=__('research_fields_menu2')%></th>
-                    <th><%=__('research_fields_menu3')%></th>
-                    <th><%=__('research_fields_menu4')%></th>
-                    <th><%=__('research_fields_menu5')%></th>
-                </tr>
-                </thead>
-                <tbody>
-                <%for(var i = (page_num - 1) * 7; i < page_num * 7; i++){%>
-                    <%var row = research_fields_table[i]
-                        if(row === undefined) continue;
-                    %>
-                    <tr style="cursor: pointer" onclick="location.href='/research_fields/detail/<%= row.rid%>'" >
-                        <%if(tran_value=='ko'){%>
-                            <td><%= row.classification_ko%></td>
-                            <td><%= row.research_name_ko%></td>
-                            <td><%= row.support_organization_ko%></td>
-                        <%}else{%>
-                            <td><%= row.classification_en%></td>
-                            <td><%= row.research_name_en%></td>
-                            <td><%= row.support_organization_en%></td>
-                        <%}%>
-
-                        <td><%= row.date_start + ' ~ '+ row.date_end%></td>
-                        <%if(today_date < row.date_end ){%>
-                            <td><%=__('research_fields_state1')%></td>
-                        <%}else{%>
-                            <td><%=__('research_fields_state2')%></td>
-                        <%}%>
+            <div class="table-wrapper">
+                <table class="align-center">
+                    <thead>
+                    <tr>
+                        <!-- 가운데 정렬, 자바 스크립트 - 함수 사용하여 최소화 가능(?) -->
+                        <style>
+                            .align-center th{
+                                text-align: center;
+                            }
+                        </style>
+                        <th style="width:67px"><%=__('research_fields_menu1')%></th>
+                        <th><%=__('research_fields_menu2')%></th>
+                        <th><%=__('research_fields_menu3')%></th>
+                        <th><%=__('research_fields_menu4')%></th>
+                        <th><%=__('research_fields_menu5')%></th>
                     </tr>
-                <%}%>
-                </tbody>
-            </table>
-        </div>
-        <!-- 쪽수 (1,2,3) -->
-        <h4 style="text-align: center">
-            <%if(num_check=="0"){%>
-            <%for(var i = 1; i <= Math.ceil(research_fields_table.length / 7); i++){%>
-                <a href="/research_fields/page/<%= i%>"><%= i%> </a>
-            <%}}else if(num_check=="1"){%>
-            <%for(var i = 1; i <= Math.ceil(research_fields_table.length / 7); i++){%>
-                <a href="/research_fields/select/1/<%= i%>"><%= i%> </a>
-            <%}}else if(num_check=="2"){%>
-            <%for(var i = 1; i <= Math.ceil(research_fields_table.length / 7); i++){%>
-                <a href="/research_fields/select/2/<%= i%>"><%= i%> </a>
-            <%}}%>
-        </h4>
-
-        <div style="float:right" id="goto_write_page">
-            <a href="/research_fields/write" class="button special"><%=__('research_fields_create')%></a>
-            <!--<a href="#" class="button">삭제하기</a>-->
-        </div>
-        <form id="form_submit" method="post">
-            <div class="row uniform">
-                <div class="2u 12u(medium)" style="float:left">
-                <select name="search_select" id="search_select">
-                    <option value="1"><%=__('research_fields_search1')%></option>
-                    <option value="2"><%=__('research_fields_search2')%></option>
-                    <option value="3"><%=__('research_fields_search3')%></option>
-                </select>
-                </div>
-                <div class="3u 12u(medium)" style="float:left; padding-left:5px">
-                    <input id="search_data" name="search_data" type="text" placeholder="<%=__('research_fields_search_data')%>" />
-                </div>
-                <div class="1u 12u(medium)" style="float:left;padding-left:5px">
-                    <input class="button special fit" style="text-align: center" type="button" value="<%=__('search_data')%>" onclick="document.getElementById('form_submit').submit();"/>
-                </div>
+                    </thead>
+                    <tbody>
+                    <%for(var i = (page_num - 1) * 7; i < page_num * 7; i++){%>
+                        <%var row = research_fields_table[i]
+                            if(row === undefined) continue;
+                        %>
+                        <tr style="cursor: pointer" onclick="location.href='/research_fields/detail/<%= row.rid%>'" >
+                            <%if(tran_value=='ko'){%>
+                                <td><%= row.classification_ko%></td>
+                                <td><%= row.research_name_ko%></td>
+                                <td><%= row.support_organization_ko%></td>
+                            <%}else{%>
+                                <td><%= row.classification_en%></td>
+                                <td><%= row.research_name_en%></td>
+                                <td><%= row.support_organization_en%></td>
+                            <%}%>
+    
+                            <td><%= row.date_start + ' ~ '+ row.date_end%></td>
+                            <%if(today_date < row.date_end ){%>
+                                <td><%=__('research_fields_state1')%></td>
+                            <%}else{%>
+                                <td><%=__('research_fields_state2')%></td>
+                            <%}%>
+                        </tr>
+                    <%}%>
+                    </tbody>
+                </table>
             </div>
-        </form>
-
-        <script>
-            <%if(cpt){%>
-            goto_write_page.style.visibility = "visible";
-            <%}else{%>
-            goto_write_page.style.visibility = "hidden";
-            <%}%>
-        </script>
+            <!-- 쪽수 (1,2,3) -->
+            <h4 style="text-align: center">
+                <%if(num_check=="0"){%>
+                <%for(var i = 1; i <= Math.ceil(research_fields_table.length / 7); i++){%>
+                    <a href="/research_fields/page/<%= i%>"><%= i%> </a>
+                <%}}else if(num_check=="1"){%>
+                <%for(var i = 1; i <= Math.ceil(research_fields_table.length / 7); i++){%>
+                    <a href="/research_fields/select/1/<%= i%>"><%= i%> </a>
+                <%}}else if(num_check=="2"){%>
+                <%for(var i = 1; i <= Math.ceil(research_fields_table.length / 7); i++){%>
+                    <a href="/research_fields/select/2/<%= i%>"><%= i%> </a>
+                <%}}%>
+            </h4>
+    
+            <div style="float:right" id="goto_write_page">
+                <a href="/research_fields/write" class="button special"><%=__('research_fields_create')%></a>
+                <!--<a href="#" class="button">삭제하기</a>-->
+            </div>
+            <form id="form_submit" method="post">
+                <div class="row uniform">
+                    <div class="2u 12u(medium)" style="float:left">
+                    <select name="search_select" id="search_select">
+                        <option value="1"><%=__('research_fields_search1')%></option>
+                        <option value="2"><%=__('research_fields_search2')%></option>
+                        <option value="3"><%=__('research_fields_search3')%></option>
+                    </select>
+                    </div>
+                    <div class="3u 12u(medium)" style="float:left; padding-left:5px">
+                        <input id="search_data" name="search_data" type="text" placeholder="<%=__('research_fields_search_data')%>" />
+                    </div>
+                    <div class="1u 12u(medium)" style="float:left;padding-left:5px">
+                        <input class="button special fit" style="text-align: center" type="button" value="<%=__('search_data')%>" onclick="document.getElementById('form_submit').submit();"/>
+                    </div>
+                </div>
+            </form>
+    
+            <script>
+                <%if(cpt){%>
+                goto_write_page.style.visibility = "visible";
+                <%}else{%>
+                goto_write_page.style.visibility = "hidden";
+                <%}%>
+            </script>
+        </div>
     </div>
+
+    <div class="1u 12u$(xsmall)"></div>
+    </div>
+
 </section>
 <%include includes/footer.ejs%>

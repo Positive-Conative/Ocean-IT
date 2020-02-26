@@ -1,4 +1,5 @@
 var express = require('express');
+var db = require('../config/db');
 var router = express.Router();
 
 router.get('/', function (req, res, next) {
@@ -11,7 +12,12 @@ router.get('/', function (req, res, next) {
         res.cookie('lang', 'ko');
       break;
     }
-    res.render('introduction', {name:sess.username});
+    db.query(`select * from introduction`, function (error, data) {
+      if(error){
+          throw error;
+      }
+      res.render('introduction', {name:sess.username, intro_data : data, tran_value : res.cookie('lang').locale});
+    });
 });
 
 module.exports = router;

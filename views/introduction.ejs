@@ -12,6 +12,44 @@
 
         <p><%- __('introduction_p')%></p>
 
+        <p><%- __('introduction_p2')%></p>
+        <img width="100%" src="/images/introduction/수중 통신망 활용방안.png"/>
+        <div style="text-align: center;">
+            <%- __('info_img1')%>
+        </div>
+        <div class="table-wrapper">
+            <table class="alt">
+                <thead>
+                    <tr>
+                        <th><%- __('info_table_head1')%></th>
+                        <th><%- __('info_table_head2')%></th>
+                        <th><%- __('info_table_head3')%></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%for(var i=0; i<intro_data.length; i++){%>
+                        <tr>
+                            <td><%=intro_data[i].date%></td>
+                            <%if(tran_value=='ko'){%>
+                                <td><%=intro_data[i].contents_ko%></td>
+                                <td><%=intro_data[i].etc_ko%></td>
+                            <%}else{%>
+                                <td><%=intro_data[i].contents_en%></td>
+                                <td><%=intro_data[i].etc_en%></td>
+                            <%}%>
+                        </tr>
+                    <%}%>
+                </tbody>
+            </table>
+        </div>
+        <img width="100%" src="/images/introduction/주요 연혁.png" />
+        <div style="text-align: center;">
+            <%- __('info_img2')%>
+        </div>
+        <img width="100%" src="/images/introduction/조직도.png" />
+        <div style="text-align: center;">
+            <%- __('info_img3')%>
+        </div>
         <a href="http://www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_1708220056" target="_blank" class="button special fit"><%= __('introduction_direction')%></a>
     </div>
 </section>
