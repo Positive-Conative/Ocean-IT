@@ -12,19 +12,12 @@
                         content2.style.display='none'
                         content3.style.display='none'
                         content4.style.display='none'" >
-                        <td><span>연구실 소개</span><span style="float:right;">></span></td>
+                        <td><span>인사말</span><span style="float:right;">></span></td>
                     </tr>
                     <tr style="cursor: pointer" onclick="
                     content1.style.display='none'
                     content2.style.display='block'
                     content3.style.display='none'
-                    content4.style.display='none'" >
-                        <td>인사말<span style="float:right;">></span></td>
-                    </tr>
-                    <tr style="cursor: pointer" onclick="
-                    content1.style.display='none'
-                    content2.style.display='none'
-                    content3.style.display='block'
                     content4.style.display='none'" >
                         <td>연혁<span style="float:right;">></span></td>
                     </tr>
@@ -47,26 +40,30 @@
     </div>
     <div class="8u 12u$(xsmall)">
         <div class="inner">
-            <header class="align-center">
-                <h2><%= __('introduction_h2_title')%></h2>
-                <p><%= __('introduction_p_title')%></p>
-            </header>
-    
             <!-- Content -->
             <div id="content1">
+                <header class="align-center">
+                    <h2><%= __('introduction_h2_title')%></h2>
+                    <p><%= __('introduction_p_title')%></p>
+                </header>
                 <h2 id="content"><%- __('introduction_h2')%></h2>
                 <p><%- __('introduction_p')%></p>
-                <div style="text-align: right;">
-                    <%- __('thanks_name')%>            
-                </div>
                 
                 <img width="100%" src="/images/introduction/수중 통신망 활용방안.png"/>
                 <div style="text-align: center;">
                     <%- __('info_img1')%>
                 </div>
+                <br><br>
+                <div style="text-align: right;">
+                    <%- __('thanks_name')%>            
+                </div>
             </div>
 
             <div id="content2">
+                <header class="align-center">
+                    <h2>주요 연혁</h2>
+                    <p><%= __('introduction_p_title')%></p>
+                </header>
                 <div class="table-wrapper">
                     <table class="alt">
                         <thead>
@@ -95,6 +92,10 @@
             </div>
 
             <div id="content3">
+                <header class="align-center">
+                    <h2>주요 연혁</h2>
+                    <p><%= __('introduction_p_title')%></p>
+                </header>
                 <img width="100%" src="/images/introduction/주요 연혁.png" />
                 <div style="text-align: center;">
                     <%- __('info_img2')%>
@@ -102,6 +103,10 @@
             </div>
 
             <div id="content4">
+                <header class="align-center">
+                    <h2>조직도</h2>
+                    <p><%= __('introduction_p_title')%></p>
+                </header>
                 <img width="100%" src="/images/introduction/조직도.png" />
                 <div style="text-align: center;">
                     <%- __('info_img3')%>
