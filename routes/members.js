@@ -163,45 +163,6 @@ router.get('/delete_member/:mid', function(req, res, next) {
       res.redirect('/members');
     });
   });
-  
-    // var delete_query_members = `DELETE FROM members WHERE mid = ?`;
-    // var delete_query_career_informations = `DELETE FROM career_informations WHERE mid = ?`;
-    // db.query(delete_query_members, req.params.mid, function (err, rows, fields){
-    //     if(err){
-    //         console.log(err);
-    //     }else{
-    //         db.query(delete_query_career_informations, req.params.mid, function (err, rows, fields){
-    //             if(err){
-    //                 console.log(err);
-    //             }else{
-    //                 console.log(rows);
-    //                 if(req.params.profile_img !== 'default-profile-image.png'){ // 기본 프로필 이미지가 아닌 경우
-    //                     fs.exists('./views/images/members/' + req.params.profile_img, function (exists) {
-    //                         if(exists){
-    //                             fs.unlink('./views/images/members/' + req.params.profile_img, function (err) {
-    //                                 if(err){
-    //                                     console.log(err);
-    //                                 }else {
-    //                                     console.log('successfully deleted file name = ' + req.params.profile_img);
-    //                                     switch(sess.langcheck){
-    //                                       case 0:
-    //                                         res.cookie('lang', 'en');
-    //                                       break;
-    //                                       case 1:
-    //                                         res.cookie('lang', 'ko');
-    //                                       break;
-    //                                     }
-    //                                     res.redirect('/members');
-    //                                 }
-    //                             })
-    //                         }
-    //                     });
-    //                 }else
-    //                     res.redirect('/members');
-    //             }
-    //         });
-    //     }
-    // });
 });
 
 module.exports = router;
