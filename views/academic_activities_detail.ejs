@@ -1,0 +1,40 @@
+<%include includes/header.ejs%>
+<%var row = field[0];%>
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+          <h2>학술 활동</h2>
+          <p>학술 활동 게시판입니다.</p>
+        </header>
+        <hr class="major"/>
+        <h3 class="align-center"></h3>
+        <div class="table-wrapper">
+            <table class="align-center">
+                <thead>
+                <div class="table-wrapper">
+                    <table class="alt">
+                        <tbody class="align-center">
+                        <tr>
+                            <td>구 분</td>
+                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.classification_ko%><%} else{%><%=row.classification_en%><%}%></td>
+                            <td>명 칭</td>
+                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.name_ko%><%} else{%><%=row.name_en%><%}%></td>
+                        </tr>
+                        <tr>
+                            <td>날 짜</td>
+                            <td class="align-left"><%=row.date%></td>
+                            <td>장 소</td>
+                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.place_ko%><%} else{%><%=row.place_en%><%}%></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </thead>
+            </table>
+            <div style="float:right">
+                <a href="/academic_activities/page/1" class="button"><%= __('lists')%></a>
+            </div>
+        </div>
+    </div>
+</section>
+<%include includes/footer.ejs%>

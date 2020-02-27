@@ -10,8 +10,8 @@ router.get('/:input_id', function(req, res, next) {
     if(error){
       throw error;
     }
-    
     res.render('research_results_detail', {'field': field});
   });
 });
+
 module.exports = router;

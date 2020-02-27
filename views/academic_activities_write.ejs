@@ -1,0 +1,80 @@
+<%include includes/header.ejs%>
+<script>
+    <%if(!cpt){%>
+    alert("잘못된 접근입니다!");
+    location.href="/";
+    <%}%>
+</script>
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h2>학술 활동</h2>
+            <p>학술 활동 게시판입니다.</p>
+        </header>
+        <div class="table-wrapper" style="overflow-y: hidden; overflow-x: hidden;">
+            <form id="form_submit" method="post">
+                <div class="row uniform">
+                    <div class="6u 12u$(xsmall)">
+                        <h4>구 분</h4>
+                        <select name="r_classification_ko" id="r_classification_ko" >
+                            <option value="">선택하세요</option>
+                            <option value="논문">포럼</option>
+                            <option value="특허">세미나</option>
+                            <option value="발표">워크샵</option>
+                        </select>
+                    </div>
+                    <div class="6u 12u$(xsmall)">
+                        <h4>날 짜</h4><input type="text" name="r_date" id="r_date" value="" placeholder="ex)2019.10.01" />
+                    </div>
+                    <div class="6u 12u$(xsmall)">
+                        <h4>이 름(한글)</h4><input type="text" name="r_name_ko" id="r_name_ko" value="" placeholder="홍길동" />
+                    </div>
+                    <div class="6u 12u$(xsmall)">
+                        <h4>이 름(영어)</h4><input type="text" name="r_name_en" id="r_name_en" value="" placeholder="Gildong-Hong" />
+                    </div>
+                    <div class="6u 12u$(xsmall)">
+                        <h4>장 소(한글)</h4><input type="text" name="r_place_ko" id="r_place_ko" value="" placeholder="호서대학교" />
+                    </div>
+                    <div class="6u 12u$(xsmall)">
+                        <h4>장 소(영어)</h4><input type="text" name="r_place_en" id="r_place_en" value="" placeholder="Hoeseo Univ." />
+                    </div>
+                </div>
+                <br>
+                <div style="float:right">
+                    <input type="button" class="button special" value="<%=__('research_results_write_page_complete_btn')%>" onclick="submit_popup()"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<%include includes/footer.ejs%>
+<script type="text/javascript">
+    function submit_popup() {
+        if(
+            __checkNull(document.getElementById('r_classification_ko').value)&&
+            __checkNull(document.getElementById('r_date').value)&&
+            __checkNull(document.getElementById('r_name_ko').value)&&
+            __checkNull(document.getElementById('r_name_en').value)&&
+            __checkNull(document.getElementById('r_place_ko').value)&&
+            __checkNull(document.getElementById('r_place_en').value)
+        ){
+            if(confirm("작성하시겠습니까?") === true){
+
+                document.getElementById('form_submit').submit();
+                alert("등록되었습니다");
+            }else{
+                return false;
+            }
+        }else{
+            alert("작성 사항을 모두 기입해주세요.");
+        }
+
+    }
+    function __checkNull(value) {
+        if(value.replace(/^\s*/,'') === ''){
+            return false;
+        }else{
+            return true;
+        }
+    }
+</script>

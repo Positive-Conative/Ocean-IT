@@ -40,33 +40,57 @@ CREATE TABLE `career_informations` (
 --
 
 LOCK TABLES `career_informations` WRITE;
-INSERT INTO `career_informations` VALUES (1,1,'한국해양대','해운및해상보험','경영학박사');
-INSERT INTO `career_informations` VALUES (2,1,'중앙대','물류정보','경영학석사');
-INSERT INTO `career_informations` VALUES (3,1,'명지대','중어중문학과','학사');
 
-INSERT INTO `career_informations` VALUES (4,2,'North Carolina State Univ.','전기, 컴퓨터공학','공학박사');
-INSERT INTO `career_informations` VALUES (5,2,'Fairlgh Dickinson Univ.','전자공학','공학석사');
-INSERT INTO `career_informations` VALUES (6,2,' 숭실대','전자공학과','학사');
 
-INSERT INTO `career_informations` VALUES (7,3,'중앙대','정보통신','박사');
+INSERT INTO `career_informations` VALUES (4,1,'North Carolina State Univ.','전기, 컴퓨터공학','공학박사');
+INSERT INTO `career_informations` VALUES (5,1,'Fairlegh Dickinson Univ.','전자공학','공학석사');
+INSERT INTO `career_informations` VALUES (6,1,' 숭실대','전자공학과','공학사');
 
-INSERT INTO `career_informations` VALUES (8,4,'한국과학기술원','전기및전자공학','박사');
+INSERT INTO `career_informations` VALUES (7,2,'중앙대','정보통신공학과','공학박사');
+INSERT INTO `career_informations` VALUES (8,2,'중앙대','디지털통신정공','공학석사');
+INSERT INTO `career_informations` VALUES (9,2,'중앙대','전자전기공학정공','공학사');
 
-INSERT INTO `career_informations` VALUES (9,5,'호서대','정보통신공학','박사');
 
-INSERT INTO `career_informations` VALUES (10,6,'호서대','정보통신공학','호서대 박사');
+INSERT INTO `career_informations` VALUES (10,3,'한국과학기술원','전기및전자공학','공박사');
+INSERT INTO `career_informations` VALUES (11,3,'한국과학기술원','전기및전자공학','공학석사');
+INSERT INTO `career_informations` VALUES (12,3,'한국과학기술원','전기및전자공학','공학박사');
+
+
+INSERT INTO `career_informations` VALUES (13,4,'호서대','배열신호처리','박사');
+INSERT INTO `career_informations` VALUES (14,4,'호서대','배열신호처리','공학석사');
+INSERT INTO `career_informations` VALUES (15,4,'호서대','정보통신공학과','공학사');
+
+
+INSERT INTO `career_informations` VALUES (16,5,'호서대','정보통신학','공학석사');
+INSERT INTO `career_informations` VALUES (17,5,'호서대','외교국방학','공학석사');
+INSERT INTO `career_informations` VALUES (18,5,'호서대','전사학과','공학사');
+
+
+INSERT INTO `career_informations` VALUES (19,6,'호서대','정보통신공학','박사');
+INSERT INTO `career_informations` VALUES (20,6,'호서대','정보통신공학','석사');
+INSERT INTO `career_informations` VALUES (21,6,'호서대','정보통신공학','학사');
+
+
 
 INSERT INTO `career_informations` VALUES (11,7,'호서대','정보통신공학','석사');
+INSERT INTO `career_informations` VALUES (11,7,'호서대','정보통신공학','학사');
 
-INSERT INTO `career_informations` VALUES (12,8,'호서대','정보통신공학','석사');
 
-INSERT INTO `career_informations` VALUES (13,9,'S.V. University','Computer Applications','Bachelor of Computer Applications');
-INSERT INTO `career_informations` VALUES (14,9,'VIT University','Computer Science and Engineering','Master of Technology');
-INSERT INTO `career_informations` VALUES (15,9,'Kookmin University','Business IT','Doctor of Philosophy');
+INSERT INTO `career_informations` VALUES (12,8,'Kookmin University','Business IT','박사');
+INSERT INTO `career_informations` VALUES (13,8,'VIT University','Computer Science and Engineering','석사');
+INSERT INTO `career_informations` VALUES (14,8,'S.V.University','Business IT','학사');
 
-INSERT INTO `career_informations` VALUES (16,10,'호서대','정보통신공학','학사');
-INSERT INTO `career_informations` VALUES (17,10,'호서대','정보통신공학','석사');
-INSERT INTO `career_informations` VALUES (18,10,'호서대','정보통신공학','박사');
+
+
+INSERT INTO `career_informations` VALUES (16,9,'호서대','정보통신공학','박사');
+INSERT INTO `career_informations` VALUES (17,9,'호서대','정보통신공학','석사');
+INSERT INTO `career_informations` VALUES (18,9,'호서대','정보통신공학','학사');
+
+
+INSERT INTO `career_informations` VALUES (19,10,'호서대','정보통신공학','학사');
+
+
+
 
 UNLOCK TABLES;
 

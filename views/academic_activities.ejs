@@ -1,0 +1,114 @@
+<%include includes/header.ejs%>
+
+<script>
+    <%if(!academic_activities_table[0]){%>
+        alert("검색된 내용이 없습니다.");
+        location.href="/academic_activities";
+    <%}%>
+</script>
+<section id="main" class="wrapper">
+    <div class="row uniform">
+        <div class="1u 12u$(xsmall)"></div>
+            <%include includes/academic_activities_treebar.ejs%>
+        <div class="8u 12u$(xsmall)">
+            <div class="inner">
+                <header class="align-center">
+                    <h2>학술 활동(<%=isthis%>)</h2>
+                    <p>학술 활동 게시판입니다.</p>
+                </header>
+                <div class="table-wrapper">
+                    <table class="align-center">
+                        <thead>
+                        <tr>
+                            <!-- 가운데 정렬, 자바 스크립트 - 함수 사용하여 최소화 가능(?) -->
+                            <style>
+                                .align-center th{
+                                    text-align: center;
+                                }
+                            </style>
+                            <th style="width:100px">구 분</th>
+                            <th>명 칭</th>
+                            <th>장 소</th>
+                            <th>날 짜</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%for(var i = (page_num - 1) * 7; i < page_num * 7; i++){%>
+                            <%var row = academic_activities_table[i]
+                                if(row === undefined) continue;
+                            %>
+                            <tr style="cursor: pointer" onclick="location.href='/academic_activities/detail/<%=row.num%>'" >
+                                <%if(tran_value=='ko'){%>
+                                <td><%= row.classification_ko%><%=row.rid%></td>
+                                <td><%= row.name_ko%></td>
+                                <td><%= row.place_ko%></td>
+                                <td><%= row.date%></td>
+                                <%}else{%>
+                                <td><%= row.classification_en%><%=row.rid%></td>
+                                <td><%= row.name_en%></td>
+                                <td><%= row.place_en%></td>
+                                <td><%= row.date%></td>
+                                <%}%>
+                            </tr>
+                        <%}%>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 쪽수 (1,2,3) -->
+        
+                <h4 style="text-align: center">
+                    <%if(num_check=="0"){%>
+                    <%for(var i = 1; i <= Math.ceil(academic_activities_table.length / 7); i++){%>
+                        <a href="/academic_activities/page/<%= i%>"><%= i%> </a>
+                    <%}}else if(num_check=="1"){%>
+                    <%for(var i = 1; i <= Math.ceil(academic_activities_table.length / 7); i++){%>
+                        <a href="/academic_activities/select/1/<%= i%>"><%= i%> </a>
+                    <%}}else if(num_check=="2"){%>
+                    <%for(var i = 1; i <= Math.ceil(academic_activities_table.length / 7); i++){%>
+                        <a href="/academic_activities/select/2/<%= i%>"><%= i%> </a>
+                    <%}}else if(num_check=="3"){%>
+                    <%for(var i = 1; i <= Math.ceil(academic_activities_table.length / 7); i++){%>
+                        <a href="/academic_activities/select/3/<%= i%>"><%= i%> </a>
+                    <%}}else if(num_check=="4"){%>
+                    <%for(var i = 1; i <= Math.ceil(academic_activities_table.length / 7); i++){%>
+                        <a href="/academic_activities/select/4/<%= i%>"><%= i%> </a>
+                    <%}}%>
+                </h4>
+        
+                <div style="float:right" id="goto_write_page">
+                    <a href="/academic_activities/write" class="button special">작성하기</a>
+                    <!--<a href="#" class="button">삭제하기</a>-->
+                </div>
+        
+                <form id="form_submit" action="/academic_activities/page/1" method="post">
+                    <div class="row uniform">
+                        <div class="2u 12u(medium)" style="float:left">
+                        <select name="search_select" id="search_select" >
+                            <option value="1">명칭으로 검색</option>
+                            <option value="2">장소로 검색</option>
+                        </select>
+                        </div>
+                        <div class="3u 12u(medium)" style="float:left; padding-left:5px">
+                            <input id="search_data" name="search_data" type="text" placeholder="<%=__('research_results_search_data')%>" />
+                        </div>
+                        <div class="1u 12u(medium)" style="float:left;padding-left:5px">
+                            <input class="button special fit" style="text-align: center" type="button" value="<%=__('search_data')%>" onclick="document.getElementById('form_submit').submit();"/>
+                        </div>
+                    </div>
+                </form>
+        
+        
+                <script>
+                    <%if(cpt){%>
+                    goto_write_page.style.visibility = "visible";
+                    <%}else{%>
+                    goto_write_page.style.visibility = "hidden";
+                    <%}%>
+                </script>
+            </div>
+        </div>
+
+   
+</section>
+
+<%include includes/footer.ejs%>
