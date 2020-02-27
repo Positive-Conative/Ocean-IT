@@ -9,7 +9,29 @@
 <section id="main" class="wrapper">
     <div class="row uniform">
         <div class="1u 12u$(xsmall)"></div>
-            <%include includes/academic_activities_treebar.ejs%>
+        <div class="2u 12u$(xsmall)">
+            <div class="table-wrapper">
+                <table class="alt">
+                    <tbody style="text-align: center;">
+                        <tr style="cursor: pointer" onclick="location.href='/research_main'" >
+                            <td>Main<span style="float:right;"><</span></td>
+                          </tr>
+                        <tr style="cursor: pointer" onclick="location.href='/academic_activities/page/1'" >
+                          <td>전체보기<span style="float:right;">></span></td>
+                        </tr>
+                        <tr style="cursor: pointer" onclick="location.href='/academic_activities/select/1/1'" >
+                            <td>포럼<span style="float:right;">></span></td>
+                        </tr>
+                        <tr style="cursor: pointer" onclick="location.href='/academic_activities/select/2/1'" >
+                            <td>세미나<span style="float:right;">></span></td>
+                        </tr>
+                        <tr style="cursor: pointer" onclick="location.href='/academic_activities/select/3/1'" >
+                            <td>워크샵<span style="float:right;">></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          </div>
         <div class="8u 12u$(xsmall)">
             <div class="inner">
                 <header class="align-center">

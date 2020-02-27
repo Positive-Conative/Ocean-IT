@@ -5,12 +5,14 @@ var moment = require('moment');
 var s_select;
 var s_data;
 var recheck=0;
+var isthis="전체";
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
     recheck=0;
     res.redirect('research_fields/page/1');
 });
+
 router.get('/select/:sel/:num', function(req, res, next) {
     const sess = req.session;
     var date = moment().format("YYYY-MM-DD");
@@ -19,10 +21,12 @@ router.get('/select/:sel/:num', function(req, res, next) {
         case "1":
             var val = "select * from research_fields where date_end>=now();";
             var check = 1;
+            isthis="진행과제";
             break;
         case "2":
             var val = "select * from research_fields where date_end<now();";
             var check = 2;
+            isthis="완료과제";
             break;
     }
     db.query(val,function (error, fields) {
@@ -37,7 +41,7 @@ router.get('/select/:sel/:num', function(req, res, next) {
             res.cookie('lang', 'ko');
           break;
         }
-        res.render('research_fields', {'research_fields_table': fields, 'today_date':date, 'num_check':check, 'page_num' : req.params.num, tran_value:tran, name:sess.username, cpt:sess.usercpt});
+        res.render('research_fields', {'research_fields_table': fields, 'today_date':date, 'num_check':check, 'page_num' : req.params.num, tran_value:tran, name:sess.username, cpt:sess.usercpt, isthis:isthis});
     });
 });
 router.post('/select/:sel/:num', function(req, res, next) {
@@ -69,7 +73,7 @@ router.post('/select/:sel/:num', function(req, res, next) {
         if(error){
             throw error;
         }
-        res.render('research_fields', {'research_fields_table': fields, 'page_num' : 1, name:sess.username,'num_check':check, 'today_date':date, tran_value:tran, cpt:sess.usercpt});
+        res.render('research_fields', {'research_fields_table': fields, 'page_num' : 1, name:sess.username,'num_check':check, 'today_date':date, tran_value:tran, cpt:sess.usercpt, isthis:"전체"});
     });
 });
 router.get('/page/:num', function(req, res, next) {
@@ -90,7 +94,7 @@ router.get('/page/:num', function(req, res, next) {
                 res.cookie('lang', 'ko');
               break;
             }
-            res.render('research_fields', {'research_fields_table': fields, 'today_date':date, 'num_check':check, 'page_num' : req.params.num, tran_value:tran,  name:sess.username, cpt:sess.usercpt});
+            res.render('research_fields', {'research_fields_table': fields, 'today_date':date, 'num_check':check, 'page_num' : req.params.num, tran_value:tran,  name:sess.username, cpt:sess.usercpt, isthis:isthis});
         });
     }
     else{
@@ -123,7 +127,7 @@ router.get('/page/:num', function(req, res, next) {
                 res.cookie('lang', 'ko');
               break;
             }
-            res.render('research_fields', {'research_fields_table': fields, 'page_num' : req.params.num, name:sess.username,'num_check':check, 'today_date':date, tran_value:tran, cpt:sess.usercpt});
+            res.render('research_fields', {'research_fields_table': fields, 'page_num' : req.params.num, name:sess.username,'num_check':check, 'today_date':date, tran_value:tran, cpt:sess.usercpt, isthis:isthis});
         });
     }
 });
@@ -156,7 +160,7 @@ router.post('/page/:num', function(req, res, next) {
         if(error){
             throw error;
         }
-        res.render('research_fields', {'research_fields_table': fields, 'page_num' : 1, name:sess.username,'num_check':check, 'today_date':date, tran_value:tran, cpt:sess.usercpt});
+        res.render('research_fields', {'research_fields_table': fields, 'page_num' : 1, name:sess.username,'num_check':check, 'today_date':date, tran_value:tran, cpt:sess.usercpt, isthis:"전체"});
     });
 });
 
@@ -176,7 +180,7 @@ router.get('/detail/:num', function(req, res, next) {
             res.cookie('lang', 'ko');
           break;
         }
-        res.render('research_fields_detail', {'field': field, name:sess.username, tran_value:tran,'today_date':date, cpt:sess.usercpt});
+        res.render('research_fields_detail', {'field': field, name:sess.username, tran_value:tran,'today_date':date, cpt:sess.usercpt, isthis:isthis});
     });
 });
 

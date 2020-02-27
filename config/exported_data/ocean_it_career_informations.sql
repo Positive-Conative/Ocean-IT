@@ -73,12 +73,12 @@ INSERT INTO `career_informations` VALUES (21,6,'호서대','정보통신공학',
 
 
 INSERT INTO `career_informations` VALUES (11,7,'호서대','정보통신공학','석사');
-INSERT INTO `career_informations` VALUES (11,7,'호서대','정보통신공학','학사');
+INSERT INTO `career_informations` VALUES (12,7,'호서대','정보통신공학','학사');
 
 
-INSERT INTO `career_informations` VALUES (12,8,'Kookmin University','Business IT','박사');
-INSERT INTO `career_informations` VALUES (13,8,'VIT University','Computer Science and Engineering','석사');
-INSERT INTO `career_informations` VALUES (14,8,'S.V.University','Business IT','학사');
+INSERT INTO `career_informations` VALUES (13,8,'Kookmin University','Business IT','박사');
+INSERT INTO `career_informations` VALUES (14,8,'VIT University','Computer Science and Engineering','석사');
+INSERT INTO `career_informations` VALUES (15,8,'S.V.University','Business IT','학사');
 
 
 

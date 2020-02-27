@@ -9,28 +9,39 @@
 <section id="main" class="wrapper">
     <div class="row uniform">
         <div class="1u 12u$(xsmall)"></div>
-            <%include includes/treebar.ejs%>
+        <div class="2u 12u$(xsmall)">
+            <div class="table-wrapper">
+                <table class="alt">
+                    <tbody style="text-align: center;">
+                        <tr style="cursor: pointer" onclick="location.href='/research_main'" >
+                            <td>Main<span style="float:right;"><</span></td>
+                          </tr>
+                          <tr style="cursor: pointer" onclick="location.href='/research_results/page/1'" >
+                            <td>전체보기<span style="float:right;">></span></td>
+                          </tr>
+                        <tr style="cursor: pointer" onclick="location.href='/research_results/select/1/1'" >
+                            <td>논문<span style="float:right;">></span></td>
+                        </tr>
+                        <tr style="cursor: pointer" onclick="location.href='/research_results/select/2/1'" >
+                            <td>특허<span style="float:right;">></span></td>
+                        </tr>
+                        <tr style="cursor: pointer" onclick="location.href='/research_results/select/3/1'" >
+                            <td>발표<span style="float:right;">></span></td>
+                        </tr>
+                        <tr style="cursor: pointer" onclick="location.href='/research_results/select/4/1'" >
+                            <td>저서<span style="float:right;">></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <div class="8u 12u$(xsmall)">
             <div class="inner">
                 <header class="align-center">
-                    <h2><%=__('research_results_title')%></h2>
+                    <h2>연구 성과(<%=isthis%>)</h2>
                     <p><%=__('research_results_subtitle')%></p>
                 </header>
-                <div class="12u$">
-                    <div class="select-wrapper">
-                        <div style="float:right">
-                            <select name="category" id="category" style="width : 200px;" onchange="if(this.value) location.href=(this.value);">
-                                <option value=""><%=__('research_results_category0')%></option>
-                                <option value="/research_results/page/1"><%=__('research_results_category1')%></option>
-                                <option value="/research_results/select/1/1"><%=__('research_results_category2')%></option>
-                                <option value="/research_results/select/2/1"><%=__('research_results_category3')%></option>
-                                <option value="/research_results/select/3/1"><%=__('research_results_category4')%></option>
-                                <option value="/research_results/select/4/1"><%=__('research_results_category5')%></option>
-                            </select>
-                        </div>
-                        <br><br><br>
-                    </div>
-                </div>
+
                 <div class="table-wrapper">
                     <table class="align-center">
                         <thead>

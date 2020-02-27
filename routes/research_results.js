@@ -4,6 +4,7 @@ var router = express.Router();
 var s_select;
 var s_data;
 var recheck=0;
+var isthis="논문";
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -14,22 +15,27 @@ router.get('/', function(req, res, next) {
 router.get('/select/:sel/:num', function(req, res, next) {
     const sess = req.session;
     var tran = res.cookie('lang').locale;
+    recheck=0;
     switch(req.params.sel){
         case "1":
             var val = "select * from research_results where classification_ko='논문';";
             var check = 1;
+            isthis="논문";
             break;
         case "2":
             var val = "select * from research_results where classification_ko='특허';";
             var check = 2;
+            isthis="특허";
             break;
         case "3":
             var val = "select * from research_results where classification_ko='발표';";
             var check = 3;
+            isthis="발표";
             break;
         case "4":
             var val = "select * from research_results where classification_ko='저서';";
             var check = 4;
+            isthis="저서";
             break;
     }
     db.query(val,function (error, fields) {
@@ -44,7 +50,7 @@ router.get('/select/:sel/:num', function(req, res, next) {
             res.cookie('lang', 'ko');
           break;
         }
-        res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt});
+        res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt, isthis:isthis});
     });
 });
 router.post('/select/:sel/:num', function(req, res, next) {
@@ -83,7 +89,7 @@ router.post('/select/:sel/:num', function(req, res, next) {
             res.cookie('lang', 'ko');
           break;
         }
-        res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt});
+        res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt, isthis:"전체"});
     });
 });
 
@@ -104,7 +110,7 @@ router.get('/page/:num', function(req, res, next) {
                 res.cookie('lang', 'ko');
               break;
             }
-            res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt});
+            res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt, isthis:"전체"});
         });
     }
     else{
@@ -137,7 +143,7 @@ router.get('/page/:num', function(req, res, next) {
                 res.cookie('lang', 'ko');
               break;
             }
-            res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt});
+            res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt, isthis:"전체"});
         });
     }
 
@@ -172,7 +178,7 @@ router.post('/page/:num', function(req, res, next) {
         if(error){
             throw error;
         }
-        res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt});
+        res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt, isthis:"전체"});
     });
 });
 
@@ -191,7 +197,7 @@ router.get('/detail/:num', function(req, res, next) {
             res.cookie('lang', 'ko');
           break;
         }
-        res.render('research_results_detail', {'field': field, name:sess.username, tran_value:tran, cpt:sess.usercpt});
+        res.render('research_results_detail', {'field': field, name:sess.username, tran_value:tran, cpt:sess.usercpt, isthis:isthis});
     });
 });
 router.get('/write', function(req, res, next) {
@@ -204,7 +210,7 @@ router.get('/write', function(req, res, next) {
         res.cookie('lang', 'ko');
       break;
     }
-    res.render('research_results_write_page', {name:sess.username, cpt:sess.usercpt});
+    res.render('research_results_write_page', {name:sess.username, cpt:sess.usercpt, isthis:isthis});
 });
 router.post('/write', function(req, res, next) {
     const sess = req.session;
