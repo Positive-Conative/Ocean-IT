@@ -3,7 +3,7 @@
 <section id="main" class="wrapper">
     <div class="inner">
         <header class="align-center">
-            <h2><%=__('research_results_detail_title')%></h2>
+            <h2><%=__('research_results_detail_title')%>(<%=isthis%>)</h2>
             <p><%=__('research_results_detail_subtitle')%></p>
         </header>
         <hr class="major"/>
@@ -12,44 +12,94 @@
             <table class="align-center">
                 <thead>
                 <div class="table-wrapper">
-                    <table class="alt">
-                        <tbody class="align-center">
-                        <tr>
-                            <td><%=__('research_results_detail_menu1')%></td>
-                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.result_name_ko%><%} else{%><%=row.result_name_en%><%}%></td>
-                            <td><%=__('research_results_detail_menu2')%></td>
-                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.classification_ko%><%} else{%><%=row.classification_en%><%}%></td>
-                        </tr>
-                        <tr>
-                            <td><%=__('research_results_detail_menu3')%></td>
-                            <td class="align-left"><%if(tran_value=='ko'){%>해양IT 연구소<%} else{%>Ocean-it<%}%></td>
-                            <td><%=__('research_results_detail_menu4')%></td>
-                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.writers_ko%><%} else{%><%=row.writers_en%><%}%></td>
-                        </tr>
-                        <tr>
-                            <td><%=__('research_results_detail_menu5')%></td>
-                            <td class="align-left"><%=row.p_date%></td>
-                            <td><%=__('research_results_detail_menu6')%></td>
-                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.academic_journal_ko%><%} else{%><%=row.academic_journal_en%><%}%></td>
-                        </tr>
-                        <tr>
-                            <td><%=__('research_results_detail_menu7')%></td>
-                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.country_ko%><%} else{%><%=row.country_en%><%}%></td>
-                            <td><%=__('research_results_detail_menu8')%></td>
-                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.announce_media_ko%><%} else{%><%=row.announce_media_en%><%}%></td>
-                        </tr>
-                        <tr>
-                            <td><%=__('research_results_detail_menu9')%></td>
-                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.relation_task_ko%><%} else{%><%=row.relation_task_en%><%}%></td>
-                            <td><%=__('research_results_detail_menu10')%></td>
-                            <td class="align-left">-</td>
-                        </tr>
-                        <tr>
-                            <td><%=__('research_results_detail_menu11')%></td>
-                            <td colspan="3" class="align-left"><%if(tran_value=='ko'){%><%=row.abstract_ko%><%} else{%><%=row.abstract_en%><%}%></td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <%if(isthis=='논문'){%>
+                        <table class="alt">
+                            <tbody class="align-center">
+                            <tr>    
+                                <td>구분</td>
+                                <td class="align-left"><%if(tran_value=='ko'){%><%=row.abstract_ko%><%} else{%><%=row.abstract_en%><%}%></td>
+                                <td>논문명</td>
+                                <td class="align-left"><%if(tran_value=='ko'){%><%=row.result_name_ko%><%} else{%><%=row.result_name_en%><%}%></td>
+                            </tr>
+                            <tr>
+                                <td>게재지(권, 쪽)</td>
+                                <td class="align-left"><%if(tran_value=='ko'){%><%=row.academic_journal_ko%><%} else{%><%=row.academic_journal_en%><%}%></td>
+                                <td>게재연도</td>
+                                <td class="align-left"><%=row.p_date%></td>
+                            </tr>
+                            <tr>
+                                <td>저자명</td>
+                                <td colspan="3" class="align-left"><%if(tran_value=='ko'){%><%=row.writers_ko%><%} else{%><%=row.writers_en%><%}%></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <%}else if(isthis=='특허'){%>
+                            <table class="alt">
+                                <tbody class="align-center">
+                                <tr>        
+                                    <td>구분</td>
+                                    <td class="align-left"><%if(tran_value=='ko'){%><%=row.abstract_ko%><%} else{%><%=row.abstract_en%><%}%></td>
+                                    <td>특허명</td>
+                                    <td class="align-left"><%if(tran_value=='ko'){%><%=row.result_name_ko%><%} else{%><%=row.result_name_en%><%}%></td>
+                                </tr>
+                                <tr>
+                                    <td>국가명</td>
+                                    <td class="align-left"><%if(tran_value=='ko'){%><%=row.country_ko%><%} else{%><%=row.country_en%><%}%></td>
+                                    <td>출원 / 등록일</td>
+                                    <td class="align-left"><%=row.p_date%></td>
+                                </tr>
+                                <tr>
+                                    <td>발명자</td>
+                                    <td class="align-left"><%if(tran_value=='ko'){%><%=row.writers_ko%><%} else{%><%=row.writers_en%><%}%></td>
+                                    <td>출원 / 등록번호</td>
+                                    <td class="align-left"><%if(tran_value=='ko'){%><%=row.relation_task_ko%><%} else{%><%=row.relation_task_en%><%}%></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        <%}else {%>
+                            <table class="alt">
+                                <tbody class="align-center">
+                                <tr>
+        
+                                    <td><%=__('research_results_detail_menu1')%></td>
+                                    <td class="align-left"><%if(tran_value=='ko'){%><%=row.result_name_ko%><%} else{%><%=row.result_name_en%><%}%></td>
+                                    <td><%=__('research_results_detail_menu2')%></td>
+                                    <td class="align-left"><%if(tran_value=='ko'){%><%=row.classification_ko%><%} else{%><%=row.classification_en%><%}%></td>
+                                </tr>
+                                <tr>
+                                    <td><%=__('research_results_detail_menu3')%></td>
+                                    <td class="align-left"><%if(tran_value=='ko'){%>해양IT 연구소<%} else{%>Ocean-it<%}%></td>
+                                    <td><%=__('research_results_detail_menu4')%></td>
+                                    <td class="align-left"><%if(tran_value=='ko'){%><%=row.writers_ko%><%} else{%><%=row.writers_en%><%}%></td>
+                                </tr>
+                                <tr>
+                                    <td><%=__('research_results_detail_menu5')%></td>
+                                    <td class="align-left"><%=row.p_date%></td>
+                                    <td><%=__('research_results_detail_menu6')%></td>
+                                    <td class="align-left"><%if(tran_value=='ko'){%><%=row.academic_journal_ko%><%} else{%><%=row.academic_journal_en%><%}%></td>
+                                </tr>
+                                <tr>
+                                    <td><%=__('research_results_detail_menu7')%></td>
+                                    <td class="align-left"><%if(tran_value=='ko'){%><%=row.country_ko%><%} else{%><%=row.country_en%><%}%></td>
+                                    <td><%=__('research_results_detail_menu8')%></td>
+                                    <td class="align-left"><%if(tran_value=='ko'){%><%=row.announce_media_ko%><%} else{%><%=row.announce_media_en%><%}%></td>
+                                </tr>
+                                <tr>
+                                    <td><%=__('research_results_detail_menu9')%></td>
+                                    <td class="align-left"><%if(tran_value=='ko'){%><%=row.relation_task_ko%><%} else{%><%=row.relation_task_en%><%}%></td>
+                                    <td><%=__('research_results_detail_menu10')%></td>
+                                    <td class="align-left">-</td>
+                                </tr>
+                                <tr>
+                                    <td><%=__('research_results_detail_menu11')%></td>
+                                    <td colspan="3" class="align-left"><%if(tran_value=='ko'){%><%=row.abstract_ko%><%} else{%><%=row.abstract_en%><%}%></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        <%}%>
+
                 </div>
                 </thead>
             </table>

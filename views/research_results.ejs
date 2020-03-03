@@ -52,32 +52,85 @@
                                     text-align: center;
                                 }
                             </style>
-                            <th style="width:67px"><%=__('research_results_menu5')%></th>
-                            <th><%=__('research_results_menu1')%></th>
-                            <th><%=__('research_results_menu2')%></th>
-                            <th><%=__('research_results_menu3')%></th>
-                            <th><%=__('research_results_menu4')%></th>
+                            <%if(isthis=='논문'){%>
+                                <th style="width:67px">구분</th>
+                                <th>논문명</th>
+                                <th>게재지(권, 쪽)</th>
+                                <th>저자명</th>
+                                <th>게재연도</th>
+                            <%}else if(isthis=='특허'){%>
+                                <th>구분</th>
+                                <th>특허명</th>
+                                <th>국가명</th>
+                                <th>출원/등록일</th>
+                                <th>발명자</th>
+                                <th>출원/등록번호</th>
+                            <%}else{%>
+                                <th><%=__('research_results_menu1')%></th>
+                                <th><%=__('research_results_menu2')%></th>
+                                <th><%=__('research_results_menu3')%></th>
+                                <th><%=__('research_results_menu4')%></th>
+                            <%}%>
+                            
                         </tr>
                         </thead>
                         <tbody>
+
                         <%for(var i = (page_num - 1) * 7; i < page_num * 7; i++){%>
                             <%var row = research_results_table[i]
                                 if(row === undefined) continue;
                             %>
                             <tr style="cursor: pointer" onclick="location.href='/research_results/detail/<%=row.rrid%>'" >
-                                <%if(tran_value=='ko'){%>
-                                <td><%= row.classification_ko%><%=row.rid%></td>
-                                <td><%= row.result_name_ko%></td>
-                                <td><%= row.academic_journal_ko%></td>
-                                <td><%= row.writers_ko%></td>
-                                <td><%= row.p_date%></td>
-                                <%}else{%>
-                                <td><%= row.classification_en%><%=row.rid%></td>
-                                <td><%= row.result_name_en%></td>
-                                <td><%= row.academic_journal_en%></td>
-                                <td><%= row.writers_en%></td>
-                                <td><%= row.p_date%></td>
-                                <%}%>
+
+                                <%if(isthis=='논문'){%> 
+                                    <%if(tran_value=='ko'){%>
+                                        <td><%= row.abstract_ko%></td>
+                                        <td><%= row.result_name_ko%></td>
+                                        <td><%= row.academic_journal_ko%></td>
+                                        <td><%= row.writers_ko%></td>
+                                    <%}else{%>
+                                        <td><%= row.abstract_en%></td>
+                                        <td><%= row.result_name_en%></td>
+                                        <td><%= row.academic_journal_en%></td>
+                                        <td><%= row.writers_en%></td>
+                                    <%}%>
+                                    <td><%= row.p_date%></td>
+
+                                    <!-- 구분 -->
+
+                                <%}else if(isthis=='특허'){%>
+                                    <%if(tran_value=='ko'){%>
+                                        <td><%= row.abstract_ko%></td>
+                                        <td><%= row.result_name_ko%></td>
+                                        <td><%= row.country_ko%></td>
+                                        <td><%= row.p_date%></td>
+                                        <td><%= row.writers_ko%></td>
+                                    <%}else{%>
+                                        <td><%= row.abstract_en%></td>
+                                        <td><%= row.result_name_en%></td>
+                                        <td><%= row.country_en%></td>
+                                        <td><%= row.p_date%></td>
+                                        <td><%= row.writers_en%></td>
+                                    <%}%>
+                                    <td><%= row.relation_task_ko%></td>
+
+                                     <!-- 구분 -->
+
+                                    <%}else{%> 
+                                        <%if(tran_value=='ko'){%>
+                                            <td><%= row.classification_ko%><%=row.rid%></td>
+                                            <td><%= row.result_name_ko%></td>
+                                            <td><%= row.academic_journal_ko%></td>
+                                            <td><%= row.writers_ko%></td>
+                                            <td><%= row.p_date%></td>
+                                        <%}else{%>
+                                            <td><%= row.classification_en%><%=row.rid%></td>
+                                            <td><%= row.result_name_en%></td>
+                                            <td><%= row.academic_journal_en%></td>
+                                            <td><%= row.writers_en%></td>
+                                            <td><%= row.p_date%></td>
+                                        <%}%>
+                                    <%}%>
                             </tr>
                         <%}%>
                         </tbody>
