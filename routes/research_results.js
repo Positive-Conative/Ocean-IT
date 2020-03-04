@@ -18,22 +18,22 @@ router.get('/select/:sel/:num', function(req, res, next) {
     recheck=0;
     switch(req.params.sel){
         case "1":
-            var val = "select * from research_results where classification_ko='논문';";
+            var val = "select * from research_results where classification_ko='논문' order by p_date desc;";
             var check = 1;
             isthis="논문";
             break;
         case "2":
-            var val = "select * from research_results where classification_ko='특허';";
+            var val = "select * from research_results where classification_ko='특허' order by p_date desc;";
             var check = 2;
             isthis="특허";
             break;
         case "3":
-            var val = "select * from research_results where classification_ko='발표';";
+            var val = "select * from research_results where classification_ko='발표' order by p_date desc;";
             var check = 3;
             isthis="발표";
             break;
         case "4":
-            var val = "select * from research_results where classification_ko='저서';";
+            var val = "select * from research_results where classification_ko='저서' order by p_date desc;";
             var check = 4;
             isthis="저서";
             break;
@@ -75,7 +75,7 @@ router.post('/select/:sel/:num', function(req, res, next) {
             break;
     }
     var query1 = 'select * from research_results where ';
-    var query4 = '%"';
+    var query4 = '%" order by p_date desc';
     var fin = query1 + query2 + s_data + query3 + s_data + query4;
     db.query(fin, function (error, fields) {
         if(error){
@@ -98,7 +98,7 @@ router.get('/page/:num', function(req, res, next) {
     var tran = res.cookie('lang').locale;
     var check = 0;
     if(recheck ==0){
-        db.query(`select * from research_results`, function (error, fields) {
+        db.query(`select * from research_results order by p_date desc`, function (error, fields) {
             if(error){
                 throw error;
             }
@@ -129,7 +129,7 @@ router.get('/page/:num', function(req, res, next) {
                 break;
         }
         var query1 = 'select * from research_results where ';
-        var query4 = '%"';
+        var query4 = '%" order by p_date desc';
         var fin = query1 + query2 + s_data + query3 + s_data + query4;
         db.query(fin, function (error, fields) {
             if(error){
@@ -172,7 +172,7 @@ router.post('/page/:num', function(req, res, next) {
             break;
     }
     var query1 = 'select * from research_results where ';
-    var query4 = '%"';
+    var query4 = '%" order by p_date desc';
     var fin = query1 + query2 + s_data + query3 + s_data + query4;
     db.query(fin, function (error, fields) {
         if(error){
