@@ -4,6 +4,7 @@ var router = express.Router();
 
 router.get('/', function (req, res, next) {
     const sess = req.session;
+    console.log("+++++++++++++++++++++++++++++"+req.query.data);
     switch(sess.langcheck){
       case 0:
         res.cookie('lang', 'en');
@@ -16,7 +17,7 @@ router.get('/', function (req, res, next) {
       if(error){
           throw error;
       }
-      res.render('introduction', {name:sess.username, intro_data : data, tran_value : res.cookie('lang').locale});
+      res.render('introduction', {name:sess.username, intro_data : data, tran_value : res.cookie('lang').locale, data_value:req.query.data});
     });
 });
 

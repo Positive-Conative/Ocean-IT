@@ -47,7 +47,7 @@ INSERT INTO `members` VALUES (1,'고학림','HakLim Ko','정보통신공학부',
 INSERT INTO `members` VALUES (2,'임태호','Tae-Ho Im','정보통신공학부','조교수','041-540-9642','taehoim@hoseo.edu','임태호.jpg');
 INSERT INTO `members` VALUES (3,'조용호','Yong-Ho Cho','정보통신공학부','조교수','041-540-9565','ykcho@hoseo.edu','조용호.jpg');
 INSERT INTO `members` VALUES (4,'김계원','Gye-Won Kim','정보통신공학부 ','조교수','041-540-9565','kwkim@hoseo.edu','김계원.jpg');
-INSERT INTO `members` VALUES (5,'박래호','RaeHo Park','해양IT융합기술연구소','연구위원','- 041-540-5945','- kamrosoo4900@daum.net','박래호.png');
+INSERT INTO `members` VALUES (5,'박래호','RaeHo Park','해양IT융합기술연구소','연구위원','- 041-540-5945','- kamrosoo4900@daum.net','noimg.jpg');
 INSERT INTO `members` VALUES (6,'김민상','Min-Sang Kim','해양IT융합기술연구소','연구교수','041-540-9565','minsang@hoseo.edu','김민상.jpg');
 INSERT INTO `members` VALUES (7,'차민혁','Min-Hyeok Cha','해양IT융합기술연구소','연구원','041-540-9565','dwmh86@hoseo.edu','차민혁.jpg');
 INSERT INTO `members` VALUES (8,'난디만달람모함','Mohan Krishna Varma Nandimandalam','해양IT융합기술연구소','연구원','041-540-9565','drmohankvn@hoseo.edu','난디만달람모함.jpg');
