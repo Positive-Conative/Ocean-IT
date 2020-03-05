@@ -16,7 +16,7 @@ USE `ocean_it`;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
+UNLOCK TABLES;
 --
 -- Table structure for table `career_informations`
 --
@@ -72,22 +72,22 @@ INSERT INTO `career_informations` VALUES (21,6,'호서대','정보통신공학',
 
 
 
-INSERT INTO `career_informations` VALUES (11,7,'호서대','정보통신공학','석사');
-INSERT INTO `career_informations` VALUES (12,7,'호서대','정보통신공학','학사');
+INSERT INTO `career_informations` VALUES (22,7,'호서대','정보통신공학','석사');
+INSERT INTO `career_informations` VALUES (23,7,'호서대','정보통신공학','학사');
 
 
-INSERT INTO `career_informations` VALUES (13,8,'Kookmin University','Business IT','박사');
-INSERT INTO `career_informations` VALUES (14,8,'VIT University','Computer Science and Engineering','석사');
-INSERT INTO `career_informations` VALUES (15,8,'S.V.University','Business IT','학사');
+INSERT INTO `career_informations` VALUES (24,8,'Kookmin University','Business IT','박사');
+INSERT INTO `career_informations` VALUES (25,8,'VIT University','Computer Science and Engineering','석사');
+INSERT INTO `career_informations` VALUES (26,8,'S.V.University','Business IT','학사');
 
 
 
-INSERT INTO `career_informations` VALUES (16,9,'호서대','정보통신공학','박사');
-INSERT INTO `career_informations` VALUES (17,9,'호서대','정보통신공학','석사');
-INSERT INTO `career_informations` VALUES (18,9,'호서대','정보통신공학','학사');
+INSERT INTO `career_informations` VALUES (27,9,'호서대','정보통신공학','박사');
+INSERT INTO `career_informations` VALUES (28,9,'호서대','정보통신공학','석사');
+INSERT INTO `career_informations` VALUES (29,9,'호서대','정보통신공학','학사');
 
 
-INSERT INTO `career_informations` VALUES (19,10,'호서대','정보통신공학','학사');
+INSERT INTO `career_informations` VALUES (30,10,'호서대','정보통신공학','학사');
 
 
 
