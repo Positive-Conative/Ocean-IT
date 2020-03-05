@@ -1,10 +1,10 @@
-CREATE DATABASE  IF NOT EXISTS `ocean_it` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+
 USE `ocean_it`;
 -- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: ocean_it
 -- ------------------------------------------------------
--- Server version	8.0.15
+-- Server version   8.0.15
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -85,7 +85,7 @@ __연구목표 한글___, _영문목표 영문__, , ___연구내용한글____,,_
  ,'2015-05-01','2021-01-31','고학림','Hak-Lim Ko','호서대학교','Hoseo univ'),
  
  
- /*(2, '수중음향통신을 위한 기계학습 기반 링크적응형 송수신 기법 연구 ',' A Study on Link Adaptive Transmission and Reception Technique based on Machine Learning for Underwater Acoustic Communications',' 주관 ',' Organize ',' 한국연구재단 ','Korea Research Foundation ','','
+ /*(2, '수중음향통신을 위한 기계학습 기반 링크적응형 송수신 기법 연구 ',' A Study on Link Adaptive Transmission and Reception Technique based on Machine Learning for Underwater Acoustic Communication',' 주관 ',' Organize ',' 한국연구재단 ','Korea Research Foundation ','','
 __연구목표 한글___, _영문목표 영문__, , ___연구내용한글____,,___연구내용영문_____,기대성과 한글, 기대성과 영문, 2017-09-01','2020-08-31', '임태호 ', 'Im Tae Ho ','소속한글' ','소속영어');*/
 
 (2,'수중음향통신을 위한 기계학습 기반 링크적응형 송수신 기법 연구','A Study on Link Adaptive Transmission and Reception Technique based on Machine Learning for Underwater Acoustic Communication','주관','Organize ','한국연구재단','Korea Research Foundation','수중음향통신은 지상의 전파를 이용한 무선 통신 기술과 달리 주로 음파를 이용한다. 음파는 매우 저속이며 시간에 따른 다중 경로와 해수면과 해저면에서의 반사가 발생한다. 또한 수온, 염분, 수압, 해류와 해저지형 등에 의해 신호의 왜곡 및 손실이 일어나기 때문에 수중음향통신은 지상에서 전파를 이용한 통신에 비하여 매우 어려운 일이다. 본 연구에서는 다양한 수중음향채널에서 안정적인 성능으로 통신을 가능하게 위하여 수중음향채널 상태에 따라 적응적으로 물리계층의 송수신 방식을 결정하는 알고리즘 개발을 목표로 한다. 수중음향채널의 상태에 따른 송수신 방식을 결정을 기계학습을 이용하여 최적화할 수 있도록 연구하고자 한다. 특히, OFDM 기반의 수중음향통신 모뎀을 위한 기계학습 기반 링크적응형 송수신 파라미터 선정 알고리즘 개발을 목표로 한다.'
@@ -138,7 +138,7 @@ __연구목표 한글___, _영문목표 영문__, , ___연구내용한글____,,_
 ,'
 ㅇ5G, 빅데이터, 딥러닝으로 대표되는 ICT융합신기술을 중심으로 기존 산업이 개편되고, 제4차 산업혁명의 도래에 따라 지능정보서비스의 수요가 폭발적으로 증대될 것으로 예상
  
- ㅇ 이에 따라, 호서대학교는 초연결ㆍ고신뢰산업지능센터& #40;HCIC, CLoud and AI Research Center& 설립하여 5G빅데이터 센서, 보안기반 빅데이터플랫폼 및 산업별 딥러닝 적용 모델을 제공하기 위한 원천 기술을 개발하고, 이를 충청권의 주력 산업인 제조분야와 미래 먹거리로 육성중인 해양ㆍ항만 산업분야에 특화시켜 적용
+ ㅇ 이에 따라, 호서대학교는 초연결ㆍ고신뢰산업지능센터& #40;HCIC, CLoud and AI Research Center& #41;를 설립하여 5G빅데이터 센서, 보안기반 빅데이터플랫폼 및 산업별 딥러닝 적용 모델을 제공하기 위한 원천 기술을 개발하고, 이를 충청권의 주력 산업인 제조분야와 미래 먹거리로 육성중인 해양ㆍ항만 산업분야에 특화시켜 적용
  
  ㅇ 이를 바탕으로 해양 빅데이터사이언티스트, 5G기반 지능정보제조솔루션 전문가 등 신산업 인력 수요에 대응한 고급인력을 양성하여 4차 산업혁명 시대에 충남권은 물론 전 국가 산업 발전에 기여하도록 함
 ','
@@ -158,27 +158,16 @@ __연구목표 한글___, _영문목표 영문__, , ___연구내용한글____,,_
  
  ㅇ 지방분권에 흐름에 부응하여 지역의 제조·생산 현장의 빅데이터, AI, 5G 전문인력 부족 수요에 대해 충남권 석·박사 전문 인력양성 및 관련 일자리로 연계 확대
  
- ㅇ 빅데이터, 딥러닝, 5G 기술 진흥을 통해 우리나라 수출 주력산업인 ICT제조& 반도체, 디스플레이& #41; 자동차, 바이오 산업의 글로벌 경쟁력을 강화
+ ㅇ 빅데이터, 딥러닝, 5G 기술 진흥을 통해 우리나라 수출 주력산업인 ICT제조& #40;반도체, 디스플레이& #41; 자동차, 바이오 산업의 글로벌 경쟁력을 강화
 ','ㅇThrough this research, it contributes to accumulation of R & D, securing of output and technology transfer for activation of big data, AI, 5G introduction of manufacturing industry  
 - Furthermore, it is expected to solve various social problems such as revitalizing manufacturing IT companies, creating IT-based jobs, assuring sustainable growth of small and medium-sized enterprises
  
- ㅇ In response to the trend toward decentralization, we are expanding the linkage with the training of professional engineers in Chungnam region and related jobs for the demand of big data, AI, 5G professional manpower shortage in local manufacturing and production sites.  ㅇ ICT manufacturing, which is Korea`s main export industry, through Big Data, Deep Learning, and 5G technology promotion. Strengthen global competitiveness of automobile and bio industry.
- ','2018-06-01','2021-12-31','고학림','Hak-Lim Ko','호서대학교','Hoseo Univ'),
+ ㅇ In response to the trend toward decentralization, we are expanding the linkage with the training of professional engineers in Chungnam region and related jobs for the demand of big data, AI, 5G professional manpower shortage in local manufacturing and production sites.  ㅇ ICT manufacturing, which is Korea`s main export industry, through Big Data, Deep Learning, and 5G technology promotion. Strengthen global competitiveness of automobile and bio industry
+ ','2018-06-01','2021-12-31','고학림','Hak-Lim Ko','호서대학교','hoseo univ'),
  
  
 
-(5,'5번과제','asdf','위탁',NULL,'Test',NULL,'Test','Test','Test','Test','Test','Test','2016-10-12','2019-07-28','123',NULL,'호서대학교','hoseo univ');
-
-
-
-
-
-
-
-
-
-
-
+(5,'5번과제','asdf','위탁',NULL,'ㅁㄴㅇㅁㄴㅇ',NULL,'ㅁㄴㅇㅁㄴㅇ','ㅁㄴㅇㅁㄴㅇ','ㅁㄴㅇㅁㄴ','ㅇㅁㄴㅇㅁㄴㅇ','ㄴㅁㅇㅁㄴㅇ','ㅁㄴㅇㅁㄴㅇ','2016-10-12','2019-07-28','123',NULL,'호서대학교','hoseo univ');
 
 
 /*!40000 ALTER TABLE `research_fields` ENABLE KEYS */;
@@ -194,7 +183,6 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2019-06-01 20:47:19
-
 
 
 
