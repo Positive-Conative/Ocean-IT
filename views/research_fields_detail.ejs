@@ -15,20 +15,31 @@
                     <table class="alt">
                         <tbody class="align-center">
                         <tr>
-                            <td style="width:155px"><%=__('research_fields_detail_category1')%></td>
+                            <td style="width:155px">과제명</td>
                             <td class="align-left" colspan="4"><%if(tran_value=='ko'){%><%=row.research_name_ko%><%} else{%><%=row.research_name_en%><%}%></td>
                         </tr>
                         <tr>
-                            <td><%=__('research_fields_detail_category2')%></td>
-                            <td class="align-left"><%if(tran_value=='ko'){%>해양IT 연구소<%} else{%>Ocean-it<%}%></td>
+                            <td>사업명</td>
+                            <td class="align-left" colspan="4"><%if(tran_value=='ko'){%><%=row.business_name_ko%><%} else{%><%=row.business_name_en%><%}%></td>
+                        </tr>
+                        <tr>
+                            <td>부처</td>
+                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.department_name_ko%><%} else{%><%=row.department_name_en%><%}%></td>
+                            <td>지원기관</td>
+                            <td class="align-left" colspan="3"><%if(tran_value=='ko'){%><%=row.support_organization_ko%><%} else{%><%=row.support_organization_en%><%}%></td>
+                        </tr>
+
+                        <tr>
+                            <td>주관기관</td>
+                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.subjectivity_organization_ko%><%} else{%><%=row.subjectivity_organization_en%><%}%></td>
                             <td rowspan="2" style="vertical-align:middle;width:178px"><%=__('research_fields_detail_category3')%></td>
-                            <td><%=__('research_fields_detail_category4')%></td>
+                            <td>성명</td>
                             <td class="align-left"><%if(tran_value=='ko'){%><%=row.research_charge_ko%><%} else{%><%=row.research_charge_en%><%}%></td>
                         </tr>
                         <tr>
-                            <td><%=__('research_fields_detail_category5')%></td>
-                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.support_organization_ko%><%} else{%><%=row.support_organization_en%><%}%></td>
-                            <td><%=__('research_fields_detail_category6')%></td>
+                            <td>참여기관</td>
+                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.participation_organization_ko%><%} else{%><%=row.participation_organization_en%><%}%></td>
+                            <td>소속</td>
                             <td class="align-left"><%if(tran_value=='ko'){%><%=row.research_charge_belong_ko%><%} else{%><%=row.research_charge_belong_en%><%}%></td>
                         </tr>
                         <tr>

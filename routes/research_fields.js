@@ -54,10 +54,6 @@ router.post('/select/:sel/:num', function(req, res, next) {
             var query3 = '%" or research_name_en like "%';
             break;
         case "2":
-            var query2 = 'support_organization_ko like "%';
-            var query3 = '%" or support_organization_en like "%';
-            break;
-        case "3":
             var query2 = 'research_charge_ko like "%';
             var query3 = '%" or research_charge_en like "%';
             break;
@@ -96,10 +92,6 @@ router.get('/page/:num', function(req, res, next) {
                 var query3 = '%" or research_name_en like "%';
                 break;
             case "2":
-                var query2 = 'support_organization_ko like "%';
-                var query3 = '%" or support_organization_en like "%';
-                break;
-            case "3":
                 var query2 = 'research_charge_ko like "%';
                 var query3 = '%" or research_charge_en like "%';
                 break;
@@ -129,10 +121,6 @@ router.post('/page/:num', function(req, res, next) {
             var query3 = '%" or research_name_en like "%';
             break;
         case "2":
-            var query2 = 'support_organization_ko like "%';
-            var query3 = '%" or support_organization_en like "%';
-            break;
-        case "3":
             var query2 = 'research_charge_ko like "%';
             var query3 = '%" or research_charge_en like "%';
             break;
@@ -174,14 +162,27 @@ router.get('/write', function(req, res, next) {
 });
 
 router.post('/write', function(req, res, next) {
+    console.log("hello");
     const sess = req.session;
     var body = req.body;
     var data = {
-        research_name_ko : body.r_research_name_ko,
-        research_name_en : body.r_research_name_en,
-        classification_ko : body.r_classification_ko,
-        classification_en : body.r_classification_en,
-        support_organization_ko : body.r_support_organization_ko,
+        research_name_ko : body.research_name_ko,
+        research_name_en : body.research_name_en,
+        business_name_ko : body.business_name_ko,
+        business_name_en : body.business_name_en,
+        department_name_ko : body.department_name_ko,
+        department_name_en : body.department_name_en,
+        subjectivity_organization_ko : body.subjectivity_organization_ko,
+        subjectivity_organization_en : body.subjectivity_organization_en,
+        support_organization_ko : body.support_organization_ko,
+        support_organization_en : body.support_organization_en,
+        participation_organization_ko : body.participation_organization_ko,
+        participation_organization_en : body.participation_organization_en,
+        research_charge_ko : body.research_charge_ko,
+        research_charge_en : body.research_charge_en,
+        research_charge_belong_ko : body.research_charge_belong_ko,
+        research_charge_belong_en : body.research_charge_belong_en,
+
         research_purpose_ko : body.r_research_purpose_ko,
         research_purpose_en : body.r_research_purpose_en,
         research_contents_ko : body.r_research_contents_ko,
@@ -189,9 +190,7 @@ router.post('/write', function(req, res, next) {
         research_expected_ko : body.r_research_expected_ko,
         research_expected_en : body.r_research_expected_en,
         date_start : body.r_date_start,
-        date_end : body.r_date_end,
-        research_charge_ko : body.r_research_charge_ko,
-        research_charge_belong_ko : body.r_research_charge_belong_ko
+        date_end : body.r_date_end
     };
 
     db.query(`INSERT INTO research_fields set ?`, data, function (error, field) {
@@ -223,8 +222,8 @@ router.post('/insert_research', function(req, res, next) {
     var data = {
         research_name_ko : body.research_Name_ko,
         research_name_en : body.research_Name_en,
-        classification_ko : body.classification_ko,
-        classification_en : body.classification_en,
+        business_ko : body.business_ko,
+        business_en : body.business_en,
         support_organization_ko : body.support_Agency_ko,
         support_organization_en : body.support_Agency_en,
         research_purpose_ko : body.research_goal_ko,

@@ -46,6 +46,7 @@
                         <th><%=__('research_fields_menu3')%></th>
                         <th><%=__('research_fields_menu4')%></th>
                         <th><%=__('research_fields_menu5')%></th>
+                        <th><%=__('research_fields_menu6')%></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -55,13 +56,15 @@
                         %>
                         <tr style="cursor: pointer" onclick="location.href='/research_fields/detail/<%= row.rid%>'" >
                             <%if(tran_value=='ko'){%>
-                                <td><%= row.classification_ko%></td>
                                 <td><%= row.research_name_ko%></td>
-                                <td><%= row.support_organization_ko%></td>
+                                <td><%= row.business_name_ko%></td>
+                                <td><%= row.subjectivity_organization_ko%></td>
+                                <td><%= row.research_charge_ko%></td>
                             <%}else{%>
-                                <td><%= row.classification_en%></td>
                                 <td><%= row.research_name_en%></td>
-                                <td><%= row.support_organization_en%></td>
+                                <td><%= row.business_name_en%></td>
+                                <td><%= row.subjectivity_organization_en%></td>
+                                <td><%= row.research_charge_en%></td>
                             <%}%>
     
                             <td><%= row.date_start + ' ~ '+ row.date_end%></td>
@@ -95,17 +98,16 @@
             </div>
             <form id="form_submit" method="post">
                 <div class="row uniform">
-                    <div class="2u 12u(medium)" style="float:left">
+                    <div class="3u 12u(medium)" style="float:left">
                     <select name="search_select" id="search_select">
                         <option value="1"><%=__('research_fields_search1')%></option>
-                        <option value="2"><%=__('research_fields_search2')%></option>
-                        <option value="3"><%=__('research_fields_search3')%></option>
+                        <option value="2"><%=__('research_fields_search3')%></option>
                     </select>
                     </div>
-                    <div class="3u 12u(medium)" style="float:left; padding-left:5px">
+                    <div class="4u 12u(medium)" style="float:left; padding-left:5px">
                         <input id="search_data" name="search_data" type="text" placeholder="<%=__('research_fields_search_data')%>" />
                     </div>
-                    <div class="1u 12u(medium)" style="float:left;padding-left:5px">
+                    <div class="2u 12u(medium)" style="float:left;padding-left:5px">
                         <input class="button special fit" style="text-align: center" type="button" value="<%=__('search_data')%>" onclick="document.getElementById('form_submit').submit();"/>
                     </div>
                 </div>
