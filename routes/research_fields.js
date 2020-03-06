@@ -10,7 +10,7 @@ var isthis="전체";
 /* GET home page. */
 router.get('/', function(req, res, next) {
     recheck=0;
-    res.redirect('research_fields/page/1');
+    res.redirect('/research_fields/select/1/1');
 });
 
 router.get('/select/:sel/:num', function(req, res, next) {

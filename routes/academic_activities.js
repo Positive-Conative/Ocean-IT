@@ -9,7 +9,7 @@ var isthis="포럼";
 /* GET home page. */
 router.get('/', function(req, res, next) {
     recheck=0;
-    res.redirect('academic_activities/page/1')
+    res.redirect('/academic_activities/select/1/1')
 });
 
 router.get('/select/:sel/:num', function(req, res, next) {

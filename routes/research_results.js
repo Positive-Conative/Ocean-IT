@@ -9,7 +9,7 @@ var isthis="논문";
 /* GET home page. */
 router.get('/', function(req, res, next) {
     recheck=0;
-    res.redirect('research_results/page/1')
+    res.redirect('/research_results/select/1/1')
 });
 
 router.get('/select/:sel/:num', function(req, res, next) {
