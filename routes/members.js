@@ -9,7 +9,6 @@ var local_filename;
 
 fs.readdir('members/', (error)=>{
   if(error){
-    console.log("err!");
     fs.mkdirSync("members");
   }
 });
@@ -20,8 +19,6 @@ var upload = multer({
     },
   filename(req,file,cb){
       const ext = path.extname(file.originalname);
-          console.log(ext);
-
       New_File_Name = path.basename(file.originalname, ext) + new Date().valueOf()+ext;
       cb(null, New_File_Name);
     },
@@ -30,13 +27,16 @@ var upload = multer({
 });
 router.post('/img', upload.single('img'), (req,res)=>{
   local_filename =req.file.filename;
-  console.log("++++++++++++++++++++++++++++++++++++"+local_filename);
   res.json({url:local_filename});
 })
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-    var tran = res.cookie('lang').locale;
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    console.log("멤저"+req.session.lang)
+    var tran = req.session.lang;
     const sess = req.session;
     var members_table;
     db.query(`select * from members`, function (error, members) {
@@ -44,28 +44,14 @@ router.get('/', function (req, res, next) {
             throw error;
         }
         members_table = members;
-        switch(sess.langcheck){
-          case 0:
-            res.cookie('lang', 'en');
-          break;
-          case 1:
-            res.cookie('lang', 'ko');
-          break;
-        }
         res.render('members', {'members_table': members_table, name:sess.username, tran_value:tran, cpt:sess.usercpt});
     });
 });
 
 router.get('/registration_member', function(req, res, next) {
-    const sess = req.session;
-    switch(sess.langcheck){
-      case 0:
-        res.cookie('lang', 'en');
-      break;
-      case 1:
-        res.cookie('lang', 'ko');
-      break;
-    }
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
     res.render('registration_member', {name:sess.username, cpt:sess.usercpt});
 });
 
@@ -78,7 +64,6 @@ router.post('/registration_member', upload.single('file_upload'), function (req,
     if(local_filename === undefined){
         local_filename = 'default-profile-image.png'
     }
-    console.log("hello world!" + local_filename);
     var params_members = {
       mid: '0',
       name_ko: body.name_ko,
@@ -93,9 +78,8 @@ router.post('/registration_member', upload.single('file_upload'), function (req,
 
     db.query(insert_query_members, params_members, function (err, rows, fields) {
         if(err){
-            console.log(err);
+           throw err;       
         }else{
-            console.log(body.degree_info);
             if(body.degree_info !== undefined){
                 for (var i in body.degree_info) {
                     var param_degree_info = [
@@ -108,7 +92,7 @@ router.post('/registration_member', upload.single('file_upload'), function (req,
                 }
                 db.query(insert_query_career_infomations, [params_career_informations], function (err, rows, fields) {
                     if(err){ //mysql 오류 발생 시
-                        console.log(err);
+                        throw err
                     }else{  //성공
                         params_career_informations = []; // 배열 초기화
                         res.redirect('/members/registration_member');
@@ -122,6 +106,10 @@ router.post('/registration_member', upload.single('file_upload'), function (req,
 });
 
 router.get('/member_detail/:mid', function (req, res, next) {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    
     const sess = req.session;
     var select_query_members = `select * from members where mid = ?`;
     var select_query_degree = `SELECT * FROM career_informations where mid = ?`;
@@ -134,24 +122,16 @@ router.get('/member_detail/:mid', function (req, res, next) {
             if(error){
                 throw error;
             }
-
-            console.log(degree[0]);
-            //console.log(degree[1]);
-            switch(sess.langcheck){
-              case 0:
-                res.cookie('lang', 'en');
-              break;
-              case 1:
-                res.cookie('lang', 'ko');
-              break;
-            }
             res.render('member_detail', {'member_info':member, 'member_degree':degree, name:sess.username, cpt:sess.usercpt});
         });
     });
 });
 
 router.get('/delete_member/:mid', function(req, res, next) {
-  console.log(req.params.mid);
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    
   db.query(`delete from career_informations where mid=?`,req.params.mid, function (error, data) {
     if(error){
         throw error;

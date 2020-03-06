@@ -1,13 +1,17 @@
 var express = require('express');//test
 var db = require('../config/db');
+var i18n = require('../config/i18n');
 var router = express.Router();
 /* GET home page. */
 router.get(['/', '/index'], function(req, res, next) {
+  if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+  else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+  else{res.cookie('lang', 'en');}
   const sess = req.session;
   var members_table;
   var research_fields;
   var research_results;
-  var tran = res.cookie('lang').locale;
+  var tran = req.session.lang;
   db.query(`select * from members`, function (error, members) {
     if(error){
       throw error;
@@ -23,14 +27,11 @@ router.get(['/', '/index'], function(req, res, next) {
           throw error;
         }
         research_results = result;
-        switch(sess.langcheck){
-          case 0:
-            res.cookie('lang', 'en');
-          break;
-          case 1:
-            res.cookie('lang', 'ko');
-          break;
-        }
+
+        if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+        else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+        else{res.cookie('lang', 'en');}
+        
         res.render('index', {'members_table': members_table , 'research_fields': research_fields, 'research_results': research_results, tran_value:tran, name:sess.username});
       });
     });
@@ -38,15 +39,13 @@ router.get(['/', '/index'], function(req, res, next) {
 });
 
 router.get('/ko', function (req, res) {
-sess = req.session;
-sess.langcheck = 1;
+  req.session.lang = "ko";
   res.cookie('lang', 'ko');
   res.redirect('back');
 });
 
 router.get('/en', function (req, res) {
-sess = req.session;
-sess.langcheck = 0;
+  req.session.lang = "en";
   res.cookie('lang', 'en');
   res.redirect('back');
 });

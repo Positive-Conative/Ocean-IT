@@ -3,21 +3,17 @@ var db = require('../config/db');
 var router = express.Router();
 
 router.get('/', function (req, res, next) {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    console.log("인트로"+req.session.lang)
+  
     const sess = req.session;
-    console.log("+++++++++++++++++++++++++++++"+req.query.data);
-    switch(sess.langcheck){
-      case 0:
-        res.cookie('lang', 'en');
-      break;
-      case 1:
-        res.cookie('lang', 'ko');
-      break;
-    }
     db.query(`select * from introduction`, function (error, data) {
       if(error){
           throw error;
       }
-      res.render('introduction', {name:sess.username, intro_data : data, tran_value : res.cookie('lang').locale, data_value:req.query.data});
+      res.render('introduction', {name:sess.username, intro_data : data, tran_value : req.session.lang, data_value:req.query.data});
     });
 });
 

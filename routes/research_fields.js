@@ -14,9 +14,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/select/:sel/:num', function(req, res, next) {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+
     const sess = req.session;
     var date = moment().format("YYYY-MM-DD");
-    var tran = res.cookie('lang').locale;
+    var tran = req.session.lang;
     switch(req.params.sel){
         case "1":
             var val = "select * from research_fields where date_end>=now();";
@@ -33,14 +37,6 @@ router.get('/select/:sel/:num', function(req, res, next) {
         if(error){
             throw error;
         }
-        switch(sess.langcheck){
-          case 0:
-            res.cookie('lang', 'en');
-          break;
-          case 1:
-            res.cookie('lang', 'ko');
-          break;
-        }
         res.render('research_fields', {'research_fields_table': fields, 'today_date':date, 'num_check':check, 'page_num' : req.params.num, tran_value:tran, name:sess.username, cpt:sess.usercpt, isthis:isthis});
     });
 });
@@ -49,7 +45,7 @@ router.post('/select/:sel/:num', function(req, res, next) {
     recheck=1;
     s_select = req.body.search_select;
     s_data = req.body.search_data;
-    var tran = res.cookie('lang').locale;
+    var tran = req.session.lang;
     var check = 0;
     var date = moment().format("YYYY-MM-DD");
     switch(s_select){
@@ -77,22 +73,18 @@ router.post('/select/:sel/:num', function(req, res, next) {
     });
 });
 router.get('/page/:num', function(req, res, next) {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    
     const sess = req.session;
     var check = 0;
     var date = moment().format("YYYY-MM-DD");
-    var tran = res.cookie('lang').locale;
+    var tran = req.session.lang;
     if(recheck ==0){
         db.query(`select * from research_fields`, function (error, fields) {
             if(error){
                 throw error;
-            }
-            switch(sess.langcheck){
-              case 0:
-                res.cookie('lang', 'en');
-              break;
-              case 1:
-                res.cookie('lang', 'ko');
-              break;
             }
             res.render('research_fields', {'research_fields_table': fields, 'today_date':date, 'num_check':check, 'page_num' : req.params.num, tran_value:tran,  name:sess.username, cpt:sess.usercpt, isthis:isthis});
         });
@@ -119,14 +111,6 @@ router.get('/page/:num', function(req, res, next) {
             if(error){
                 throw error;
             }
-            switch(sess.langcheck){
-              case 0:
-                res.cookie('lang', 'en');
-              break;
-              case 1:
-                res.cookie('lang', 'ko');
-              break;
-            }
             res.render('research_fields', {'research_fields_table': fields, 'page_num' : req.params.num, name:sess.username,'num_check':check, 'today_date':date, tran_value:tran, cpt:sess.usercpt, isthis:isthis});
         });
     }
@@ -136,7 +120,7 @@ router.post('/page/:num', function(req, res, next) {
     recheck=1;
     s_select = req.body.search_select;
     s_data = req.body.search_data;
-    var tran = res.cookie('lang').locale;
+    var tran = req.session.lang;
     var check = 0;
     var date = moment().format("YYYY-MM-DD");
     switch(s_select){
@@ -165,35 +149,27 @@ router.post('/page/:num', function(req, res, next) {
 });
 
 router.get('/detail/:num', function(req, res, next) {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    
     const sess = req.session;
-    var tran = res.cookie('lang').locale;
+    var tran = req.session.lang;
     var date = moment().format("YYYY-MM-DD");
     db.query(`select * from research_fields where rid = ?`, req.params.num, function (error, field) {
         if(error){
             throw error;
-        }
-        switch(sess.langcheck){
-          case 0:
-            res.cookie('lang', 'en');
-          break;
-          case 1:
-            res.cookie('lang', 'ko');
-          break;
         }
         res.render('research_fields_detail', {'field': field, name:sess.username, tran_value:tran,'today_date':date, cpt:sess.usercpt, isthis:isthis});
     });
 });
 
 router.get('/write', function(req, res, next) {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    
     const sess = req.session;
-    switch(sess.langcheck){
-      case 0:
-        res.cookie('lang', 'en');
-      break;
-      case 1:
-        res.cookie('lang', 'ko');
-      break;
-    }
     res.render('research_fields_write_page',{name:sess.username, cpt:sess.usercpt});
 });
 
@@ -223,20 +199,16 @@ router.post('/write', function(req, res, next) {
             throw error;
         }
         else{
-          switch(sess.langcheck){
-            case 0:
-              res.cookie('lang', 'en');
-            break;
-            case 1:
-              res.cookie('lang', 'ko');
-            break;
-          }
             res.redirect('/research_fields');
         }
     });
 });
 //-----------------------------------------------------------------------------------------------------Android
 router.get('/get_research', (req, res) => {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    
     db.query(`select * from research_fields order by rid desc`, function (error, fields) {
         if(error){
             throw error;

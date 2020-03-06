@@ -12,19 +12,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/page/:num', function(req, res, next) {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    
     const sess = req.session;
     if(recheck==0){
         db.query(`select * from question_board`, function (error, fields) {
             if(error){
                 throw error;
-            }
-            switch(sess.langcheck){
-              case 0:
-                res.cookie('lang', 'en');
-              break;
-              case 1:
-                res.cookie('lang', 'ko');
-              break;
             }
             res.render('question_board', {'question_board_table': fields, 'page_num' : req.params.num, name:sess.username, cpt:sess.usercpt});
         });
@@ -38,14 +34,6 @@ router.get('/page/:num', function(req, res, next) {
         db.query(fin, function (error, fields) {
             if(error){
                 throw error;
-            }
-            switch(sess.langcheck){
-              case 0:
-                res.cookie('lang', 'en');
-              break;
-              case 1:
-                res.cookie('lang', 'ko');
-              break;
             }
             res.render('question_board', {'question_board_table': fields, 'page_num' : req.params.num, name:sess.username, cpt:sess.usercpt});
         });
@@ -69,6 +57,10 @@ router.post('/page/:num', function(req, res, next) {
 });
 
 router.get('/detail/:num', function(req, res, next) {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    
     const sess = req.session;
     db.query(`select * from question_board where qid = ?`, req.params.num, function (error, field) {
         if(error){
@@ -79,14 +71,6 @@ router.get('/detail/:num', function(req, res, next) {
                 throw error;
             }
             field[0].hits++;
-            switch(sess.langcheck){
-              case 0:
-                res.cookie('lang', 'en');
-              break;
-              case 1:
-                res.cookie('lang', 'ko');
-              break;
-            }
             res.render('question_board_detail', {'field': field, name:sess.username, cpt:sess.usercpt, uid:sess.userid});
         });
     });
@@ -100,6 +84,10 @@ router.post('/detail/:num', function(req, res, next) {
     });
 });
 router.get('/write', function(req, res, next) {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    
     const sess = req.session;
     var fields = [{
         title:undefined,
@@ -107,14 +95,6 @@ router.get('/write', function(req, res, next) {
         contents:undefined,
         coments:undefined
     }];
-    switch(sess.langcheck){
-      case 0:
-        res.cookie('lang', 'en');
-      break;
-      case 1:
-        res.cookie('lang', 'ko');
-      break;
-    }
     res.render('question_board_write_page', {'field': fields, name:sess.username, cpt:sess.usercpt, uid:sess.userid});
 });
 
@@ -146,31 +126,19 @@ router.post('/write', function(req, res, next) {
 });
 
 router.get('/write/:num', function(req, res, next) {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    
     const sess = req.session;
     db.query(`select * from question_board where qid = ?`, req.params.num, function (error, field) {
         if(error){
             throw error;
         }
         if(field[0].coments==undefined){
-          switch(sess.langcheck){
-            case 0:
-              res.cookie('lang', 'en');
-            break;
-            case 1:
-              res.cookie('lang', 'ko');
-            break;
-          }
             res.render('question_board_write_page', {'field': field, name:sess.username, cpt:sess.usercpt, uid:sess.userid});
         }
         else{
-          switch(sess.langcheck){
-            case 0:
-              res.cookie('lang', 'en');
-            break;
-            case 1:
-              res.cookie('lang', 'ko');
-            break;
-          }
             res.redirect('/question_board');
         }
     });
@@ -189,18 +157,14 @@ router.post('/write/:num', function(req, res, next) {
 });
 
 router.get('/coment/:num', (req, res) => {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    
     const sess = req.session;
     db.query(`select * from question_board where qid = ?`, req.params.num, function (error, field) {
         if(error){
             throw error;
-        }
-        switch(sess.langcheck){
-          case 0:
-            res.cookie('lang', 'en');
-          break;
-          case 1:
-            res.cookie('lang', 'ko');
-          break;
         }
         res.render('question_board_coment', {'field': field, name:sess.username, cpt:sess.usercpt});
     });
@@ -217,6 +181,10 @@ router.post('/coment/:num', (req, res) => {
 });
 //-----------------------------------------------------------------------------------------------------Android
 router.get('/get_question', (req, res) => {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    
     db.query(`select * from question_board order by qid desc`, function (error, fields) {
         if(error){
             throw error;

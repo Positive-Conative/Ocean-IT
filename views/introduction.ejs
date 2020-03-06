@@ -2,9 +2,7 @@
 
 <section id="main" class="wrapper">
     <div class="row uniform">
-    <div class="1u 12u$(xsmall)">
-
-    </div>
+    <div class="1u 12u$(xsmall)"></div>
     <div class="2u 12u$(xsmall)">
         <div class="table-wrapper">
             <table class="alt">
@@ -123,9 +121,38 @@
     </div>
 </section>
 <script>
-    content1.style.display='block'
-    content2.style.display='none'
-    content3.style.display='none'
-    content4.style.display='none'
+    function getUrlParams() {
+        var params = {};
+        window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) { params[key] = value; });
+        
+        return params;
+    }
+    myquery = getUrlParams();
+    if(myquery.data==1){
+        $('#content1').css('display', 'block');
+        $('#content2').css('display', 'none');
+        $('#content3').css('display', 'none');
+        $('#content4').css('display', 'none');
+    }
+    else if(myquery.data==2){
+        $('#content1').css('display', 'none');
+        $('#content2').css('display', 'block');
+        $('#content3').css('display', 'none');
+        $('#content4').css('display', 'none');
+    }
+    else if(myquery.data==3){
+        $('#content1').css('display', 'none');
+        $('#content2').css('display', 'none');
+        $('#content3').css('display', 'none');
+        $('#content4').css('display', 'block');
+    }
+    else{        
+        $('#content1').css('display', 'block');
+        $('#content2').css('display', 'none');
+        $('#content3').css('display', 'none');
+        $('#content4').css('display', 'none');
+    }
+
+    
 </script>
 <%include includes/footer.ejs%>

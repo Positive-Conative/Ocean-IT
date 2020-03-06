@@ -12,7 +12,7 @@ i18n.configure({
     queryParameter: 'lang',
     objectNotation: true,
     register: global,
-     localStorageExpirationTime: 86400000,
+    localStorageExpirationTime: 300000,
     cookie: 'lang', // 쿠키 이름, 변경가능
 });
 

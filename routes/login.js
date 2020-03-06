@@ -4,6 +4,10 @@ var router = express.Router();
 var app = express();
 /* GET home page. */
 router.get('/', function(req, res, next) {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    
     var one_more_try = false;
     var login_data;
     sess = req.session;
@@ -14,14 +18,6 @@ router.get('/', function(req, res, next) {
             throw error;
         }
         login_data = data;
-        switch(sess.langcheck){
-          case 0:
-            res.cookie('lang', 'en');
-          break;
-          case 1:
-            res.cookie('lang', 'ko');
-          break;
-        }
         res.render('login', {'one_more_try': one_more_try, name:sess.username, cpt:sess.usercpt});
     });
 });
@@ -50,7 +46,7 @@ router.post('/', function(req, res, next) {
                 sess.userid=field[0].uid;
                 sess.username=field[0].uname;
                 sess.usercpt = field[0].ucpt;
-                var tran = res.cookie('lang').locale;
+                var tran = req.session.lang;
                 var members_table;
                 var research_fields;
                 var research_results;
@@ -69,14 +65,6 @@ router.post('/', function(req, res, next) {
                                 throw error;
                             }
                             research_results = result;
-                            switch(sess.langcheck){
-                              case 0:
-                                res.cookie('lang', 'en');
-                              break;
-                              case 1:
-                                res.cookie('lang', 'ko');
-                              break;
-                            }
                             res.render('index', {'members_table': members_table , 'research_fields': research_fields, 'research_results': research_results, name:sess.username, tran_value:tran, cpt:sess.usercpt});
                         });
                     });
@@ -86,6 +74,10 @@ router.post('/', function(req, res, next) {
     });
 });
 router.get('/login_join', function(req, res, next) {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
+    
     const sess = req.session;
     sess.username = undefined
     sess.usercpt = undefined;
@@ -95,14 +87,6 @@ router.get('/login_join', function(req, res, next) {
         }
         var login_data = data;
         var num = data.length;
-        switch(sess.langcheck){
-          case 0:
-            res.cookie('lang', 'en');
-          break;
-          case 1:
-            res.cookie('lang', 'ko');
-          break;
-        }
         res.render('login_join', {'login_data': login_data, 'user_num':num, name:sess.username, cpt:sess.usercpt});
     });
 });
@@ -127,10 +111,13 @@ router.post('/login_join', function(req, res, next) {
     });
 });
 router.get('/logout', function(req, res, next) {
+    if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
+    else if(req.session.lang=="en"){res.cookie('lang', 'en');}
+    else{res.cookie('lang', 'en');}
     const sess = req.session;
     sess.username = undefined;
     sess.usercpt = undefined;
-    var tran = res.cookie('lang').locale;
+    var tran = req.session.lang;
     var members_table;
     var research_fields;
     var research_results;
@@ -149,14 +136,6 @@ router.get('/logout', function(req, res, next) {
                     throw error;
                 }
                 research_results = result;
-                switch(sess.langcheck){
-                  case 0:
-                    res.cookie('lang', 'en');
-                  break;
-                  case 1:
-                    res.cookie('lang', 'ko');
-                  break;
-                }
                 res.render('index', {'members_table': members_table , 'research_fields': research_fields, 'research_results': research_results, name:sess.username, tran_value:tran,cpt:sess.usercpt});
             });
         });
