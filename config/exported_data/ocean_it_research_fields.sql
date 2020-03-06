@@ -1,26 +1,6 @@
 
 USE `ocean_it`;
--- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
---
--- Host: 127.0.0.1    Database: ocean_it
--- ------------------------------------------------------
--- Server version   8.0.15
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
  SET NAMES utf8 ;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `research_fields`
---
-
 DROP TABLE IF EXISTS `research_fields`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
@@ -46,12 +26,6 @@ CREATE TABLE `research_fields` (
   `research_charge_belong_en` varchar(45) DEFAULT NULL,  /*소속(영문)*/
   PRIMARY KEY (`rid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
---
--- Dumping data for table `research_fields`
---
-LOCK TABLES `research_fields` WRITE;
-/*!40000 ALTER TABLE `research_fields` DISABLE KEYS */;
 INSERT INTO `research_fields` VALUES 
  /*(1, '분산형 수중관측 제어망 개발',' Development of Distributed Underwater Monitoring Control Network ','주관 ',' Organize ',' 한국해양과학기술진흥원 ','Korea Ocean Science and Technology Agency ','','
 __연구목표 한글___, _영문목표 영문__, , ___연구내용한글____,,___연구내용영문_____,기대성과 한글, 기대성과 영문, 2015/05/01 ~ 2021/01/31', '고학림', ' Hak-Lim Ko','소속한글' ',' 소속영어');*/
@@ -168,21 +142,4 @@ __연구목표 한글___, _영문목표 영문__, , ___연구내용한글____,,_
  
 
 (5,'5번과제','asdf','위탁',NULL,'ㅁㄴㅇㅁㄴㅇ',NULL,'ㅁㄴㅇㅁㄴㅇ','ㅁㄴㅇㅁㄴㅇ','ㅁㄴㅇㅁㄴ','ㅇㅁㄴㅇㅁㄴㅇ','ㄴㅁㅇㅁㄴㅇ','ㅁㄴㅇㅁㄴㅇ','2016-10-12','2019-07-28','123',NULL,'호서대학교','hoseo univ');
-
-
-/*!40000 ALTER TABLE `research_fields` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2019-06-01 20:47:19
-
-
 

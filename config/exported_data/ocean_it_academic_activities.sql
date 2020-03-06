@@ -16,7 +16,6 @@ CREATE TABLE `academic_activities` (
   PRIMARY KEY (`num`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-LOCK TABLES `academic_activities` WRITE;
 INSERT INTO `academic_activities` VALUES (1,'포럼','영어분류','제3회 해양과학기술정책 포럼(해양수산분야 IoT기술 적용 방안)','영어이름','호서대학교 국제회의실','영어장소','2016.03.24');
 INSERT INTO `academic_activities` VALUES (2,'포럼','영어분류','제2회 해양과학기술정책 포럼(수산양식과 IoT 기술)','영어이름','호서대학교 국제회의실','영어장소','2015.06.04');
 INSERT INTO `academic_activities` VALUES (3,'포럼','영어분류','제1회 해양과학기술정책포럼(해양보전 및 복원과 ICT 기술)','영어이름','호서대학교 국제회의실','영어장소','2014.12.10');
@@ -28,6 +27,3 @@ INSERT INTO `academic_activities` VALUES (8,'세미나','영어분류','2017 한
 INSERT INTO `academic_activities` VALUES (9,'워크샵','영어분류','"분산형 수중관측 제어망의 활용 및 협력방안"워크샵','영어이름','한국해양과학기술원 동해연구소','영어장소','2018.03.30.~ 2018.03.31');
 INSERT INTO `academic_activities` VALUES (10,'워크샵','영어분류','제주 해양관련 기관 워크샵(수산 양식 환경 모니터링 협력방안 등)','영어이름','KIOST 제주국제해양과학연구 지원센터， (주)해천마','영어장소','2018.01.09. ~ 2018.01.11');
 INSERT INTO `academic_activities` VALUES (11,'워크샵','영어분류','"해양IT융합기술의 현황 및 전망" 워크샵','영어이름','전남대학교 여수캠퍼스','영어장소','2016.11.18');
-
-
-UNLOCK TABLES;

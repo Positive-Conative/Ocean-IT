@@ -1,28 +1,6 @@
 USE `ocean_it`;
-UNLOCK TABLES;
--- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
---
--- Host: 127.0.0.1    Database: ocean_it
--- ------------------------------------------------------
--- Server version	8.0.15
--- utf8mb4_bin / utf8mb4_unicode_ci
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
  SET NAMES utf8 ;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `research_fields`
---
-
 DROP TABLE IF EXISTS `research_results`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `research_results` (
   `rrid` int(11) NOT NULL AUTO_INCREMENT,
@@ -45,14 +23,6 @@ CREATE TABLE `research_results` (
   `p_date` varchar(45) DEFAULT NULL, /*날짜*/
   PRIMARY KEY (`rrid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `research_results`
---
-
-LOCK TABLES `research_results` WRITE;
-/*!40000 ALTER TABLE `research_results` DISABLE KEYS */;
 INSERT INTO `research_results` VALUES
 
 
@@ -215,7 +185,3 @@ INSERT INTO `research_results` VALUES
 (76, '특허','Patent',' 수중통신에서 신호전송방법 및 장치',' Signal transmission method and apparatus in underwater communication ','- ','-',' 고학림, 조용호, 임태호 ','Hak-Lim Ko, Yong Ho Cho, Tae Ho Im ','-', '- ','대한민국','South Korea',' 10-2078899','-', '등록', 'Register','2020.02.12'),  
 
 (77, '특허','Patent',' 수중 인명 구조용 신호 송수신 장치','Underwater lifesaving signal transceiver ','-','- ',' 고학림, 임태호, 조용호 ','Hak-Lim Ko, Tae Ho Im, Yong Ho Cho  ','-', '- ','대한민국','South Korea',' 출원예정 ' , '-', '출원', 'Application','출원예정');  
-
-
-
-UNLOCK TABLES;

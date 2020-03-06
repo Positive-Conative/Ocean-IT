@@ -15,7 +15,6 @@ CREATE TABLE `introduction` (
   PRIMARY KEY (`num`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-LOCK TABLES `introduction` WRITE;
 INSERT INTO `introduction` VALUES (1,'2019.10','2019년 초연결·고신뢰 산업지능 기술 세미나 ','Hyperconnected, Highly Reliable Industrial Intelligence Technology Seminar in 2019','세미나 개최','Seminar held');
 INSERT INTO `introduction` VALUES (2,'2019.7','중국, HanClouds MOU 체결','Signed MOU with HanClouds in China','MOU','MOU');
 INSERT INTO `introduction` VALUES (3,'2019.7','인도네시아, 반둥공과대학교 MOU 체결','Signed MOU with Bandung University of Technology','MOU','MOU');
@@ -39,5 +38,3 @@ INSERT INTO `introduction` VALUES (19,'2014.12','제1회 해양과학기술정�
 INSERT INTO `introduction` VALUES (20,'2014.10','해양수산부 ‘분산형 수중관측제어망 개발’ 기획연구 주관 기관 선정','내용영어','국책연구개발 사업','Forum Hosted');
 INSERT INTO `introduction` VALUES (21,'2014.1','호서대학교 교책연구소로 승인','Selected as a planning and research institute by Ministry of Maritime Affairs & Fisheries, Development of Distributed Underwater Observation Control Network','교책연구소 승인','National R & D Project');
 INSERT INTO `introduction` VALUES (22,'2008.9','해양IT융합기술연구소 설립','Approved as Hoseo University Research Institute','연구소설립','Approved Research Institute');
-
-UNLOCK TABLES;
