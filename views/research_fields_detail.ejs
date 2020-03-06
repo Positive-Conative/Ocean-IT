@@ -72,7 +72,7 @@
                     <input type="button" class="button special" value="사진 확인" onclick="window.open('/research_fields/detail/popup/<%= row.rid %>', '사진 보기','width = 1000, height = 650, top = 100, left = 200, location = no, scrollbars=no, toolbars=no')">
                 </div>
                 <div style="float:right">
-                    <a href="/research_fields/page/1" class="button"><%=__('research_fields_detail_list')%></a>
+                    <input type="button" class="button" value="<%=__('research_fields_detail_list')%>" onclick="history.back();">
                 </div>
                 </thead>
             </table>
