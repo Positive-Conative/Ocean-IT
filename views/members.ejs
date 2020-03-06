@@ -32,28 +32,36 @@
                     <p><%= __('index_p_members_summary')%></p>
                 </header>
                 <div class="flex flex-4">
-                    <%members_table.forEach(function (members) {%>
+                    <% var temp="" %>
+                    <%for(var i=0; i<members_table.length;i++) {%>                        
+                        <%var row = members_table[i]
+                            if(row === undefined) continue;
+                        %>
+                        <%if(temp != row.position){%>
+                            <%temp=row.position%>
+                            <h3 style="width: 100%; margin-bottom:30px "><%=row.position%></h3>
+                        <%}%>
                     <div class="box person" onblur="true">
                         <div class="image round">
-                            <img width="100%" src="images/members/<%=members.profile_img%>" alt="Member <%=members.mid+1%>" />
+                            <img width="100%" src="images/members/<%=row.profile_img%>" alt="Member <%=row.mid+1%>" />
                         </div>
                         <%if(tran_value=='ko'){%>
-                            <td><%=members.name_ko%></td>
+                            <td><%=row.name_ko%></td>
                         <%}else{%>
-                            <td><%=members.name_en%></td>
+                            <td><%=row.name_en%></td>
                         <%}%>
-                        <p><%=members.affiliation%></p>
+                        <p><%=row.affiliation%></p>
                         <div>
-                            <a class="button special fit icon fa-info-circle" style="text-align: center" onclick="window.open('/members/member_detail/<%=members.mid%>', '상세 정보', 'width = 600, height = 800 resizable=no scrollbars=yes')">More</a>
+                            <a class="button special fit icon fa-info-circle" style="text-align: center" onclick="window.open('/members/member_detail/<%=row.mid%>', '상세 정보', 'width = 600, height = 800 resizable=no scrollbars=yes')">More</a>
                         </div>
                         <div id="del_member">
                           <%if(cpt){%>
-                            <a href="javascript:" class="button special fit icon fa-eye-slash" style="text-align: center" onclick="if(confirm('멤버를 삭제하시겠습니까?'))location.href='members/delete_member/<%=members.mid%>'">멤버 삭제</a>
+                            <a href="javascript:" class="button special fit icon fa-eye-slash" style="text-align: center" onclick="if(confirm('멤버를 삭제하시겠습니까?'))location.href='members/delete_member/<%=row.mid%>'">멤버 삭제</a>
                             <!-- 후에 관리자 계정인지 확인 후 쿠키 값 전송하도록 수정해야함 -->
                             <%}%>
                         </div>
                     </div>
-                    <%})%>
+                    <%}%>
                 </div>
             </div>
         

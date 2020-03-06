@@ -35,7 +35,6 @@ router.get('/', function (req, res, next) {
     if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
     else if(req.session.lang=="en"){res.cookie('lang', 'en');}
     else{res.cookie('lang', 'en');}
-    console.log("멤저"+req.session.lang)
     var tran = req.session.lang;
     const sess = req.session;
     var members_table;
