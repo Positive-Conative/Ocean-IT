@@ -65,9 +65,11 @@
                             <td><%=__('research_fields_detail_category11')%></td>
                             <td colspan="4" class="align-left"><%if(tran_value=='ko'){%><%=row.research_expected_ko%><%} else{%><%=row.research_expected_en%><%}%></td>
                         </tr>
-
                         </tbody>
                     </table>
+                </div>
+                <div style="float:left">
+                    <input type="button" class="button special" value="사진 확인" onclick="window.open('/research_fields/detail/popup/<%= row.rid %>', '사진 보기','width = 500, height = 500, top = 100, left = 200, location = no, scrollbars=no, toolbars=no')">
                 </div>
                 <div style="float:right">
                     <a href="/research_fields/page/1" class="button"><%=__('research_fields_detail_list')%></a>

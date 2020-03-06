@@ -41,12 +41,10 @@
                                 text-align: center;
                             }
                         </style>
-                        <th style="width:67px"><%=__('research_fields_menu1')%></th>
-                        <th><%=__('research_fields_menu2')%></th>
-                        <th><%=__('research_fields_menu3')%></th>
-                        <th><%=__('research_fields_menu4')%></th>
-                        <th><%=__('research_fields_menu5')%></th>
-                        <th><%=__('research_fields_menu6')%></th>
+                        <th style="width:67px">번호</th>
+                        <th>연구과제명</th>
+                        <th>연구기간</th>
+                        <th>진행상태</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -55,16 +53,11 @@
                             if(row === undefined) continue;
                         %>
                         <tr style="cursor: pointer" onclick="location.href='/research_fields/detail/<%= row.rid%>'" >
+                            <td><%= i+1%></td>
                             <%if(tran_value=='ko'){%>
                                 <td><%= row.research_name_ko%></td>
-                                <td><%= row.business_name_ko%></td>
-                                <td><%= row.subjectivity_organization_ko%></td>
-                                <td><%= row.research_charge_ko%></td>
                             <%}else{%>
                                 <td><%= row.research_name_en%></td>
-                                <td><%= row.business_name_en%></td>
-                                <td><%= row.subjectivity_organization_en%></td>
-                                <td><%= row.research_charge_en%></td>
                             <%}%>
     
                             <td><%= row.date_start + ' ~ '+ row.date_end%></td>

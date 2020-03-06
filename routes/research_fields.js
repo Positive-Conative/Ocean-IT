@@ -152,6 +152,22 @@ router.get('/detail/:num', function(req, res, next) {
     });
 });
 
+router.get('/detail/popup/:num', function(req, res, next) {
+    db.query(`select field_picture from research_fields where rid=?;`, req.params.num, function (error, field) {
+        if(error){
+            throw error;
+        }
+        // var jbString = 'abc,def,ghi';
+        // var jbSplit = jbString.split(',');
+        // for ( var i in jbSplit ) {
+        // //console.log( '<p>' + jbSplit[i] + '</p>' );
+        // }
+        // var json_type = JSON.stringify(field);
+        // console.log(json_type[1]);
+        res.render('research_fields_detail_popup', {'field': field});
+    });   
+});
+
 router.get('/write', function(req, res, next) {
     if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
     else if(req.session.lang=="en"){res.cookie('lang', 'en');}
@@ -190,7 +206,8 @@ router.post('/write', function(req, res, next) {
         research_expected_ko : body.r_research_expected_ko,
         research_expected_en : body.r_research_expected_en,
         date_start : body.r_date_start,
-        date_end : body.r_date_end
+        date_end : body.r_date_end,
+        field_picture : ""
     };
 
     db.query(`INSERT INTO research_fields set ?`, data, function (error, field) {

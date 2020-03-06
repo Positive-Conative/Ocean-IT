@@ -31,7 +31,6 @@ router.get(['/', '/index'], function(req, res, next) {
         if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
         else if(req.session.lang=="en"){res.cookie('lang', 'en');}
         else{res.cookie('lang', 'en');}
-        
         res.render('index', {'members_table': members_table , 'research_fields': research_fields, 'research_results': research_results, tran_value:tran, name:sess.username});
       });
     });
