@@ -50,7 +50,6 @@
                                 }
                             </style>
                             <%if(isthis=='논문'){%>
-                                <th style="width:67px">구분</th>
                                 <th>논문명</th>
                                 <th>게재지(권, 쪽)</th>
                                 <th>저자명</th>
@@ -81,12 +80,10 @@
 
                                 <%if(isthis=='논문'){%> 
                                     <%if(tran_value=='ko'){%>
-                                        <td><%= row.abstract_ko%></td>
                                         <td><%= row.result_name_ko%></td>
                                         <td><%= row.academic_journal_ko%></td>
                                         <td><%= row.writers_ko%></td>
                                     <%}else{%>
-                                        <td><%= row.abstract_en%></td>
                                         <td><%= row.result_name_en%></td>
                                         <td><%= row.academic_journal_en%></td>
                                         <td><%= row.writers_en%></td>
