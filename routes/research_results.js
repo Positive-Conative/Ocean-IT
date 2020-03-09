@@ -5,7 +5,7 @@ var s_select;
 var s_data;
 var recheck=0;
 var isthis="논문";
-
+var fieldz1, fieldz2;
 /* GET home page. */
 router.get('/', function(req, res, next) {
     recheck=0;
@@ -57,21 +57,37 @@ router.post('/select/:sel/:num', function(req, res, next) {
     var check = 0;
     recheck=1;
     
+
+    
     s_div = req.body.search_select_div;
+    
     switch(s_div){
         case "1":
+            isthis = "논문";
+            fieldz1 = 'academic_journal_ko';
+            fieldz2 = 'academic_journal_ko';
             var query5 = ' and classification_ko="논문" order by p_date desc';
             break;
         case "2":
+            isthis = "특허";
+            fieldz1 = 'country_ko';
+            fieldz2 = 'country_en';
             var query5 = ' and classification_ko="특허" order by p_date desc';
             break;
         case "3":
+            isthis = "발표";
+            fieldz1 = 'academic_journal_ko';
+            fieldz2 = 'academic_journal_ko';
             var query5 = ' and classification_ko="발표" order by p_date desc';
             break;
         case "4":
+            isthis = "저서";
+            fieldz1 = 'academic_journal_ko';
+            fieldz2 = 'academic_journal_ko';
             var query5 = ' and classification_ko="저서" order by p_date desc';
             break;
     }
+    
     switch(s_select){
         case "1":
             var query2 = 'result_name_ko like "%';
@@ -82,19 +98,21 @@ router.post('/select/:sel/:num', function(req, res, next) {
             var query3 = '%" or writers_en like "%';
             break;
         case "3":
-            var query2 = 'academic_journal_ko like "%';
-            var query3 = '%" or academic_journal_en like "%';
+            var query2 = fieldz1+' like "%';
+            var query3 = '%" or '+fieldz2+' like "%';
             break;
     }
     var query1 = 'select * from research_results where(';
     var query4 = '%")';
     var fin = query1 + query2 + s_data + query3 + s_data + query4+query5;
-    console.log(fin);
+    console.log("fieldz1  : "+fieldz1);
+    console.log("fieldz2  : "+fieldz2);
+    console.log("들어가는 데이터 값 : "+fin);
     db.query(fin, function (error, fields) {
         if(error){
             throw error;
         }
-        res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt, isthis:"검색내용"});
+        res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt, isthis:isthis});
     });
 });
 
@@ -111,22 +129,36 @@ router.get('/page/:num', function(req, res, next) {
             if(error){
                 throw error;
             }
-            res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt, isthis:"전체"});
+            res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt, isthis:"논문"});
         });
     }
     else{
+        
         s_div = req.body.search_select_div;
+        
         switch(s_div){
             case "1":
+                isthis = "논문";
+                fieldz1 = 'academic_journal_ko';
+                fieldz2 = 'academic_journal_ko';
                 var query5 = ' and classification_ko="논문" order by p_date desc';
                 break;
             case "2":
+                isthis = "특허";
+                fieldz1 = 'country_ko';
+                fieldz2 = 'country_en';
                 var query5 = ' and classification_ko="특허" order by p_date desc';
                 break;
             case "3":
+                isthis = "발표";
+                fieldz1 = 'academic_journal_ko';
+                fieldz2 = 'academic_journal_ko';
                 var query5 = ' and classification_ko="발표" order by p_date desc';
                 break;
             case "4":
+                isthis = "저서";
+                fieldz1 = 'academic_journal_ko';
+                fieldz2 = 'academic_journal_ko';
                 var query5 = ' and classification_ko="저서" order by p_date desc';
                 break;
         }
@@ -140,18 +172,21 @@ router.get('/page/:num', function(req, res, next) {
                 var query3 = '%" or writers_en like "%';
                 break;
             case "3":
-                var query2 = 'academic_journal_ko like "%';
-                var query3 = '%" or academic_journal_en like "%';
+                var query2 = fieldz1+' like "%';
+                var query3 = '%" or '+fieldz2+' like "%';
                 break;
         }
         var query1 = 'select * from research_results where ';
         var query4 = '%" order by p_date desc';
         var fin = query1 + query2 + s_data + query3 + s_data + query4;
+        console.log("fieldz1  : "+fieldz1);
+        console.log("fieldz2  : "+fieldz2);
+        console.log("들어가는 데이터 값 : "+fin);
         db.query(fin, function (error, fields) {
             if(error){
                 throw error;
             }
-            res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt, isthis:"전체"});
+            res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt, isthis:isthis});
         });
     }
 
@@ -166,17 +201,31 @@ router.post('/page/:num', function(req, res, next) {
     var check = 0;
     recheck=1;
     s_div = req.body.search_select_div;
+    
+    
     switch(s_div){
         case "1":
+            isthis = "논문";
+            fieldz1 = 'academic_journal_ko';
+            fieldz2 = 'academic_journal_ko';
             var query5 = ' and classification_ko="논문" order by p_date desc';
             break;
         case "2":
+            isthis = "특허";
+            fieldz1 = 'country_ko';
+            fieldz2 = 'country_en';
             var query5 = ' and classification_ko="특허" order by p_date desc';
             break;
         case "3":
+            isthis = "발표";
+            fieldz1 = 'academic_journal_ko';
+            fieldz2 = 'academic_journal_ko';
             var query5 = ' and classification_ko="발표" order by p_date desc';
             break;
         case "4":
+            isthis = "저서";
+            fieldz1 = 'academic_journal_ko';
+            fieldz2 = 'academic_journal_ko';
             var query5 = ' and classification_ko="저서" order by p_date desc';
             break;
     }
@@ -190,18 +239,21 @@ router.post('/page/:num', function(req, res, next) {
             var query3 = '%" or writers_en like "%';
             break;
         case "3":
-            var query2 = 'academic_journal_ko like "%';
-            var query3 = '%" or academic_journal_en like "%';
+            var query2 = fieldz1+' like "%';
+            var query3 = '%" or '+fieldz2+' like "%';
             break;
     }
     var query1 = 'select * from research_results where ';
     var query4 = '%" order by p_date desc';
     var fin = query1 + query2 + s_data + query3 + s_data + query4;
+    console.log("fieldz1  : "+fieldz1);
+    console.log("fieldz2  : "+fieldz2);
+    console.log("들어가는 데이터 값 : "+fin);
     db.query(fin, function (error, fields) {
         if(error){
             throw error;
         }
-        res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt, isthis:"전체"});
+        res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt, isthis:isthis});
     });
 });
 
