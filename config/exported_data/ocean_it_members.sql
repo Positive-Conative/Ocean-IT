@@ -23,7 +23,7 @@ INSERT INTO `members` VALUES (7,'차민혁','Min-Hyeok Cha','해양IT융합기�
 INSERT INTO `members` VALUES (8,'난디만달람모함','Mohan Krishna Varma Nandimandalam','해양IT융합기술연구소','전임교수 및 전임연구원','041-540-9565','drmohankvn@hoseo.edu','난디만달람모함.jpg');
 INSERT INTO `members` VALUES (9,'이효찬','Hyo-Chan Lee','해양IT융합기술연구소','전임교수 및 전임연구원','041-540-9565','lhc_104@naver.com','이효찬.jpg');
 INSERT INTO `members` VALUES (10,'김세연','Se-Yeon Kim','해양IT융합기술연구소','전임교수 및 전임연구원','041-540-9565','seyeon92@hoseo.edu','김세연.jpg');
-INSERT INTO `members` VALUES (11,'정해지','2','해양IT융합기술연구소','연구인','041-540-9565','ㄷㄷu','정해지.jpg');
-INSERT INTO `members` VALUES (12,'고만재','3','해양IT융합기술연구소','연구인','041-540-9565','ㄱ','고만재.jpg');
+INSERT INTO `members` VALUES (11,'정해지','2','해양IT융합기술연구소','석사과정','041-540-9565','ㄷㄷu','정해지.jpg');
+INSERT INTO `members` VALUES (12,'고만재','3','해양IT융합기술연구소','박사과정','041-540-9565','ㄱ','고만재.jpg');
 
 

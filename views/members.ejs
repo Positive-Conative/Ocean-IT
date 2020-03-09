@@ -25,6 +25,7 @@
                 </table>
             </div>
         </div>
+        <% var count=0; %>
         <div class="8u 12u$(xsmall)">
             <div class="inner">
                 <header>
@@ -33,12 +34,24 @@
                 </header>
                 <div class="flex flex-4">
                     <% var temp="" %>
-                    <%for(var i=0; i<members_table.length;i++) {%>                        
+                    <%for(var i=0; i<members_table.length;i++) {%>
+                        <%count++%>                    
                         <%var row = members_table[i]
                             if(row === undefined) continue;
                         %>
                         <%if(temp != row.position){%>
-                            <%temp=row.position%>
+                            <%if(count%4==1){%>
+                                <div class="box person" style="border:0 solid black"></div>
+                                <div class="box person" style="border:0 solid black"></div>
+                                <div class="box person" style="border:0 solid black"></div>
+                            <%}else if(count%4==2){%>
+                                <div class="box person" style="border:0 solid black"></div>
+                                <div class="box person" style="border:0 solid black"></div>
+                            <%}else if(count%4==3){%>
+                                <div class="box person" style="border:0 solid black"></div>
+                            <%}%>
+
+                            <%temp=row.position; count=0;%>
                             <h3 style="width: 100%; margin-bottom:30px "><%=row.position%></h3>
                         <%}%>
                     <div class="box person" onblur="true">
@@ -52,7 +65,11 @@
                         <%}%>
                         <p><%=row.affiliation%></p>
                         <div>
-                            <a class="button special fit icon fa-info-circle" style="text-align: center" onclick="window.open('/members/member_detail/<%=row.mid%>', '상세 정보', 'width = 600, height = 800 resizable=no scrollbars=yes')">More</a>
+                            <%if(row.position != '박사과정' && row.position != '석사과정'){%>
+                                <a class="button special fit icon fa-info-circle" style="text-align: center" onclick="window.open('/members/member_detail/<%=row.mid%>', '상세 정보', 'width = 600, height = 800 resizable=no scrollbars=yes')">More</a>
+                            <%}else{%>
+                                Email : <%=row.email%>
+                            <%}%>
                         </div>
                         <div id="del_member">
                           <%if(cpt){%>
