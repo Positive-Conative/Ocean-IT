@@ -56,6 +56,22 @@ router.post('/select/:sel/:num', function(req, res, next) {
     var tran = req.session.lang;
     var check = 0;
     recheck=1;
+    
+    s_div = req.body.search_select_div;
+    switch(s_div){
+        case "1":
+            var query5 = ' and classification_ko="논문" order by p_date desc';
+            break;
+        case "2":
+            var query5 = ' and classification_ko="특허" order by p_date desc';
+            break;
+        case "3":
+            var query5 = ' and classification_ko="발표" order by p_date desc';
+            break;
+        case "4":
+            var query5 = ' and classification_ko="저서" order by p_date desc';
+            break;
+    }
     switch(s_select){
         case "1":
             var query2 = 'result_name_ko like "%';
@@ -70,14 +86,15 @@ router.post('/select/:sel/:num', function(req, res, next) {
             var query3 = '%" or academic_journal_en like "%';
             break;
     }
-    var query1 = 'select * from research_results where ';
-    var query4 = '%" order by p_date desc';
-    var fin = query1 + query2 + s_data + query3 + s_data + query4;
+    var query1 = 'select * from research_results where(';
+    var query4 = '%")';
+    var fin = query1 + query2 + s_data + query3 + s_data + query4+query5;
+    console.log(fin);
     db.query(fin, function (error, fields) {
         if(error){
             throw error;
         }
-        res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt, isthis:"전체"});
+        res.render('research_results', {'research_results_table': fields, 'page_num' : req.params.num, tran_value:tran, 'num_check':check, name:sess.username, cpt:sess.usercpt, isthis:"검색내용"});
     });
 });
 
@@ -98,6 +115,21 @@ router.get('/page/:num', function(req, res, next) {
         });
     }
     else{
+        s_div = req.body.search_select_div;
+        switch(s_div){
+            case "1":
+                var query5 = ' and classification_ko="논문" order by p_date desc';
+                break;
+            case "2":
+                var query5 = ' and classification_ko="특허" order by p_date desc';
+                break;
+            case "3":
+                var query5 = ' and classification_ko="발표" order by p_date desc';
+                break;
+            case "4":
+                var query5 = ' and classification_ko="저서" order by p_date desc';
+                break;
+        }
         switch(s_select){
             case "1":
                 var query2 = 'result_name_ko like "%';
@@ -133,6 +165,21 @@ router.post('/page/:num', function(req, res, next) {
     var tran = req.session.lang;
     var check = 0;
     recheck=1;
+    s_div = req.body.search_select_div;
+    switch(s_div){
+        case "1":
+            var query5 = ' and classification_ko="논문" order by p_date desc';
+            break;
+        case "2":
+            var query5 = ' and classification_ko="특허" order by p_date desc';
+            break;
+        case "3":
+            var query5 = ' and classification_ko="발표" order by p_date desc';
+            break;
+        case "4":
+            var query5 = ' and classification_ko="저서" order by p_date desc';
+            break;
+    }
     switch(s_select){
         case "1":
             var query2 = 'result_name_ko like "%';

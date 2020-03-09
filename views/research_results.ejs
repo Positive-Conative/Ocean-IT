@@ -62,10 +62,10 @@
                                 <th>발명자</th>
                                 <th>출원/등록번호</th>
                             <%}else{%>
-                                <th><%=__('research_results_menu1')%></th>
-                                <th><%=__('research_results_menu2')%></th>
-                                <th><%=__('research_results_menu3')%></th>
-                                <th><%=__('research_results_menu4')%></th>
+                                <th>구분</th>
+                                <th>제목</th>
+                                <th>저자명</th>
+                                <th>게재연도</th>
                             <%}%>
                             
                         </tr>
@@ -112,15 +112,13 @@
 
                                     <%}else{%> 
                                         <%if(tran_value=='ko'){%>
-                                            <td><%= row.classification_ko%><%=row.rid%></td>
+                                            <td><%= row.classification_ko%></td>
                                             <td><%= row.result_name_ko%></td>
-                                            <td><%= row.academic_journal_ko%></td>
                                             <td><%= row.writers_ko%></td>
                                             <td><%= row.p_date%></td>
                                         <%}else{%>
-                                            <td><%= row.classification_en%><%=row.rid%></td>
+                                            <td><%= row.classification_en%></td>
                                             <td><%= row.result_name_en%></td>
-                                            <td><%= row.academic_journal_en%></td>
                                             <td><%= row.writers_en%></td>
                                             <td><%= row.p_date%></td>
                                         <%}%>
@@ -159,8 +157,16 @@
                 <form id="form_submit" method="post">
                     <div class="row uniform">
                         <div class="2u 12u(medium)" style="float:left">
+                            <select name="search_select_div" id="search_select_div" >
+                                <option value="1">논문</option>
+                                <option value="2">특허</option>
+                                <option value="3">발표</option>
+                                <option value="4">저서</option>
+                            </select>
+                            </div>
+                        <div class="2u 12u(medium)" style="float:left">
                         <select name="search_select" id="search_select" >
-                            <option value="1"><%=__('research_results_search1')%></option>
+                            <option value="1">제목으로 검색</option>
                             <option value="2"><%=__('research_results_search2')%></option>
                             <option value="3"><%=__('research_results_search3')%></option>
                         </select>
