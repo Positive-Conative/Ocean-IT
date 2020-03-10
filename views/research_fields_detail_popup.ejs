@@ -5,8 +5,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 <%
-    field_data = field[0].field_picture;
-    var jbSplit1 = field_data.split('/*');
+    field2_data = field2[0].field2_picture;
+    var jbSplit1 = field2_data.split('/*');
 %>
 
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
@@ -29,14 +29,14 @@
                 <div class="carousel-item active">
                     <h5 class="text-secondary text-center mt-2"><%=title%></h5>       
                     <%for(var j =2; j<jbSplit2.length; j++){%>
-                        <img src="/images/research_field/<%= jbSplit2[j]%>" class="d-block w-100" >
+                        <img src="/images/research_field2/<%= jbSplit2[j]%>" class="d-block w-100" >
                     <%}%>
                   </div>
             <%}else{%>
                 <div class="carousel-item">
                     <h5 class="text-secondary text-center mt-2"><%=title%></h5>      
                     <%for(var j =2; j<jbSplit2.length; j++){%>
-                        <img src="/images/research_field/<%= jbSplit2[j]%>" class="d-block w-100" >
+                        <img src="/images/research_field2/<%= jbSplit2[j]%>" class="d-block w-100" >
                     <%}%>
                   </div>
             <%}%>

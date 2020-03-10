@@ -148,7 +148,13 @@ router.get('/detail/:num', function(req, res, next) {
         if(error){
             throw error;
         }
-        res.render('research_fields_detail', {'field': field, name:sess.username, tran_value:tran,'today_date':date, cpt:sess.usercpt, isthis:isthis});
+        db.query(`select field_picture from research_fields where rid=?;`, req.params.num, function (error, field2) {
+            if(error){
+                throw error;
+            }
+            res.render('research_fields_detail', {'field': field, field2:field2, name:sess.username, tran_value:tran,'today_date':date, cpt:sess.usercpt, isthis:isthis});
+        });   
+        
     });
 });
 

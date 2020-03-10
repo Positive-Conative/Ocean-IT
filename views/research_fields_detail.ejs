@@ -1,5 +1,10 @@
 <%include includes/header.ejs%>
 <%var row = field[0];%>
+
+<%
+    field2_data = field2[0].field_picture;
+    var jbSplit1 = field2_data.split('/*');
+%>
 <section id="main" class="wrapper">
     <div class="inner">
         <header class="align-center">
@@ -8,75 +13,40 @@
         </header>
         <hr class="major"/>
         <h3 class="align-center"></h3>
-        <div class="table-wrapper">
-            <table class="align-center">
-                <thead>
-                <div class="table-wrapper">
-                    <table class="alt">
-                        <tbody class="align-center">
-                        <tr>
-                            <td style="width:155px">과제명</td>
-                            <td class="align-left" colspan="4"><%if(tran_value=='ko'){%><%=row.research_name_ko%><%} else{%><%=row.research_name_en%><%}%></td>
-                        </tr>
-                        <tr>
-                            <td>사업명</td>
-                            <td class="align-left" colspan="4"><%if(tran_value=='ko'){%><%=row.business_name_ko%><%} else{%><%=row.business_name_en%><%}%></td>
-                        </tr>
-                        <tr>
-                            <td>부처</td>
-                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.department_name_ko%><%} else{%><%=row.department_name_en%><%}%></td>
-                            <td>지원기관</td>
-                            <td class="align-left" colspan="3"><%if(tran_value=='ko'){%><%=row.support_organization_ko%><%} else{%><%=row.support_organization_en%><%}%></td>
-                        </tr>
 
-                        <tr>
-                            <td>주관기관</td>
-                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.subjectivity_organization_ko%><%} else{%><%=row.subjectivity_organization_en%><%}%></td>
-                            <td rowspan="2" style="vertical-align:middle;width:178px"><%=__('research_fields_detail_category3')%></td>
-                            <td>성명</td>
-                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.research_charge_ko%><%} else{%><%=row.research_charge_en%><%}%></td>
-                        </tr>
-                        <tr>
-                            <td>참여기관</td>
-                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.participation_organization_ko%><%} else{%><%=row.participation_organization_en%><%}%></td>
-                            <td>소속</td>
-                            <td class="align-left"><%if(tran_value=='ko'){%><%=row.research_charge_belong_ko%><%} else{%><%=row.research_charge_belong_en%><%}%></td>
-                        </tr>
-                        <tr>
-                            <td><%=__('research_fields_detail_category7')%></td>
-                            <td class="align-left"><%=row.date_start + " ~ " + row.date_end%></td>
-                            <td><%=__('research_fields_detail_category8')%></td>
-                            <td class="align-left" colspan="2">
-                            <%if(today_date < row.date_end ){%>
-                            <%=__('research_fields_state1')%>
-                            <%}else{%>
-                            <%=__('research_fields_state2')%>
-                            <%}%>
-                        </tr>
-                        <tr>
-                            <td><%=__('research_fields_detail_category9')%></td>
-                            <td colspan="4" class="align-left"><%if(tran_value=='ko'){%><%=row.research_purpose_ko%><%} else{%><%=row.research_purpose_en%><%}%></td>
-                        </tr>
-                        <tr>
-                            <td><%=__('research_fields_detail_category10')%></td>
-                            <td colspan="4" class="align-left"><%if(tran_value=='ko'){%><%=row.research_contents_ko%><%} else{%><%=row.research_contents_en%><%}%></td>
-                        </tr>
-                        <tr>
-                            <td><%=__('research_fields_detail_category11')%></td>
-                            <td colspan="4" class="align-left"><%if(tran_value=='ko'){%><%=row.research_expected_ko%><%} else{%><%=row.research_expected_en%><%}%></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div style="float:left">
-                    <input type="button" class="button special" value="사진 확인" onclick="window.open('/research_fields/detail/popup/<%= row.rid %>', '사진 보기','width = 1000, height = 650, top = 100, left = 200, location = no, scrollbars=no, toolbars=no')">
-                </div>
-                <div style="float:right">
-                    <input type="button" class="button" value="<%=__('research_fields_detail_list')%>" onclick="history.back();">
-                </div>
-                </thead>
-            </table>
-        </div>
+        <h2 class="align-center"><%if(tran_value=='ko'){%><%=row.research_name_ko%><%} else{%><%=row.research_name_en%><%}%></h2>
+        <ul>
+            <li>연구기간 : <%=row.date_start + " ~ " + row.date_end%></li>
+            <li>지원기관 : <%if(tran_value=='ko'){%><%=row.support_organization_ko%><%} else{%><%=row.support_organization_en%><%}%></li>
+            <li>연구목표 : <%if(tran_value=='ko'){%><%=row.research_purpose_ko%><%} else{%><%=row.research_purpose_en%><%}%></li>
+            <li>연구내용</li>
+        </ul>
+
+
+        <%for ( var i in jbSplit1 ){%>
+            <%var jbSplit2 = jbSplit1[i].split('/');
+            
+            var img_size = jbSplit2[0];
+            var sub_title_size = Number(jbSplit2[1])
+            var title = jbSplit2[2]%>
+            <div class="carousel-item active">
+                <h3><%=title%></h3>
+
+                <%for(var k = 0; k<sub_title_size; k++){%>
+                    <h5><%=jbSplit2[k+3]%></h5> 
+                <%}%>
+                
+                <%for(var j =3 + sub_title_size; j<jbSplit2.length; j++){%>
+                    
+                    <img src="/images/research_field/<%= jbSplit2[j]%>" class="d-block w-100" >
+                <%}%>
+
+                <%for(var zi = 0; zi<jbSplit2.length; zi++){
+                    console.log(zi+":"+jbSplit2[zi])
+                }%>
+              </div>
+              <br>
+        <%}%>
     </div>
 </section>
 <%include includes/footer.ejs%>
