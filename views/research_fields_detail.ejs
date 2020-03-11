@@ -47,6 +47,12 @@
               </div>
               <br>
         <%}%>
+        <% if(link_field[0]!=undefined){%>
+            <h3>관련자료</h3>
+            <%for(var z=0; z<link_field.length; z++){%>
+                <a href="<%=link_field[z].link%>" target="_blank"><%=link_field[z].title%></a><br>
+            <%}%>
+        <%}%>
     </div>
 </section>
 <%include includes/footer.ejs%>

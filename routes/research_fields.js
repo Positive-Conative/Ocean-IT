@@ -152,7 +152,12 @@ router.get('/detail/:num', function(req, res, next) {
             if(error){
                 throw error;
             }
-            res.render('research_fields_detail', {'field': field, field2:field2, name:sess.username, tran_value:tran,'today_date':date, cpt:sess.usercpt, isthis:isthis});
+            db.query(`select * from research_fields_link where rid=?;`, req.params.num, function (error, link_field) {
+                if(error){
+                    throw error;
+                }
+                res.render('research_fields_detail', {'field': field, field2:field2, link_field:link_field, name:sess.username, tran_value:tran,'today_date':date, cpt:sess.usercpt, isthis:isthis});
+            });
         });   
         
     });
