@@ -61,6 +61,12 @@
                                 <th>출원/등록일</th>
                                 <th>발명자</th>
                                 <th>출원/등록번호</th>
+                            <%}else if(isthis=='발표'){%>
+                                <th>발표명</th>
+                                <th>저자</th>
+                                <th>학술대회명</th>
+                                <th>발표일자</th>
+                                <th>국내외구분</th>
                             <%}else{%>
                                 <th>구분</th>
                                 <th>제목</th>
@@ -107,6 +113,23 @@
                                         <td><%= row.writers_en%></td>
                                     <%}%>
                                     <td><%= row.relation_task_ko%></td>
+
+                                     <!-- 구분 -->
+
+                                    <%}else if(isthis=='발표'){%>
+                                        <%if(tran_value=='ko'){%>
+                                            <td><%= row.result_name_ko%></td>
+                                            <td><%= row.writers_ko%></td>
+                                            <td><%= row.academic_journal_ko%></td>
+                                            <td><%= row.p_date%></td>
+                                            <td><%= row.country_ko%></td>
+                                        <%}else{%>
+                                            <td><%= row.result_name_en%></td>
+                                            <td><%= row.writers_en%></td>
+                                            <td><%= row.academic_journal_en%></td>
+                                            <td><%= row.p_date%></td>
+                                            <td><%= row.country_en%></td>
+                                        <%}%>
 
                                      <!-- 구분 -->
 
@@ -164,6 +187,9 @@
                             }else if($('#search_select_div').val()==2){
                                 $('#changethat').text('특허명으로 검색');
                                 $('#changethat3').text('국가명으로 검색');
+                            }else if($('#search_select_div').val()==3){
+                                $('#changethat').text('발표명으로 검색');
+                                $('#changethat3').text('국내외구분으로검색');
                             }else{
                                 $('#changethat').text('제목으로 검색');
                                 $('#changethat3').text('게제지로 검색');

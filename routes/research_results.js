@@ -76,8 +76,8 @@ router.post('/select/:sel/:num', function(req, res, next) {
             break;
         case "3":
             isthis = "발표";
-            fieldz1 = 'academic_journal_ko';
-            fieldz2 = 'academic_journal_ko';
+            fieldz1 = 'country_ko';
+            fieldz2 = 'country_ko';
             var query5 = ' and classification_ko="발표" order by p_date desc';
             break;
         case "4":
@@ -218,8 +218,8 @@ router.post('/page/:num', function(req, res, next) {
             break;
         case "3":
             isthis = "발표";
-            fieldz1 = 'academic_journal_ko';
-            fieldz2 = 'academic_journal_ko';
+            fieldz1 = 'country_ko';
+            fieldz2 = 'country_ko';
             var query5 = ' and classification_ko="발표" order by p_date desc';
             break;
         case "4":

@@ -39,20 +39,34 @@
                         <%var row = members_table[i]
                             if(row === undefined) continue;
                         %>
-                        <%if(temp != row.position){%>
-                            <%if(count%4==1){%>
-                                <div class="box person" style="border:0 solid black"></div>
-                                <div class="box person" style="border:0 solid black"></div>
-                                <div class="box person" style="border:0 solid black"></div>
-                            <%}else if(count%4==2){%>
-                                <div class="box person" style="border:0 solid black"></div>
-                                <div class="box person" style="border:0 solid black"></div>
-                            <%}else if(count%4==3){%>
-                                <div class="box person" style="border:0 solid black"></div>
-                            <%}%>
+                        <%if(temp != row.position || i==members_table.length-1){%>
+                            <%if(i!=members_table.length-1){%> 
+                                <%if(count%4==1){%>
+                                    <div class="box person" style="border:0 solid black"></div>
+                                    <div class="box person" style="border:0 solid black"></div>
+                                    <div class="box person" style="border:0 solid black"></div>
+                                <%}else if(count%4==2){%>
+                                    <div class="box person" style="border:0 solid black"></div>
+                                    <div class="box person" style="border:0 solid black"></div>
+                                <%}else if(count%4==3){%>
+                                    <div class="box person" style="border:0 solid black"></div>
+                                <%}%>
+                                <%temp=row.position; count=0;%>
+                                <h3 style="width: 100%; margin-bottom:30px "><%=row.position%></h3>
 
-                            <%temp=row.position; count=0;%>
-                            <h3 style="width: 100%; margin-bottom:30px "><%=row.position%></h3>
+                            <%}else{%>
+                                <%if(count%4==1){%>
+                                    <div class="box person" style="border:0 solid black"></div>
+                                    <div class="box person" style="border:0 solid black"></div>
+                                <%}else if(count%4==2){%>
+                                    <div class="box person" style="border:0 solid black"></div>
+                                    <div class="box person" style="border:0 solid black"></div>
+                                <%}else if(count%4==3){%>
+                                    <div class="box person" style="border:0 solid black"></div>
+                                <%}%>
+                                
+
+                            <%}%>
                         <%}%>
                     <div class="box person" onblur="true">
                         <div class="image round">

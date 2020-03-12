@@ -57,7 +57,28 @@
                                 </tr>
                                 </tbody>
                             </table>
-
+                            <%}else if(isthis=='발표'){%>
+                                <table class="alt">
+                                    <tbody class="align-center">
+                                    <tr>        
+                                        <td>발표명</td>
+                                        <td class="align-left"><%if(tran_value=='ko'){%><%=row.result_name_ko%><%} else{%><%=row.result_name_en%><%}%></td>
+                                        <td>저자</td>
+                                        <td class="align-left"><%if(tran_value=='ko'){%><%=row.writers_ko%><%} else{%><%=row.writers_en%><%}%></td>
+                                    </tr>
+                                    <tr>
+                                        <td>발표일자</td>
+                                        <td class="align-left"><%=row.p_date%></td>
+                                        <td>학술대회명</td>
+                                        <td class="align-left"><%if(tran_value=='ko'){%><%=row.academic_journal_ko%><%} else{%><%=row.academic_journal_ko%><%}%></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>국내외 구분</td>
+                                        <td class="align-left" colspan="3"><%if(tran_value=='ko'){%><%=row.country_ko%><%} else{%><%=row.country_ko%><%}%></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                         <%}else {%>
                             <table class="alt">
                                 <tbody class="align-center">
