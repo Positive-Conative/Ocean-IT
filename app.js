@@ -22,7 +22,7 @@ var session = require('express-session');
 var app = express();
 
 var i18n = require('./config/i18n');
-
+//test
 //로그인 세션
 app.use(session({
   secret: 'test@~',
