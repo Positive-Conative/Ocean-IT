@@ -2,7 +2,20 @@
 <section id="main" class="wrapper">
     <div class="row uniform">
         <div class="1u 12u$(xsmall)"></div>
-        <%include includes/treebar.ejs%>
+        <div class="2u 12u$(xsmall)">
+            <div class="table-wrapper">
+                <table class="alt">
+                    <tbody style="text-align: center;">
+                        <tr>
+                            <td><b><%= __('Data_Room')%></b></td>
+                        </tr>
+                        <tr style="cursor: pointer" onclick="location.href='/gallery'">
+                            <td><%= __('Gallery')%><span style="float:right;">></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <div class="8u 12u$(xsmall)">    
             <div class="inner">
             <header class="align-center">
