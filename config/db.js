@@ -4,7 +4,7 @@ var mysql = require('mysql');
 var db_config = {
     host     : 'localhost', // 외부에서 db 접속 시 localhost 가 아닌 서버pc의 ip 입력
     user     : 'root',
-    password : 'kyj123',
+    password : 'hoseo',
     database : 'ocean_it',
     multipleStatements: true
 };
