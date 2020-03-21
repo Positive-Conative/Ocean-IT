@@ -15,6 +15,7 @@ var researchFieldsRouter = require('./routes/research_fields');
 var researchResultsRouter = require('./routes/research_results');
 var questionBoardRouter = require('./routes/question_board');
 var academicActivitiesRouter = require('./routes/academic_activities');
+var galleryRouter = require('./routes/gallery');
 var login = require('./routes/login');
 var body_parser = require('body-parser');
 var session = require('express-session');
@@ -52,6 +53,7 @@ app.use('/research_fields', researchFieldsRouter);
 app.use('/research_results', researchResultsRouter);
 app.use('/question_board', questionBoardRouter);
 app.use('/academic_activities', academicActivitiesRouter);
+app.use('/gallery', galleryRouter);
 app.use('/login', login);
 app.use(express.json(), body_parser);
 

@@ -1,0 +1,20 @@
+<%include includes/header.ejs%>
+<section id="main" class="wrapper">
+    <div class="inner">
+        <header class="align-center">
+            <h2><%if(tran_value=='ko'){%><%=field_data[0].title_ko%><%} else{%><%=field_data[0].title_en%><%}%></h2>
+        </header>
+        <hr class="major"/>
+        <%
+            var main_pic_slice = field_data[0].image_src
+            var main_pic = main_pic_slice.split('/');
+        %>
+        <%for(var i=0; i<main_pic.length; i++){%>
+            <span class="image fit"><img src="/images/gallery/<%=main_pic[i]%>" alt="" /></span>
+        <%}%>
+        <div style="float:right">
+            <input type="button" class="button" value="<%= __('lists')%>" onclick="history.back();">
+        </div>
+    </div>
+</section>
+<%include includes/footer.ejs%>

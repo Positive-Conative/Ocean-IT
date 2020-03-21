@@ -1,75 +1,81 @@
 <%include includes/header.ejs%>
 <!-- Banner -->
-	<section id="banner">
-		<h1><%- __('index_welcome_message') %></h1>
-		<p><%- __('index_introduce_summary') %></p>
-	</section>
+<section id="banner">
+	<h1><%- __('index_welcome_message') %></h1>
+	<p><%- __('index_introduce_summary') %></p>
+</section>
 
 <!-- One -->
+<header>
+	<br>
+	<h2 class="align-center"><b style="color:rgb(122, 130, 209)"><%= __('ocean_it_walk')%></b></h2>
+</header>
 <h2 style="text-align: center; font-weight: bold"><img style="width:45%; height: 45%;"src="/images/mainpage2.png" alt="Pic 01" /></h2>
 
+
+
 <!-- Two -->
-	<section id="two" class="wrapper style1 special">
-		<div class="inner">
-			<header>
-				<h2><%= __('index_h2_members')%></h2>
-				<p><%= __('index_p_members_summary')%></p>
-			</header>
-			<div class="flex flex-4">
-				<%members_table.forEach(function (members) {%>
-				<div class="box person">
-					<div class="image round">
-						<img width="100%" src="/images/members/<%=members.profile_img%>" alt="Member <%=members.mid+1%>" />
-					</div>
-					<h3><%if(tran_value=='ko'){%><%=members.name_ko%><%} else{%><%=members.name_en%><%}%></h3>
-					<p><%=members.affiliation%></p>
+<section id="two" class="wrapper style1 special">
+	<div class="inner">
+		<header>
+			<h2><%= __('index_h2_members')%></h2>
+			<p><%= __('index_p_members_summary')%></p>
+		</header>
+		<div class="flex flex-4">
+			<%members_table.forEach(function (members) {%>
+			<div class="box person">
+				<div class="image round">
+					<img width="100%" src="/images/members/<%=members.profile_img%>" alt="Member <%=members.mid+1%>" />
 				</div>
-				<%})%>
+				<h3><%if(tran_value=='ko'){%><%=members.name_ko%><%} else{%><%=members.name_en%><%}%></h3>
+				<p><%=members.affiliation%></p>
 			</div>
+			<%})%>
 		</div>
-		<ul class="actions fit">
-			<li style="display: inline-block">
-				<a href="/members" class="button fit">More</a>
-			</li>
-		</ul>
-	</section>
+	</div>
+	<ul class="actions fit">
+		<li style="display: inline-block">
+			<a href="/members" class="button fit">More</a>
+		</li>
+	</ul>
+</section>
 
 <!-- Three -->
-	<section id="three" class="wrapper special">
-		<div class="inner">
-			<header class="align-center">
-				<h2><%= __('index_research_result')%></h2>
-				<p><%= __('index_research_result_explain')%></p>
-			</header>
-			<div class="flex flex-2">
-				<article>
-					<div class="image fit">
-						<img src="/images/2.png" alt="Pic 01" />
-					</div>
-					<header>
-						<h3><%= __('index_first_research_result')%></h3>
-					</header>
-					<p><%if(tran_value=='ko'){%><%=research_results[0].result_name_ko%><%} else{%><%=research_results[0].result_name_en%><%}%></p>
-					<footer>
-						<a href="/research_results/detail/<%=research_results[0].rrid%>" class="button special">More</a>
-					</footer>
-				</article>
-				<article>
-					<div class="image fit">
-						<img src="/images/1.png" alt="Pic 02" />
-					</div>
-					<header>
-						<h3><%= __('index_second_research_result')%></h3>
-					</header>
-					<p><%if(tran_value=='ko'){%><%=research_results[1].result_name_ko%><%} else{%><%=research_results[1].result_name_en%><%}%></p>
-					<footer>
-						<a href="/research_results/detail/<%=research_results[1].rrid%>" class="button special">More</a>
-					</footer>
-				</article>
-			</div>
+<section id="three" class="wrapper special">
+	<div class="inner">
+		<header class="align-center">
+			<h2><%= __('index_research_result')%></h2>
+			<p><%= __('index_research_result_explain')%></p>
+		</header>
+		<div class="flex flex-2">
+			<article>
+				<div class="image fit">
+					<img src="/images/2.png" alt="Pic 01" />
+				</div>
+				<header>
+					<h3><%= __('index_first_research_result')%></h3>
+				</header>
+				<p><%if(tran_value=='ko'){%><%=research_results[0].result_name_ko%><%} else{%><%=research_results[0].result_name_en%><%}%></p>
+				<footer>
+					<a href="/research_results/detail/<%=research_results[0].rrid%>" class="button special">More</a>
+				</footer>
+			</article>
+			<article>
+				<div class="image fit">
+					<img src="/images/1.png" alt="Pic 02" />
+				</div>
+				<header>
+					<h3><%= __('index_second_research_result')%></h3>
+				</header>
+				<p><%if(tran_value=='ko'){%><%=research_results[1].result_name_ko%><%} else{%><%=research_results[1].result_name_en%><%}%></p>
+				<footer>
+					<a href="/research_results/detail/<%=research_results[1].rrid%>" class="button special">More</a>
+				</footer>
+			</article>
 		</div>
-	</section>
-	<!-- four -->
+	</div>
+</section>
+<!-- four -->
 
 	
 <%include includes/footer.ejs%>

@@ -1,0 +1,30 @@
+<%include includes/header.ejs%>
+<section id="main" class="wrapper">
+    <div class="row uniform">
+        <div class="1u 12u$(xsmall)"></div>
+        <%include includes/treebar.ejs%>
+        <div class="8u 12u$(xsmall)">    
+            <div class="inner">
+            <header class="align-center">
+                <h2 style="text-align: center"><%= __('gallery_header')%></h2>
+            </header>
+            <div class="box alt">
+                <div class="row 50% uniform">
+                    <%for(var i=0; i<field_data.length;i++){%>
+                        <%
+                            var main_pic_slice = field_data[i].image_src
+                            var main_pic = main_pic_slice.split('/');
+                        %>
+                        <div class="4u" style="cursor: pointer" onclick="location.href='/gallery/page/<%=field_data[i].gid%>'">
+                            <span class="image fit"><img src="/images/gallery/<%=main_pic[0]%>" alt="" /></span>
+                            <h5><%if(tran_value=='ko'){%><%=field_data[i].title_ko%><%} else{%><%=field_data[i].title_en%><%}%></h5>
+                        </div>
+                    <%}%>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="1u 12u$(xsmall)"></div>
+    </div>
+</section>
+<%include includes/footer.ejs%>

@@ -44,7 +44,8 @@ CREATE TABLE `research_fields` (
   /*1/2/ ◈ 수중 통신 알고리즘 개발/
   -기지국 기반 수중 저전력 통신 알고리즘 개발/
   -수중 채널 환경에 따라 적응적으로 변화하는 링크 적응용 수중 통신 알고리즘 개발/분산형 수중관측 제어망 개발2.jpg
-  /*1/0/ ◈ 수중 통신 모뎀 보드 설계 및 제작  (좌:수중센서노드,\n 우:수중통신모뎀)/분산형 수중관측 제어망 개발3.jpg/분산형 수중관측 제어망 개발4.jpg
+  /*1/0/ ◈ 수중 통신 모뎀 보드 설계 및 제작/분산형 수중관측 제어망 개발3.jpg/분산형 수중관측 제어망 개발4.jpg/
+  (좌:수중센서노드,\n 우:수중통신모뎀)
   /*1/0/◈ 수중 통신 아날로그 보드 설계 및 제작/분산형 수중관측 제어망 개발5.jpg/분산형 수중관측 제어망 개발6.jpg
   /*1/0/◈ 기지국 기반 수중 통신망 프로토콜 설계/분산형 수중관측 제어망 개발7.jpg
   /*1/0/ /분산형 수중관측 제어망 개발8.jpg
@@ -54,7 +55,7 @@ CREATE TABLE `research_fields` (
   /*1/1/ ◈  mobile application 개발/ 
   -수중에서 관측 및 감시 데이터의 실시간 관찰 및 제어/분산형 수중관측 제어망 개발12.jpg
   /*1/0/◈ 실해역 실험/분산형 수중관측 제어망 개발13.jpg
-  /*1/0/◈ 실해역 실험 영상 -페이지 하단 관련자료 참조 /분산형 수중관측 제어망 개발14.jpg
+  /*1/0/<실해역 실험 영상> https://youtu.be/evIU1vIvOWo/분산형 수중관측 제어망 개발14.jpg
   /*1/0/◈ 활용분야/분산형 수중관측 제어망 개발15.jpg
   /*1/0/◈ 활용분야/분산형 수중관측 제어망 개발16.jpg
   
@@ -65,9 +66,9 @@ CREATE TABLE `research_fields` (
   ,'-','-','정보통신기술진흥센터','Information Communication Technology Promotion Center','-','-'
   ,'5G빅데이터 센서, 빅데이터플랫폼 및 산업별 딥러닝 적용 모델을 제공하기 위한 원천 기술을 개발하고, 이를 해양ㆍ항만 산업분야에 특화시켜 적용','Develop original technologies to provide 5G big data sensors, big data platforms, and industry-specific deep learning models, and apply them to the marine and port industries.','한글연구내용 그림','영문연구내용Pic','-','-'
   ,'2018-06-01','2021-12-31','-','-','-','-'
-  , "1/0/-스마트 양식 시스템 시작품 개발 및 어류 최종 성장 알고리즘 개발/5G 기반 산업별 빅데이터 활용 딥러닝 모형 개발 및 인력양성1.jpg
-    /*1/0//5G 기반 산업별 빅데이터 활용 딥러닝 모형 개발 및 인력양성2.jpg
-    /*1/0/-선박안전, 자융운항 선박, 항만자동화를 고려한 영상 데이터를 이용한 딥러닝 모델 개발/5G 기반 산업별 빅데이터 활용 딥러닝 모형 개발 및 인력양성3.jpg
+  , "1/0/스마트 양식 시스템 시작품 개발 및 어류 최종 성장 알고리즘/5G 기반 산업별 빅데이터 활용 딥러닝 모형 개발 및 인력양성1.jpg
+    /*1/0/스마트 양식 시스템 시작품 개발 및 어류 최종 성장 알고리즘/5G 기반 산업별 빅데이터 활용 딥러닝 모형 개발 및 인력양성2.jpg
+    /*1/0/선박안전, 자융운항 선박, 항만자동화를 고려한 영상 데이터를 이용한 딥러닝 모델 개발/5G 기반 산업별 빅데이터 활용 딥러닝 모형 개발 및 인력양성3.jpg
   ");
   
    INSERT INTO `research_fields` VALUES 
@@ -75,14 +76,12 @@ CREATE TABLE `research_fields` (
   ,'- 1+4차 산업형 수산자원관리 기술개발 및 전문인력 양성 - 수산자원의 지속가능한 보존·이용을 위해 전통적인 기초연구분야와 ICT 등 4차산업의 핵심분야가 결합된 고효율 관리 기술개발 및 융합 전문인력 양성 체계 구축.
 ','-Development of 1 + 4th industrial fisheries resource management technology and training of experts
    -Development of high-efficiency management technology combined with the core areas of the 4th industry such as ICT and the establishment of a convergence specialist training system for sustainable conservation and use of fishery resources//
-   ','
-   /*1/0/
-      - IoT 융합 어업생산정보 분석 및 서비스 ','
+   ',' - IoT 융합 어업생산정보 분석 및 서비스 ⦁ 차세대 전자조업 모니터링 시스템의 통합 설계','
 -IoT convergence fishery production information analysis and service
     통합 Integrated design of next generation electronic fishing monitoring system.
     ','-','-','2019-01-01','2025-12-31','-','-','-','-'
-  , "1/0/-IoT 융합 어업생산정보 분석 및 서비스/ICT기반 수산자원관리 연구센터1.jpg
-  /*1/0/⦁ 차세대 전자조업 모니터링 시스템의 통합 설계 /ICT기반 수산자원관리연구센터2.jpg
+  , "1/0/IoT 융합 어업생산정보 분석 및 서비스/ICT기반 수산자원관리 연구센터1.jpg
+  /*1/0/1-2 전자조업 모니터링 시스템을 이용한 AI기반 어업생산정보 분석개발/ICT기반 수산자원관리연구센터2.jpg
     ");
   
    INSERT INTO `research_fields` VALUES 
@@ -108,12 +107,11 @@ CREATE TABLE `research_fields` (
   ,'수중 통신의 성능 및 용량 향상을 위한 빔형성 구조도 설계 및 빔형성 알고리즘 개발 ','Design of Beamforming Structure and Development of Beamforming Algorithm for Performance and Capacity Improvement of Underwater Communication','- 장거리 수중 통신용 빔형성 구조도 및 알고리즘 개발
    - 단거리 수중 통신용 빔형성 구조도 및 알고리즘 개발
    - 빔형성기 구현 및 성능 검증','
-	-Development of beamforming structure diagram and algorithm for long distance underwater communication
+-Development of beamforming structure diagram and algorithm for long distance underwater communication
    -Development of beamforming structure diagram and algorithm for short range underwater communication
-   -Beamformer implementation and performance verification','-','-','2012-08-01','2019-01-31','-','-','-','-'
-  , "1/0//수중통신용 빔형성기 개발1.jpg
+   -Beamformer implementation and performance verification','-','-','2020-08-01','2019-01-31','-','-','-','-'
+  , "1/0/빔형성기 구현 및 성능 검증/수중통신용 빔형성기 개발1.jpg
   /*1/0/6x6평면 배열 센서 구조에서의 방향 빔 패턴/수중통신용 빔형성기 개발2.jpg
-
    ");
    
    INSERT INTO `research_fields` VALUES 
