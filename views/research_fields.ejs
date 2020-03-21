@@ -13,13 +13,13 @@
                 <table class="alt">
                     <tbody style="text-align: center;">
                         <tr style="cursor: pointer" onclick="location.href='/research_main'" >
-                          <td>Main<span style="float:right;"><</span></td>
+                          <td><%= __('Main')%><span style="float:right;"><</span></td>
                         </tr>
                         <tr style="cursor: pointer" onclick="location.href='/research_fields/select/1/1'" >
-                            <td>진행과제<span style="float:right;">></span></td>
+                            <td><%= __('Progress_tasks')%><span style="float:right;">></span></td>
                         </tr>
                         <tr style="cursor: pointer" onclick="location.href='/research_fields/select/2/1'" >
-                            <td>완료과제<span style="float:right;">></span></td>
+                            <td><%= __('Completed_tasks')%><span style="float:right;">></span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -28,7 +28,7 @@
         <div class="8u 12u$(xsmall)">    
             <div class="inner">
             <header class="align-center">
-                <h2>연구 과제(<%=isthis%>)</h2>
+                <h2><%= __('Progress_tasks_list')%>(<%=isthis%>)</h2>
                 <p><%=__('research_fields_subtitle')%></p>
             </header>
             <div class="table-wrapper">
@@ -41,12 +41,12 @@
                                 text-align: center;
                             }
                         </style>
-                        <th style="width:67px">번호</th>
-                        <th>연구과제명</th>
-                        <th>연구기간</th>
-                        <th>진행상태</th>
+                        <th style="width:67px"><%= __('Number')%></th>
+                        <th><%= __('Research_project_name')%></th>
+                        <th><%= __('Research_period')%></th>
+                        <th><%= __('Progress_on')%></th>
                     </tr>
-                    </thead>
+                    </thead> 
                     <tbody>
                     <%for(var i = (page_num - 1) * 7; i < page_num * 7; i++){%>
                         <%var row = research_fields_table[i]

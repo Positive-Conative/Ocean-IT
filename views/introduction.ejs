@@ -12,24 +12,24 @@
                         content2.style.display='none'
                         content3.style.display='none'
                         content4.style.display='none'" >
-                        <td><span>인사말</span><span style="float:right;">></span></td>
+                        <td><span><%= __('Greetings')%></span><span style="float:right;">></span></td>
                     </tr>
                     <tr style="cursor: pointer" onclick="
                     content1.style.display='none'
                     content2.style.display='block'
                     content3.style.display='none'
                     content4.style.display='none'" >
-                        <td>연혁<span style="float:right;">></span></td>
+                        <td><%= __('History')%><span style="float:right;">></span></td>
                     </tr>
                     <tr style="cursor: pointer" onclick="
                     content1.style.display='none'
                     content2.style.display='none'
                     content3.style.display='none'
                     content4.style.display='block'" >
-                        <td>조직도<span style="float:right;">></span></td>
+                        <td><%= __('Organization')%><span style="float:right;">></span></td>
                     </tr>
                     <tr style="cursor: pointer" onclick="location.href='/members'">
-                        <td>연구인력<span style="float:right;">></span></td>
+                        <td><%= __('Researchers')%><span style="float:right;">></span></td>
                     </tr>
                     <tr style="cursor: pointer" onclick="location.href='https:www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_1708220056'">
                         <td><%= __('introduction_direction')%><span style="float:right;">></span></td>
@@ -68,7 +68,7 @@
 
             <div id="content2">
                 <header class="align-center">
-                    <h2>주요 연혁</h2>
+                    <h2><%- __('Main_history')%> </h2>
                     <p><%= __('introduction_p_title')%></p>
                 </header>
                 <img width="100%" src="/images/introduction/주요 연혁.png"/>

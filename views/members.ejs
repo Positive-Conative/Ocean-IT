@@ -7,16 +7,16 @@
                 <table class="alt">
                     <tbody style="text-align: center;">
                         <tr style="cursor: pointer" onclick="location.href='/introduction?data=1'" >
-                            <td>인사말<span style="float:right;">></span></td>
+                            <td><%= __('Introduction')%><span style="float:right;">></span></td>
                         </tr>
                         <tr style="cursor: pointer" onclick="location.href='/introduction?data=2'" >
-                            <td>연혁<span style="float:right;">></span></td>
+                            <td><%= __('History')%><span style="float:right;">></span></td>
                         </tr>
                         <tr style="cursor: pointer" onclick="location.href='/introduction?data=3'" >
-                            <td>조직도<span style="float:right;">></span></td>
+                            <td><%= __('Organization chart')%><span style="float:right;">></span></td>
                         </tr>
                         <tr style="cursor: pointer" onclick="location.href='/members'" >
-                            <td>연구인력<span style="float:right;">></span></td>
+                            <td><%= __('Research personnel')%><span style="float:right;">></span></td>
                         </tr>
                         <tr style="cursor: pointer" onclick="location.href='https:www.hoseo.ac.kr/Home/Contents.mbz?action=MAPP_1708220056'">
                             <td><%= __('introduction_direction')%><span style="float:right;">></span></td>
@@ -27,7 +27,7 @@
         </div>
         <% var count=0; %>
         <div class="8u 12u$(xsmall)">
-            <div class="inner">                
+            <div class="inner">
                 <header class="align-center">
                     <h2><%= __('index_h2_members')%></h2>
                     <p><%= __('index_p_members_summary')%></p>

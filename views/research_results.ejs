@@ -14,19 +14,19 @@
                 <table class="alt">
                     <tbody style="text-align: center;">
                         <tr style="cursor: pointer" onclick="location.href='/research_main'" >
-                            <td>Main<span style="float:right;"><</span></td>
+                            <td><%= __('Main')%><span style="float:right;"><</span></td>
                           </tr>
                         <tr style="cursor: pointer" onclick="location.href='/research_results/select/1/1'" >
-                            <td>논문<span style="float:right;">></span></td>
+                            <td><%= __('Thesis')%><span style="float:right;">></span></td>
                         </tr>
                         <tr style="cursor: pointer" onclick="location.href='/research_results/select/2/1'" >
-                            <td>특허<span style="float:right;">></span></td>
+                            <td><%= __('Patent')%><span style="float:right;">></span></td>
                         </tr>
                         <tr style="cursor: pointer" onclick="location.href='/research_results/select/3/1'" >
-                            <td>발표<span style="float:right;">></span></td>
+                            <td><%= __('Presentation')%><span style="float:right;">></span></td>
                         </tr>
                         <tr style="cursor: pointer" onclick="location.href='/research_results/select/4/1'" >
-                            <td>저서<span style="float:right;">></span></td>
+                            <td><%= __('Books_Publish')%><span style="float:right;">></span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -35,7 +35,7 @@
         <div class="8u 12u$(xsmall)">
             <div class="inner">
                 <header class="align-center">
-                    <h2>연구 성과(<%=isthis%>)</h2>
+                    <h2><%= __('Research_performance')%>(<%=isthis%>)</h2>
                     <p><%=__('research_results_subtitle')%></p>
                 </header>
 
@@ -50,23 +50,23 @@
                                 }
                             </style>
                             <%if(isthis=='논문'){%>
-                                <th>논문명</th>
-                                <th>게재지(권, 쪽)</th>
-                                <th>저자명</th>
-                                <th>게재연도</th>
+                                <th><%= __('Thesis_name')%></th>
+                                <th><%= __('Thesis_Publication_Volume_Page')%></th>
+                                <th><%= __('Writer_name')%></th>
+                                <th><%= __('Thesis_date')%></th>
                             <%}else if(isthis=='특허'){%>
-                                <th>구분</th>
-                                <th>특허명</th>
-                                <th>국가명</th>
-                                <th>출원/등록일</th>
-                                <th>발명자</th>
-                                <th>출원/등록번호</th>
+                                <th><%= __('Division')%></th>
+                                <th><%= __('Patent_name')%></th>
+                                <th><%= __('Country_name')%></th>
+                                <th><%= __('Registration_date')%></th>
+                                <th><%= __('Patent_inventor')%></th>
+                                <th><%= __('Patent_number')%></th>
                             <%}else if(isthis=='발표'){%>
-                                <th>발표명</th>
-                                <th>저자</th>
-                                <th>학술대회명</th>
-                                <th>발표일자</th>
-                                <th>국내외구분</th>
+                                <th><%= __('Presentation_name')%></th>
+                                <th><%= __('Writer')%></th>
+                                <th><%= __('Conference_name')%></th>
+                                <th><%= __('Presentation_date')%></th>
+                                <th style="width:110px"><%= __('National/International')%></th>
                             <%}else{%>
                                 <th>구분</th>
                                 <th>제목</th>
@@ -194,7 +194,7 @@
                                 $('#changethat').text('제목으로 검색');
                                 $('#changethat3').text('게제지로 검색');
                             };">
-                                <option value="1">논문</option>
+                                <option value="1">논문</option> 
                                 <option value="2">특허</option>
                                 <option value="3">발표</option>
                                 <option value="4">저서</option>

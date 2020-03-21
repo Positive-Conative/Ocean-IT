@@ -252,5 +252,69 @@
 	"research_results_write_page_complete_btn": "작성 완료",
 	"research_results_write_page_example": "예시",
 	"research_results_write_page_example_ko": "예시(국문)",
-	"research_results_write_page_example_en": "예시(영문)"
+	"research_results_write_page_example_en": "예시(영문)",
+
+
+	"Thesis_name": "논문명"	,
+	"Writer_name": "저자명",
+	"Thesis_date": "게재연도",
+	"Thesis_Publication_Volume_Page":"게재지(권, 쪽)",
+
+	"Division":"구분",
+	"Patent_name": "특허명",
+	"Country_name": "국가",
+	"Registration_date": "출원_등록일",
+
+	"Patent_inventor":"발명자",
+	"Patent_number": "출원/등록번호",
+	"Presentation_name": "발표명",
+	"Writer":"저자",
+	"Conference_name":"학술대회명",
+	"Presentation_date": "발표일자",
+	"National/International": "국내외구분",
+	
+	"Research_activities_page": "연구 활동 페이지입니다",
+	"Select_menu_on_the_left":"좌측에서 메뉴를 선택해 주세요",
+	"Progress_tasks": "진행과제",
+	"Completed_tasks": "완료과제",
+
+	"Progress_tasks_list": "연구과제",
+	"Number":"번호",
+	"Research_project_name":"연구과제명",
+	"Research_period": "연구기간",
+	"Progress_on": "진행상태",
+
+	"Greetings": "인사말",
+	"History": "연혁",
+	"Organization": "조직도",
+	"Researchers": "연구인력",
+
+	"Forum": "포럼",
+	"Seminar": "세미나",
+	"Workshop": "워크샵",
+	"Main": "메인",
+	"Thesis": "논문",
+	"Patent": "특허",
+	"Presentation": "발표",
+	"Books_Publish": "저서",
+	"Division": "구분",
+	"Title": "명칭",
+	"Place": "장소",
+	"Date": "날짜",
+
+	"Research_performance": "연구성과",
+	"Research_Project": "연구과제",
+	"Research_performance" : "연구성과",
+	"Research_activities": "연구활동",
+	"Academic_activities": "학술활동",
+	"Gallery": "갤러리",
+	"Main_history": "주요 연혁",
+	"Introduction": "인사말",
+	"History": "연혁",
+	"Organization chart": "조직도",
+	"Research personnel" :  "연구 인력",
+	"Organization chart": "조직도"
+
+
+
 }

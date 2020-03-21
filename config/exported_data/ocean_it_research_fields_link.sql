@@ -8,12 +8,11 @@ CREATE TABLE `research_fields_link` (
   `rid` int(11) NOT NULL,
   `title` varchar(200) DEFAULT NULL,
   `link` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`prikey`),
-  FOREIGN KEY (`rid`) REFERENCES research_fields (`rid`)
+  PRIMARY KEY (`prikey`)
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
-INSERT INTO `research_fields_link` VALUES (1,1,'<실해역 시험 영상>','https://youtu.be/evIU1vIvOWo/');
+INSERT INTO `research_fields_link` VALUES (1,1,'◈ 실해역 시험 영상','https://youtu.be/evIU1vIvOWo/');
 INSERT INTO `research_fields_link` VALUES (2,1,'◈ 관련 보도자료. 1.바다속에서도 데이터 송수신..지진.해일 감지','https://youtu.be/oS2UQ_jV8hI');
 INSERT INTO `research_fields_link` VALUES (3,1,'◈ 관련 보도자료. 2.세계 첫 바닷속 통신 기지국 공개…재난ㆍ국방 관리 / 연합뉴스TV (YonhapnewsTV)','https://youtu.be/A6hcrSBouFg');
 INSERT INTO `research_fields_link` VALUES (4,1,'◈ 관련 보도자료. 3.바닷속에서 문자·사진 전송…수중 통신망 기술 개발 박차','https://youtu.be/mBmhdWwnk4A');

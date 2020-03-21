@@ -16,8 +16,8 @@
 	"introduction_h2_title": "Introduction",
 	"introduction_p_title": "\"Ocean IT Research Institute We welcome you to visit our homepage\"",
 	"introduction_h2": "Ocean IT Research Institute",
-	"introduction_p": "전 세계적으로 매년 약 8,200만명의 인구가 증가하면서 향후 지구 전체 인구에 대한 식량, 에너지 및 자원 부족이 예상됩니다.<br><br>지구는 약 70%의 표면이 물로 구성되어 있고, 바다에는 전세계 동식물의 약 80%가 있으며, 그 외에도 많은 자원이 있습니다.<br><br>하지만 바다는 아직도 미지의 세계 입니다. 육상에서는 전기, 컴퓨터에 이어 4차 산업 혁명 기술이 여러 산업에 적용되고 있지만, 바다에서는 물속의 데이터를 실시간으로 수집하고 분석하기 위한 효율적인 통신망이 구축되어 있지 않은 실정입니다. <br><br>해양 융합기술 연구소에서는 바다에서도 육지와 같이 자유로운 통신이 가능하고, 이를 통해 육상에서도 효율적으로 수중의 정보 관측, 제어 및 위치 추적 등을 수행할 수 있게 하는 수중 통신망/플랫폼 기술을 연구하고, 이를 통해 해양 신산업 발전에 기여합니다.<br><br>이를 위해 해양IT 융합기술 연구소는 현재 분산형 수중 관측제어망 개발 등 수중 기지국 통신망 구축을 위한 대형 국가 연구개발사업을 수행하고 있으며, 많은 기업들과 산학 협력 및 민관군과 산학연이 함께하는 주기적인 포럼 및 세미나 개최를 통해 해양융합 분야에서 신해양산업을 주도할 수 있는 연구와 인력양성을 수행 하고 있습니다. <br><br>감사합니다",
-	"thanks_name": "연구소장 교수 <b>고학림</b>",
+	"introduction_p": "With an estimated population of approximately 82 million people worldwide each year, food, energy and resource shortages are projected for the entire Earth population in the future.Earth has about 70% of its surface water, about 80% of the world's flora and fauna in the ocean, and many more.<br><br>But the sea is still an unknown world. On the land, the fourth industrial revolution technology is applied to many industries after electricity and computers, but in the sea, there is no effective communication network to collect and analyze data in water in real time.<br><br>The Ocean Convergence Technology Research Institute researches the underwater communication network/ platform technology that enables free communication such as land in the sea, and enables efficient observation, control, and location tracking of underwater information through the land. Contributes to the development of new industries. To this end, the Maritime IT Convergence Technology Research Institute is currently conducting large-scale national R & D projects to build an underwater base station communication network, such as the development of a distributed underwater observation control network. Periodic forums and seminars with many companies and industry-academia cooperation and civilian and military academia Through the holding, we are conducting research and training to led the new marine industry in the field of marine fusion.<br><br>Thank you",
+	"thanks_name": "Director Professor <b>Hak-Lim Ko</b>",
 	"info_table_head1": "연도",
 	"info_table_head2": "내용",
 	"info_table_head3": "기타 사항",
@@ -256,5 +256,71 @@
 	"research_results_write_page_complete_btn": "Completed",
 	"research_results_write_page_example": "Example",
 	"research_results_write_page_example_ko": "Example(ko)",
-	"research_results_write_page_example_en": "Example(en)"
+	"research_results_write_page_example_en": "Example(en)",
+
+	
+	"Thesis_name": "Thesis Name",
+	"Writer_name": "Writer Name",
+	"Thesis_date": "Date",
+	"Thesis_Publication_Volume_Page": "Publication_Volume_Page",
+	"Division":"Division",
+	"Patent_name": "Patent Name",
+	"Country_name": "Country",
+	"Registration_date": "Registration_Date",
+	"Patent_inventor": "Inventor",
+	"Patent_number": "Patent_Number",
+	"Presentation_name": "Presentation Title",
+	"Writer":"Writer",
+	"Conference_name": "Conference Name",
+	"Presentation_date": "Date",
+	"National/International": "National/International",
+	
+	
+	"Research_activities_page": "Research_Activities_Page",
+	"Select_menu_on_the_left":"Select menu on the left",
+	"Progress_tasks" : "Progress Tasks",
+	"Completed_tasks": "Completed Tasks",
+	
+	"Progress_tasks_list": "Progress Tasks List",
+	"Number":"Num",
+	"Research_project_name":"Research Project Name",
+	"Research_period": "Research Period",
+	"Progress_on": "Progress status",
+
+
+	"Greetings": "Greetings",
+	"History": "History",
+	"Organization": "Organization",
+	"Researchers": "Researchers",
+
+	"Forum": "Forum",
+	"Seminar": "Seminar",
+	"Workshop": "Workshop",
+	"Main": "Main",
+	"Thesis": "Thesis",
+	"Patent": "Patent",
+	"Presentation": "Presentation",
+	"Books_Publish": "Books Publish",
+	"Division": "Division",
+	"Title": "Title",
+	 "Place": "Place",
+	 "Date": "Date",
+	 "Research_performance": "Research Performance",
+	 "Research_Project": "Research Project",
+	 "Research_performance" : "Research Performance",
+	 "Research_activities": "Research Activities",
+	 "Academic_activities": "Academic Activities",
+	 "Gallery": "Gallery",
+	 "Main_history": "Main History",
+	 "Introduction": "Introduction",
+	 "History": "History",
+	 "Organization chart": "Organization Chart",
+	 "Research personnel" :  "Research Personnel",
+	 
+
+
+	
+	
+	
+
 }

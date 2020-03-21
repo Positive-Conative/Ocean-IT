@@ -14,16 +14,16 @@
                 <table class="alt">
                     <tbody style="text-align: center;">
                         <tr style="cursor: pointer" onclick="location.href='/research_main'" >
-                            <td>Main<span style="float:right;"><</span></td>
+                            <td><%= __('Main')%><span style="float:right;"><</span></td>
                           </tr>
                         <tr style="cursor: pointer" onclick="location.href='/academic_activities/select/1/1'" >
-                            <td>포럼<span style="float:right;">></span></td>
+                            <td><%= __('Forum')%><span style="float:right;">></span></td>
                         </tr>
                         <tr style="cursor: pointer" onclick="location.href='/academic_activities/select/2/1'" >
-                            <td>세미나<span style="float:right;">></span></td>
+                            <td><%= __('Seminar')%><span style="float:right;">></span></td>
                         </tr>
                         <tr style="cursor: pointer" onclick="location.href='/academic_activities/select/3/1'" >
-                            <td>워크샵<span style="float:right;">></span></td>
+                            <td><%= __('Workshop')%><span style="float:right;">></span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -45,10 +45,10 @@
                                     text-align: center;
                                 }
                             </style>
-                            <th style="width:100px">구 분</th>
-                            <th>명 칭</th>
-                            <th>장 소</th>
-                            <th>날 짜</th>
+                            <th style="width:100px"><%= __('Division')%></th>
+                            <th><%= __('Title')%></th>
+                            <th><%= __('Place')%></th>
+                            <th><%= __('Date')%></th>
                         </tr>
                         </thead>
                         <tbody>
