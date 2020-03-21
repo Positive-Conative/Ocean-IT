@@ -8,7 +8,7 @@ CREATE TABLE `gallery` (
   `title_ko` varchar(100) NOT NULL,
   `title_en` varchar(100) NOT NULL,
   `image_size` int(11) NOT NULL,
-  `image_src` varchar(100) NOT NULL,
+  `image_src` varchar(100) NOT NULL, /*이미지 고정 : 가로 960px, 세로 480px*/
   PRIMARY KEY (`gid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
