@@ -83,7 +83,12 @@
                         </thead>
                         <tbody>
                             <%for(var i=0; i<intro_data.length; i++){%>
-                                <tr>
+                                <%if(intro_data[i].link !=null){%>
+                                    <tr style="cursor: pointer" onclick="location.href='<%=intro_data[i].link%>'" >
+                                <%}else{%>
+                                    <tr>
+                                <%}%>
+                                
                                     <td><%=intro_data[i].date%></td>
                                     <%if(tran_value=='ko'){%>
                                         <td><%=intro_data[i].contents_ko%></td>

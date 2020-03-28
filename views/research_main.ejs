@@ -6,9 +6,15 @@
         <div class="8u 12u$(xsmall)">    
             <div class="inner">
             <header class="align-center">
-                <h2 style="text-align: center; font-weight: bold"><img style="width:100%; height: 100%;"src="/images/mainpage.png" alt="Pic 01" /></h2>
+                <%if(tran_value=='ko'){%>
+                    <h2 style="text-align: center; font-weight: bold"><img style="width:100%; height: 100%;"src="/images/mainpage.png" alt="Pic 01" /></h2>
+                <%}else{%>
+                    <h2 style="text-align: center; font-weight: bold"><img style="width:100%; height: 100%;"src="/images/mainpage_en.png" alt="Pic 01" /></h2>
+                <%}%>
+                
             </header>
         </div>
+
     </div>
     <div class="1u 12u$(xsmall)"></div>
     </div>

@@ -12,12 +12,10 @@ router.get('/', function(req, res, next) {
     if(req.session.lang=="ko"){res.cookie('lang', 'ko');}
     else if(req.session.lang=="en"){res.cookie('lang', 'en');}
     else{res.cookie('lang', 'en');}
-    
-    console.log("+++++++++++++++++++++++++++++++++"+req.session.lang);
-    console.log("---------------------------------"+req.cookies.lang);
+    var tran = req.session.lang;
 
     const sess = req.session;
     recheck=0;
-    res.render('research_main',{name:sess.username, refresh:refresh});
+    res.render('research_main',{name:sess.username, refresh:refresh, tran_value:tran});
 });
 module.exports = router;
