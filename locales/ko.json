@@ -70,7 +70,7 @@
 	"member_detail_basicinfo_position": "직위",
 	"member_detail_basicinfo_interphone": "구내전화",
 	"member_detail_basicinfo_email": "이메일",
-	"member_detail_basicinfo_schoolregister": "최종학력",
+	"member_detail_basicinfo_schoolregister": "학력",
 	"member_detail_basicinfo_school": "출신학교",
 	"member_detail_basicinfo_major": "전공",
 	"member_detail_basicinfo_degree": "학위명",
@@ -319,7 +319,10 @@
 
 	"gallery_header" :  "갤러리",
 	"header_nav_gallery" :  "자료실",
-	"Data_Room" :  "자료실"
+	"Data_Room" :  "자료실",
+
+	"Way1" : "해양IT융합기술 연구소가 가는길"
+
 
 
 

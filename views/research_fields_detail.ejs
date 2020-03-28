@@ -16,9 +16,9 @@
 
         <h2 class="align-center"><%if(tran_value=='ko'){%><%=row.research_name_ko%><%} else{%><%=row.research_name_en%><%}%></h2>
         <ul>
-            <li>연구기간 : <%=row.date_start + " ~ " + row.date_end%></li>
+            <li>연구기관: <%=row.date_start + " ~ " + row.date_end%></li>
             <li>지원기관 : <%if(tran_value=='ko'){%><%=row.support_organization_ko%><%} else{%><%=row.support_organization_en%><%}%></li>
-            <li>연구목표 : <%if(tran_value=='ko'){%><%=row.research_purpose_ko%><%} else{%><%=row.research_purpose_en%><%}%></li>
+            <li>연구목표: <%if(tran_value=='ko'){%><%=row.research_purpose_ko%><%} else{%><%=row.research_purpose_en%><%}%></li>
             <li>연구내용</li>
         </ul>
 
@@ -38,7 +38,7 @@
                 
                 <%for(var j =3 + sub_title_size; j<jbSplit2.length; j++){%>
                     
-                    <img src="/images/research_field/<%= jbSplit2[j]%>" class="d-block w-100" style="height: 300px;width: 570px;" >
+                    <img src="/images/research_field/<%= jbSplit2[j]%>" class="d-block w-250" style="height: 500px;width: 600px;" >
                 <%}%>
 
                 <%for(var zi = 0; zi<jbSplit2.length; zi++){
