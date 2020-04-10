@@ -84,7 +84,7 @@
                         <tbody>
                             <%for(var i=0; i<intro_data.length; i++){%>
                                 <%if(intro_data[i].link !=null){%>
-                                    <tr style="cursor: pointer" onclick="location.href='<%=intro_data[i].link%>'" >
+                                    <tr style="cursor: pointer" onclick="window.open('<%=intro_data[i].link%>')" >
                                 <%}else{%>
                                     <tr>
                                 <%}%>

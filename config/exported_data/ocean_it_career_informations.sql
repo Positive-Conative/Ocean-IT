@@ -5,10 +5,10 @@ DROP TABLE IF EXISTS `career_informations`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `career_informations` (
   `cnum` int(11) NOT NULL AUTO_INCREMENT,
-  `mid` int(11) NOT NULL,
-  `affiliation` varchar(45) DEFAULT NULL,
-  `major` varchar(45) DEFAULT NULL,
-  `degree` varchar(45) DEFAULT NULL,
+  `mid` int(100) NOT NULL,
+  `affiliation` varchar(100) DEFAULT NULL,
+  `major` varchar(100) DEFAULT NULL,
+  `degree` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`cnum`),
   FOREIGN KEY (`mid`) REFERENCES members (`mid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -33,15 +33,14 @@ INSERT INTO `career_informations` VALUES (14,4,'호서대','배열신호처리',
 INSERT INTO `career_informations` VALUES (15,4,'호서대','정보통신공학과','공학사');
 
 
-INSERT INTO `career_informations` VALUES (16,5,'호서대','정보통신학','공학석사');
-INSERT INTO `career_informations` VALUES (17,5,'호서대','외교국방학','공학석사');
-INSERT INTO `career_informations` VALUES (18,5,'호서대','전사학과','공학사');
+INSERT INTO `career_informations` VALUES (16,5,'아주대학교','정보통신학','석사');
+INSERT INTO `career_informations` VALUES (17,5,'동국대학교','외교국방국','석사');
+INSERT INTO `career_informations` VALUES (18,5,'육군사관학교','전사학과','학사');
 
 
 INSERT INTO `career_informations` VALUES (19,6,'호서대','정보통신공학','박사');
 INSERT INTO `career_informations` VALUES (20,6,'호서대','정보통신공학','석사');
 INSERT INTO `career_informations` VALUES (21,6,'호서대','정보통신공학','학사');
-
 
 
 INSERT INTO `career_informations` VALUES (22,7,'호서대','정보통신공학','석사');
@@ -53,10 +52,17 @@ INSERT INTO `career_informations` VALUES (25,8,'VIT University','Computer Scienc
 INSERT INTO `career_informations` VALUES (26,8,'S.V.University','Business IT','학사');
 
 
-
 INSERT INTO `career_informations` VALUES (27,9,'호서대','정보통신공학','박사');
 INSERT INTO `career_informations` VALUES (28,9,'호서대','정보통신공학','석사');
 INSERT INTO `career_informations` VALUES (29,9,'호서대','정보통신공학','학사');
 
 
-INSERT INTO `career_informations` VALUES (30,10,'호서대','정보통신공학','학사');
+
+INSERT INTO `career_informations` VALUES (30,10,'VNU-UNIVERSITY of Education ','Teacher Education in Physics  ','학사');
+INSERT INTO `career_informations` VALUES (31,10, 'VNU-UNIVERSITY of Science   ','Theoretical Physics and Mathematical Physics','석사');
+INSERT INTO `career_informations` VALUES (32,10,'이화여대 ','Condensed Matter Physics 	','박사');
+INSERT INTO `career_informations` VALUES (33,10,'호서대','Display Engineering','박사');
+
+
+INSERT INTO `career_informations` VALUES (34,11,'호서대','정보통신공학','학사');
+
