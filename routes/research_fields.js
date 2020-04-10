@@ -25,12 +25,20 @@ router.get('/select/:sel/:num', function(req, res, next) {
         case "1":
             var val = "select * from research_fields where date_end>=now();";
             var check = 1;
-            isthis="진행과제";
+            if(tran=='ko'){
+                isthis="진행과제";
+            }else{
+                isthis="Progress Tasks";
+            }
             break;
         case "2":
             var val = "select * from research_fields where date_end<now();";
             var check = 2;
-            isthis="완료과제";
+            if(tran=='ko'){
+                isthis="종료과제";
+            }else{
+                isthis="Finished Tasks";
+            }
             break;
     }
     db.query(val,function (error, fields) {
@@ -64,6 +72,11 @@ router.post('/select/:sel/:num', function(req, res, next) {
     db.query(fin, function (error, fields) {
         if(error){
             throw error;
+        }
+        if(tran=='ko'){
+            var isthis_value = "전체"
+        }else{
+            var isthis_value = "All"
         }
         res.render('research_fields', {'research_fields_table': fields, 'page_num' : 1, name:sess.username,'num_check':check, 'today_date':date, tran_value:tran, cpt:sess.usercpt, isthis:"전체"});
     });
@@ -132,7 +145,12 @@ router.post('/page/:num', function(req, res, next) {
         if(error){
             throw error;
         }
-        res.render('research_fields', {'research_fields_table': fields, 'page_num' : 1, name:sess.username,'num_check':check, 'today_date':date, tran_value:tran, cpt:sess.usercpt, isthis:"전체"});
+        if(tran=='ko'){
+            var isthis_value = "전체"
+        }else{
+            var isthis_value = "All"
+        }
+        res.render('research_fields', {'research_fields_table': fields, 'page_num' : 1, name:sess.username,'num_check':check, 'today_date':date, tran_value:tran, cpt:sess.usercpt, isthis:isthis_value});
     });
 });
 
