@@ -29,31 +29,43 @@
     <div class="8u 12u$(xsmall)">
         <div class="inner">
             <!-- Content -->
-            <div id="content1">
+            <div id="content2">
                 <header class="align-center">
-                    <h2><%= __('introduction_h2_title')%></h2>
+                    <h2><%- __('Main_history')%> </h2>
                     <p><%= __('introduction_p_title')%></p>
                 </header>
-                <div class="row uniform">
-                    <div class="2u 12u(xsmall)"></div>
-                    <div class="10u 12u(xsmall)">
-                        <h2 id="content"><%- __('introduction_h2')%></h2>
-                    </div>
-                </div>
-                <div class="row uniform">
-                    <div class="2u 12u(xsmall)">
-                        <p><img width="100%" src="/images/members/고학림.png" /></p>
-                    </div>
-                    <div class="10u 12u(xsmall)">
-                        <p><%- __('introduction_p')%></p>
-                    </div>
-                </div>
-                <br><br>
-                <div style="text-align: right;">
-                    <%- __('thanks_name')%>            
+                <img width="100%" src="/images/introduction/주요 연혁.png"/>
+                <div class="table-wrapper">
+                    <table class="alt">
+                        <thead>
+                            <tr>
+                                <th><%- __('info_table_head1')%></th>
+                                <th><%- __('info_table_head2')%></th>
+                                <th><%- __('info_table_head3')%></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%for(var i=0; i<intro_data.length; i++){%>
+                                <%if(intro_data[i].link !=null){%>
+                                    <tr style="cursor: pointer" onclick="location.href='<%=intro_data[i].link%>'" >
+                                <%}else{%>
+                                    <tr>
+                                <%}%>
+                                
+                                    <td><%=intro_data[i].date%></td>
+                                    <%if(tran_value=='ko'){%>
+                                        <td><%=intro_data[i].contents_ko%></td>
+                                        <td><%=intro_data[i].etc_ko%></td>
+                                    <%}else{%>
+                                        <td><%=intro_data[i].contents_en%></td>
+                                        <td><%=intro_data[i].etc_en%></td>
+                                    <%}%>
+                                </tr>
+                            <%}%>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-
         </div>
 
     </div>

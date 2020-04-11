@@ -105,7 +105,7 @@
 	"question_board_detail_content": "내용",
 	"question_board_detail_coment_date": "코멘트 날짜",
 	"question_board_detail_comnet_content": "관리자 코멘트",
-	"lists": "목록",
+	"back": "뒤로",
 	"registation_members_title": "멤버 등록",
 	"registation_members_header": "프로필 이미지",
 	"registation_members_upload_btn": "업로드",
@@ -312,7 +312,7 @@
 	"Introduction": "인사말",
 	"History": "연혁",
 	"Organization chart": "조직도",
-	"Research personnel" :  "연구 인력",
+	"Research personnel" :  "연구인력",
 	"Organization chart": "조직도",
 	
 	"ocean_it_walk": "해양IT가 걸어온 길",
